@@ -1,5 +1,7 @@
 package edu.albertoromeropino.entity;
 
+import edu.albertoromeropino.Utils.Passwords;
+
 import java.util.Objects;
 
 public class Person {
@@ -14,7 +16,7 @@ public class Person {
     public Person(String nickName, String dni, String password, Obtain obtain) {
         this.nickName = nickName;
         this.dni = dni;
-        this.password = password;
+        setPassword(password);
         this.obtain = obtain;
     }
 
@@ -34,11 +36,13 @@ public class Person {
         this.dni = dni;
     }
 
-    public void setPassword(String oldPassword, String newPassword) {
+    public boolean setPassword(String newPassword) {
         Boolean passwordSet = false;
         if (newPassword.length() >= MIN_LENGTH && newPassword.length() <= MAX_LENGTH){
-            this.password = encryptPassword(newPassword);
+            this.password = Passwords.encryptPassword(newPassword);
+            passwordSet = true;
         }
+        return passwordSet;
     }
 
     public Obtain getObtain() {
