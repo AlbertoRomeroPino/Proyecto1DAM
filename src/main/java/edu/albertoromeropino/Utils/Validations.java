@@ -2,8 +2,31 @@ package edu.albertoromeropino.Utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.regex.Pattern;
 
-public class Passwords {
+public class Validations {
+
+    /**
+     * Valida el nickName del usuario
+     * @param nickName se le pasa el nombre de usuario
+     * @return debuelve si es correcto o no
+     */
+
+    public static boolean validateNickName (String nickName){
+        Pattern pattern = Pattern.compile("^(?!.*\\s)\\w{4,12}$");
+        return pattern.matcher(nickName).matches();
+    }
+
+    /**
+     * Valida el dni del usuario "muy basicamente"
+     * @param dni el dni que se le pasa
+     * @return si es valido o no el dni
+     */
+    public static boolean validateDni (String dni){
+        Pattern pattern = Pattern.compile("^\\d{8}[a-zA-Z]$");
+        return pattern.matcher(dni).matches();
+    }
+
 
     /**
      * Encripta la contraseña usando SHA3-256
