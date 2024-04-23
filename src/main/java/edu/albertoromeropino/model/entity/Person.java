@@ -1,25 +1,25 @@
-package edu.albertoromeropino.entity;
+package edu.albertoromeropino.model.entity;
 
-import edu.albertoromeropino.Utils.Validations;
+import edu.albertoromeropino.model.Utils.Validations;
 
 import java.util.Objects;
-import java.util.regex.Pattern;
+import java.util.Set;
+
 
 public class Person {
     private String nickName;
     private String dni;
     private String password;
-    private Obtain obtain;
-
+    private Set<Archievement> archievements;
 
     private final int MIN_LENGTH = 8;
     private final int MAX_LENGTH = 12;
 
-    public Person(String nickName, String dni, String password, Obtain obtain) {
+    public Person(String nickName, String dni, String password, Set<Archievement> archievements) {
         setNickName(nickName);
         setDni(dni);
         setPassword(password);
-        this.obtain = obtain;
+        this.archievements = archievements;
     }
 
     public String getNickName() {
@@ -31,8 +31,12 @@ public class Person {
     }
 
     // No hay get de contraseña porque no se debe ver aunque este encriptada
-    public Obtain getObtain() {
-        return obtain;
+    public Set<Archievement> getArchievements() {
+        return archievements;
+    }
+
+    public void setArchievements(Set<Archievement> archievements) {
+        this.archievements = archievements;
     }
 
     public boolean setNickName(String nickName) {
@@ -62,16 +66,13 @@ public class Person {
         return passwordSet;
     }
 
-    public void setObtain(Obtain obtain) {
-        this.obtain = obtain;
-    }
-
     @Override
     public String toString() {
         return "Person{" +
                 "nickName='" + nickName + '\'' +
                 ", dni='" + dni + '\'' +
-                ", obtain=" + obtain +
+                ", password='" + password + '\'' +
+                ", archievements=" + archievements +
                 '}';
     }
 
