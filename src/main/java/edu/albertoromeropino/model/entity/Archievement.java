@@ -6,7 +6,7 @@ public class Archievement {
     private String archievementName;
     private String descriptionArchievement;
     private String helpArchievement;
-    private Obtain obtain;
+
 
     public Archievement(String nameGame, String archievementName,
                         String descriptionArchievement, String helpArchievement) {

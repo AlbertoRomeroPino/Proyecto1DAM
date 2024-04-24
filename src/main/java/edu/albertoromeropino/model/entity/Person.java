@@ -10,16 +10,16 @@ public class Person {
     private String nickName;
     private String dni;
     private String password;
-    private Set<Archievement> archievements;
+    private Set<Game> game;
 
     private final int MIN_LENGTH = 8;
     private final int MAX_LENGTH = 12;
 
-    public Person(String nickName, String dni, String password, Set<Archievement> archievements) {
-        setNickName(nickName);
-        setDni(dni);
-        setPassword(password);
-        this.archievements = archievements;
+    public Person(String nickName, String dni, String password, Set<Game> game) {
+        this.nickName = nickName;
+        this.dni = dni;
+        this.password = password;
+        this.game = game;
     }
 
     public String getNickName() {
@@ -31,12 +31,14 @@ public class Person {
     }
 
     // No hay get de contraseña porque no se debe ver aunque este encriptada
-    public Set<Archievement> getArchievements() {
-        return archievements;
+
+
+    public Set<Game> getGame() {
+        return game;
     }
 
-    public void setArchievements(Set<Archievement> archievements) {
-        this.archievements = archievements;
+    public void setGame(Set<Game> game) {
+        this.game = game;
     }
 
     public boolean setNickName(String nickName) {
@@ -72,7 +74,7 @@ public class Person {
                 "nickName='" + nickName + '\'' +
                 ", dni='" + dni + '\'' +
                 ", password='" + password + '\'' +
-                ", archievements=" + archievements +
+                ", archievements=" + game +
                 '}';
     }
 
