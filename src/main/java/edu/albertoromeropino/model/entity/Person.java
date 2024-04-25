@@ -10,16 +10,16 @@ public class Person {
     private String nickName;
     private String dni;
     private String password;
-    private Set<Game> game;
+    private Set<Game> games;
 
     private final int MIN_LENGTH = 8;
     private final int MAX_LENGTH = 12;
 
-    public Person(String nickName, String dni, String password, Set<Game> game) {
+    public Person(String nickName, String dni, String password, Set<Game> games) {
         setNickName(nickName);
         setDni(dni);
         setPassword(password);
-        this.game = game;
+        setGames(games);
     }
 
     public String getNickName() {
@@ -34,8 +34,8 @@ public class Person {
         return password;
     }
 
-    public Set<Game> getGame() {
-        return game;
+    public Set<Game> getGames() {
+        return games;
     }
 
 
@@ -66,8 +66,27 @@ public class Person {
         return passwordSet;
     }
 
-    public void setGame(Set<Game> game) {
-        this.game = game;
+    public void setGames(Set<Game> games) {
+        this.games = games;
+    }
+
+    public void addGames(Game game) {
+        if (game != null){
+            this.games.add(game);
+        }
+    }
+
+    public void removeGames(Game game) {
+        if (game != null) {
+            this.games.remove(game);
+        }
+    }
+
+    public void updateGames(Game gameOld, Game gameNew){
+        if (gameNew != null && gameOld != null){
+            games.remove(gameOld);
+            games.add(gameNew);
+        }
     }
 
     @Override
@@ -76,7 +95,7 @@ public class Person {
                 "nickName='" + nickName + '\'' +
                 ", dni='" + dni + '\'' +
                 ", password='" + password + '\'' +
-                ", archievements=" + game +
+                ", archievements=" + games +
                 '}';
     }
 

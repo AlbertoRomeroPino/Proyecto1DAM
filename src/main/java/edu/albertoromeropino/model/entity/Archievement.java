@@ -14,7 +14,7 @@ public class Archievement {
         setArchievementName(archievementName);
         setDescriptionArchievement(descriptionArchievement);
         setHelpArchievement(helpArchievement);
-        this.game = game;
+        setGame(game);
     }
 
     public String getHelpArchievement() {

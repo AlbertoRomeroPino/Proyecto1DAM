@@ -13,8 +13,8 @@ public class Company {
     public Company(String nameCompany, String companyDirector, Date companyCreation, Set<Game> games) {
         setNameCompany(nameCompany);
         setCompanyDirector(companyDirector);
-        this.companyCreation = companyCreation;
-        this.games = games;
+        setCompanyCreation(companyCreation);
+        setGames(games);
     }
 
 
