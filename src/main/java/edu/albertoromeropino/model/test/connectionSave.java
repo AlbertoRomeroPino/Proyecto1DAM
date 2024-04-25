@@ -6,7 +6,7 @@ import edu.albertoromeropino.model.connection.ConnectionProperties;
 public class connectionSave {
     public static void main(String[] arg){
         ConnectionProperties connection = new ConnectionProperties
-                ("localhost","3306","archievement","root","root");
+                ("localhost","3306","achievementsgame","root","root");
         ManagerXML.writeXML(connection,"connection.xml");
     }
 }

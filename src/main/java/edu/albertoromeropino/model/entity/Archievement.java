@@ -32,6 +32,14 @@ public class Archievement {
         return nameGame;
     }
 
+    public int getIdArchievement() {
+        return idArchievement;
+    }
+
+    public void setIdArchievement(int idArchievement) {
+        this.idArchievement = idArchievement;
+    }
+
     public boolean setNameGame(String nameGame) {
         boolean nameGameSet = false;
         if (nameGame.length() < 50) {
