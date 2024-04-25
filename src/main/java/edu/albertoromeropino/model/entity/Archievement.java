@@ -48,6 +48,7 @@ public class Archievement {
         boolean archievementNameSet = false;
         if (archievementName.length() < 40) {
             this.archievementName = archievementName;
+            archievementNameSet = true;
         }
         return archievementNameSet;
     }
@@ -57,6 +58,7 @@ public class Archievement {
 
         if (descriptionArchievement.length() < 80) {
             this.descriptionArchievement = descriptionArchievement;
+            descriptionSet = true;
         }
         return descriptionSet;
     }
@@ -65,6 +67,7 @@ public class Archievement {
         boolean helpSet = false;
         if (helpArchievement.length() < 200) {
             this.helpArchievement = helpArchievement;
+            helpSet = true;
         }
         return helpSet;
     }
