@@ -1,21 +1,24 @@
 package edu.albertoromeropino.model.entity;
 
-import edu.albertoromeropino.model.enums.GameType;
-import edu.albertoromeropino.model.enums.Pegi;
+import java.util.Objects;
+import java.util.Set;
 
 public class Game {
     private int idGame;
     private String name;
-    private Pegi pegi;
-    private GameType[] gameType;
+    private String Category;
     private Person person;
+    private Set<Archievement> archievements;
+    private Company company;
 
-    public Game(int idGame, String name, Pegi pegi, GameType[] gameType, Person person) {
-        this.idGame = idGame;
-        this.name = name;
-        this.pegi = pegi;
-        this.gameType = gameType;
-        this.person = person;
+    public Game(int idGame, String name, String Category, Person person,
+                Set<Archievement> archievements, Company company) {
+        setIdGame(idGame);
+        setName(name);
+        setCategory(Category);
+        setPerson(person);
+        setArchievements(archievements);
+        setCompany(company);
     }
 
     public int getIdGame() {
@@ -26,39 +29,82 @@ public class Game {
         return name;
     }
 
-    public Pegi getPegi() {
-        return pegi;
-    }
-
-    public GameType[] getGameType() {
-        return gameType;
+    public String getCategory() {
+        return Category;
     }
 
     public Person getPerson() {
         return person;
     }
 
+    public Set<Archievement> getArchievements() {
+        return archievements;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
     public boolean setIdGame(int idGame) {
         boolean idSet = false;
         if (idGame < 99999 && idGame > 0) {
             this.idGame = idGame;
+            idSet = true;
         }
         return idSet;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public boolean setName(String name) {
+        boolean nameSet= false;
+        if (name.length() <= 50) {
+            this.name = name;
+            nameSet = true;
+        }
+        return nameSet;
     }
 
-    public void setPegi(Pegi pegi) {
-        this.pegi = pegi;
-    }
-
-    public void setGameType(GameType[] gameType) {
-        this.gameType = gameType;
+    public boolean setCategory(String category) {
+        boolean categorySet = false;
+        if (category.length()<30){
+            this.Category = category;
+            categorySet = true;
+        }
+        return categorySet;
     }
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public void setArchievements(Set<Archievement> archievements) {
+        this.archievements = archievements;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "idGame=" + idGame +
+                ", name='" + name + '\'' +
+                ", gameType=" + Category +
+                ", person=" + person +
+                ", archievements=" + archievements +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return idGame == game.idGame;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(idGame);
     }
 }

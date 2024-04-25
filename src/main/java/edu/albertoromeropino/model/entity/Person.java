@@ -16,9 +16,9 @@ public class Person {
     private final int MAX_LENGTH = 12;
 
     public Person(String nickName, String dni, String password, Set<Game> game) {
-        this.nickName = nickName;
-        this.dni = dni;
-        this.password = password;
+        setNickName(nickName);
+        setDni(dni);
+        setPassword(password);
         this.game = game;
     }
 
@@ -30,16 +30,15 @@ public class Person {
         return dni;
     }
 
-    // No hay get de contraseña porque no se debe ver aunque este encriptada
-
+    public String getPassword() {
+        return password;
+    }
 
     public Set<Game> getGame() {
         return game;
     }
 
-    public void setGame(Set<Game> game) {
-        this.game = game;
-    }
+
 
     public boolean setNickName(String nickName) {
         boolean add = false;
@@ -53,7 +52,7 @@ public class Person {
     public boolean setDni(String dni) {
         boolean dniSet = false;
         if (Validations.validateDni(dni)) {
-
+            this.dni = dni;
             dniSet = true;
         }
         return dniSet;
@@ -66,6 +65,10 @@ public class Person {
             passwordSet = true;
         }
         return passwordSet;
+    }
+
+    public void setGame(Set<Game> game) {
+        this.game = game;
     }
 
     @Override
