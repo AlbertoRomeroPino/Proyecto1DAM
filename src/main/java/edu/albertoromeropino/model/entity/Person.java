@@ -22,6 +22,12 @@ public class Person {
         setGames(games);
     }
 
+    public Person(String nickName, String dni, String password) {
+        setNickName(nickName);
+        setDni(dni);
+        setPassword(password);
+    }
+
     public String getNickName() {
         return nickName;
     }

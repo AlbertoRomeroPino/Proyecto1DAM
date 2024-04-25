@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="247.0" prefWidth="349.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField alignment="CENTER" promptText="User">
@@ -31,7 +30,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button contentDisplay="RIGHT" mnemonicParsing="false" text="Register">
+            <Button contentDisplay="RIGHT" mnemonicParsing="false" text="Register Now">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>

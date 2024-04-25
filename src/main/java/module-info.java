@@ -8,5 +8,7 @@ module edu.albertoromeropino {
     opens edu.albertoromeropino.model.connection to java.xml.bind;
 
     exports edu.albertoromeropino;
+    exports edu.albertoromeropino.viewController;
+    opens edu.albertoromeropino.viewController to javafx.fxml;
 
 }
