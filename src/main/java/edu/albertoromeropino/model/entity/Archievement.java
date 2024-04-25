@@ -1,6 +1,7 @@
 package edu.albertoromeropino.model.entity;
 
 public class Archievement {
+
     private int idArchievement;
     private String archievementName;
     private String descriptionArchievement;
@@ -13,7 +14,7 @@ public class Archievement {
         setArchievementName(archievementName);
         setDescriptionArchievement(descriptionArchievement);
         setHelpArchievement(helpArchievement);
-        this.game = game;
+        setGame(game);
     }
 
     public String getHelpArchievement() {

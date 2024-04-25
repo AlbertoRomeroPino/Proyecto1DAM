@@ -55,7 +55,7 @@ public class Game {
     }
 
     public boolean setName(String name) {
-        boolean nameSet= false;
+        boolean nameSet = false;
         if (name.length() <= 50) {
             this.name = name;
             nameSet = true;
@@ -65,7 +65,7 @@ public class Game {
 
     public boolean setCategory(String category) {
         boolean categorySet = false;
-        if (category.length()<30){
+        if (category.length() < 30) {
             this.Category = category;
             categorySet = true;
         }
@@ -82,6 +82,25 @@ public class Game {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public void addArchievements(Archievement archievement) {
+        if (archievement != null){
+            archievements.add(archievement);
+        }
+    }
+
+    public void removeArchievements(Archievement archievement) {
+        if (archievement != null) {
+            archievements.remove(archievement);
+        }
+    }
+
+    public void updateArchievements(Archievement archievementOld, Archievement archievementNew){
+        if (archievementNew != null && archievementOld != null){
+            archievements.remove(archievementOld);
+            archievements.add(archievementNew);
+        }
     }
 
     @Override
