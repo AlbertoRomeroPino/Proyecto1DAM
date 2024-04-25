@@ -39,7 +39,6 @@ public class Person {
     }
 
 
-
     public boolean setNickName(String nickName) {
         boolean add = false;
         if (Validations.validateNickName(nickName)) {

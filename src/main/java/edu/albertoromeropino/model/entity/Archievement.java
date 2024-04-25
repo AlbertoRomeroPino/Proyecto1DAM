@@ -1,6 +1,7 @@
 package edu.albertoromeropino.model.entity;
 
 public class Archievement {
+
     private int idArchievement;
     private String archievementName;
     private String descriptionArchievement;

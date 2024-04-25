@@ -1,6 +1,7 @@
 package edu.albertoromeropino.model.entity;
 
 import java.util.Date;
+import java.util.Objects;
 import java.util.Set;
 
 public class Company {
@@ -57,5 +58,47 @@ public class Company {
 
     public void setGames(Set<Game> games) {
         this.games = games;
+    }
+
+    public void addGames(Game game) {
+        if (game != null){
+            games.add(game);
+        }
+    }
+
+    public void removeGames(Game game) {
+        if (game != null) {
+            games.remove(game);
+        }
+    }
+
+    public void updateGames(Game gameOld, Game gameNew){
+        if (gameNew != null && gameOld != null){
+            games.remove(gameOld);
+            games.add(gameNew);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "nameCompany='" + nameCompany + '\'' +
+                ", companyDirector='" + companyDirector + '\'' +
+                ", companyCreation=" + companyCreation +
+                ", games=" + games +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Company company = (Company) o;
+        return Objects.equals(nameCompany, company.nameCompany);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(nameCompany);
     }
 }
