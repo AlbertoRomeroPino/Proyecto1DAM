@@ -2,18 +2,18 @@ package edu.albertoromeropino.model.entity;
 
 public class Archievement {
     private int idArchievement;
-    private String nameGame;
     private String archievementName;
     private String descriptionArchievement;
     private String helpArchievement;
+    private Game game;
 
 
-    public Archievement(String nameGame, String archievementName,
-                        String descriptionArchievement, String helpArchievement) {
-        setNameGame(nameGame);
+    public Archievement(String archievementName,
+                        String descriptionArchievement, String helpArchievement, Game game) {
         setArchievementName(archievementName);
         setDescriptionArchievement(descriptionArchievement);
         setHelpArchievement(helpArchievement);
+        this.game = game;
     }
 
     public String getHelpArchievement() {
@@ -28,24 +28,20 @@ public class Archievement {
         return archievementName;
     }
 
-    public String getNameGame() {
-        return nameGame;
-    }
-
     public int getIdArchievement() {
         return idArchievement;
     }
 
-    public void setIdArchievement(int idArchievement) {
-        this.idArchievement = idArchievement;
+    public Game getGame() {
+        return game;
     }
 
-    public boolean setNameGame(String nameGame) {
-        boolean nameGameSet = false;
-        if (nameGame.length() < 50) {
-            this.nameGame = nameGame;
-        }
-        return nameGameSet;
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public void setIdArchievement(int idArchievement) {
+        this.idArchievement = idArchievement;
     }
 
     public boolean setArchievementName(String archievementName) {
@@ -77,12 +73,13 @@ public class Archievement {
     public String toString() {
         return "Archievement{" +
                 "idArchievement=" + idArchievement +
-                ", nameGame='" + nameGame + '\'' +
                 ", archievementName='" + archievementName + '\'' +
                 ", descriptionArchievement='" + descriptionArchievement + '\'' +
                 ", helpArchievement='" + helpArchievement + '\'' +
+                ", game=" + game +
                 '}';
     }
+
 
     @Override
     public boolean equals(Object o) {
