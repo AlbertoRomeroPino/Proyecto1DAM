@@ -1,6 +1,6 @@
 package edu.albertoromeropino.model.test;
 
-import edu.albertoromeropino.model.Utils.ManagerXML;
+import edu.albertoromeropino.model.utils.ManagerXML;
 import edu.albertoromeropino.model.connection.ConnectionProperties;
 
 public class ConnectionSave {

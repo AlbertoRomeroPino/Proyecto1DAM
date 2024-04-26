@@ -21,6 +21,9 @@ public class Game {
         setCompany(company);
     }
 
+    public Game() {
+    }
+
     public int getIdGame() {
         return idGame;
     }
@@ -47,7 +50,7 @@ public class Game {
 
     public boolean setIdGame(int idGame) {
         boolean idSet = false;
-        if (idGame < 99999 && idGame > 0) {
+        if (idGame < 99999 && idGame >= 0) {
             this.idGame = idGame;
             idSet = true;
         }

@@ -1,6 +1,6 @@
 package edu.albertoromeropino.model.entity;
 
-import edu.albertoromeropino.model.Utils.Validations;
+import edu.albertoromeropino.model.utils.Validations;
 
 import java.util.Objects;
 import java.util.Set;
