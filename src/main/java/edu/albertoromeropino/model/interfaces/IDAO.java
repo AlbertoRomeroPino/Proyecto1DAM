@@ -8,6 +8,5 @@ public interface IDAO<T> extends Closeable {    //Closeable es que se cierra una
     T save(T entity);
     T findID(int entityId);
     T deleteEntity (T entityDelete);
-    T updateEntity (T entity );
 
 }

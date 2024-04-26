@@ -22,8 +22,7 @@ public class GameDAO implements IDAO<Game> {
     private static final String INSERT = "insert into game(Name, Category, NickName, NameCompany) " +
             "values (?,?,?,?)";
     private static final String DELETE = "Delete from game where id_game=?";
-    private static final String UPDATE = "Update game set ga.Name=?, ga.Category=?, " +
-            "ga.NickName=?, ga.NameCompany=? where ga.id_game = ?";
+    private static final String UPDATE = "Update game set ga.Name=?, ga.Category=?, ";
 
 
     private Connection connection;
@@ -46,11 +45,18 @@ public class GameDAO implements IDAO<Game> {
                         preparedStatement.setString(2, entity.getCategory());
                         preparedStatement.setString(3, entity.getPerson().getNickName());
                         preparedStatement.setString(4, entity.getCompany().getNameCompany());
+                        preparedStatement.executeUpdate();
                     }catch (SQLException e){
                         e.printStackTrace();
                     }
                 }else {
-                    //Actualizar las existentes
+                    try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)){
+                        preparedStatement.setString(1,entity.getName());
+                        preparedStatement.setString(2,entity.getCategory());
+                        preparedStatement.executeUpdate();
+                    }catch (SQLException e){
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -106,11 +112,16 @@ public class GameDAO implements IDAO<Game> {
 
     @Override
     public Game deleteEntity(Game entityDelete) {
-        return null;
-    }
+        if (entityDelete != null){
+            try (PreparedStatement preparedStatement = connection.prepareStatement(DELETE)){
+                preparedStatement.setInt(1, entityDelete.getIdGame());
+                preparedStatement.executeUpdate();
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
 
-    @Override
-    public Game updateEntity(Game entity) {
+
         return null;
     }
 
