@@ -33,6 +33,7 @@ public class CompanyDAO implements IDAO<Company, String> {
                         preparedStatement.setString(1,entity.getNameCompany());
                         preparedStatement.setString(2,entity.getCompanyDirector());
                         preparedStatement.setDate(3, Date.valueOf(entity.getCompanyCreation()));    //Puede fallar
+                        preparedStatement.executeUpdate();
                     }catch (SQLException e){
                         e.printStackTrace();
                     }
@@ -41,6 +42,7 @@ public class CompanyDAO implements IDAO<Company, String> {
                         preparedStatement.setString(1,entity.getNameCompany());
                         preparedStatement.setString(2,entity.getCompanyDirector());
                         preparedStatement.setDate(3, Date.valueOf(entity.getCompanyCreation()));   //Puede fallar
+                        preparedStatement.executeUpdate();
                     }catch (SQLException e){
                         e.printStackTrace();
                     }
@@ -61,6 +63,7 @@ public class CompanyDAO implements IDAO<Company, String> {
                     companytmp.setNameCompany(resultSet.getString("NameCompany"));
                     companytmp.setCompanyDirector(resultSet.getString("CompanyDirector"));
                     companytmp.setCompanyCreation(("CompanyCreation"));
+                    company = companytmp;
                 }
             }
         }catch (SQLException e){
@@ -71,7 +74,14 @@ public class CompanyDAO implements IDAO<Company, String> {
 
     @Override
     public Company deleteEntity(Company entityDelete) {
-        return null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(DELETE)){
+            preparedStatement.setString(1, entityDelete.getNameCompany());
+            preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return entityDelete;
     }
 
     @Override

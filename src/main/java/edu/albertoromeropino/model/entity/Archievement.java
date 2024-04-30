@@ -8,6 +8,8 @@ public class Archievement {
     private String helpArchievement;
     private Game game;
 
+    public Archievement() {
+    }
 
     public Archievement(String archievementName,
                         String descriptionArchievement, String helpArchievement, Game game) {

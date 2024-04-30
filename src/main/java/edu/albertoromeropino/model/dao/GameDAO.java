@@ -92,25 +92,6 @@ public class GameDAO implements IDAO<Game, Integer> {
         return game;
     }
 
-    /*public Game findByPerosn(Person person) {
-        Game game = null;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(FINDPERSON)) {
-            preparedStatement.setString(1, person.getNickName());
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    Game gametmp = new Game();
-                    gametmp.setIdGame(resultSet.getInt("idGame"));
-                    gametmp.setName(resultSet.getString("Name"));
-                    game = gametmp;
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return game;
-    }*/
-
     @Override
     public Game deleteEntity(Game entityDelete) {
         if (entityDelete != null){

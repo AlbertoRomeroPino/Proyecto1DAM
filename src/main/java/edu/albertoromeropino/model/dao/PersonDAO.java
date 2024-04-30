@@ -34,6 +34,7 @@ public class PersonDAO implements IDAO<Person, String> {
                         preparedStatement.setString(1,entity.getNickName());
                         preparedStatement.setString(2,entity.getDni());
                         preparedStatement.setString(3, entity.getPassword());
+                        preparedStatement.executeUpdate();
                     }catch (SQLException e){
                         e.printStackTrace();
                     }
@@ -42,6 +43,7 @@ public class PersonDAO implements IDAO<Person, String> {
                         preparedStatement.setString(1, entity.getNickName());
                         preparedStatement.setString(2, entity.getDni());
                         preparedStatement.setString(3, entity.getPassword());
+                        preparedStatement.executeUpdate();
                     }catch (SQLException e){
                         e.printStackTrace();
                     }
@@ -78,6 +80,7 @@ public class PersonDAO implements IDAO<Person, String> {
             try (PreparedStatement preparedStatement = connection.prepareStatement(DELETE)){
                 preparedStatement.setString(1, entityDelete.getNickName());
                 preparedStatement.setString(2, entityDelete.getPassword());
+                preparedStatement.executeUpdate();
             }catch (SQLException e){
                 e.printStackTrace();
             }
