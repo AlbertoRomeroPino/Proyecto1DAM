@@ -21,6 +21,9 @@ public class Game {
         setCompany(company);
     }
 
+    public Game() {
+    }
+
     public int getIdGame() {
         return idGame;
     }
@@ -47,7 +50,7 @@ public class Game {
 
     public boolean setIdGame(int idGame) {
         boolean idSet = false;
-        if (idGame < 99999 && idGame > 0) {
+        if (idGame < 99999 && idGame >= 0) {
             this.idGame = idGame;
             idSet = true;
         }
@@ -85,7 +88,7 @@ public class Game {
     }
 
     public void addArchievements(Archievement archievement) {
-        if (archievement != null){
+        if (archievement != null) {
             archievements.add(archievement);
         }
     }
@@ -96,8 +99,8 @@ public class Game {
         }
     }
 
-    public void updateArchievements(Archievement archievementOld, Archievement archievementNew){
-        if (archievementNew != null && archievementOld != null){
+    public void updateArchievements(Archievement archievementOld, Archievement archievementNew) {
+        if (archievementNew != null && archievementOld != null) {
             archievements.remove(archievementOld);
             archievements.add(archievementNew);
         }
@@ -116,10 +119,12 @@ public class Game {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        boolean result = false;
+        if (this == o) result = true;
+        if (o == null || getClass() != o.getClass()) result = false;
         Game game = (Game) o;
-        return idGame == game.idGame;
+        result = idGame == game.idGame;
+        return result;
     }
 
     @Override

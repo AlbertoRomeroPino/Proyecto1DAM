@@ -1,0 +1,9 @@
+
+Š
+java:S2259`"BA "NullPointerException" could be thrown; "that" is nullable here.(ÀÎ´‡ûÿÿÿÿ8‡¾ÖÆó1J$a4ba0a62-5217-48f7-b2dc-472e5314e747
+‘
+java:S1206["PThis class overrides "equals()" and should therefore also override "hashCode()".(İ¢êÍıÿÿÿÿJ$e3375b6a-0d13-4ded-a184-7fb3dd034d98
+‚
+java:S1854]":Remove this useless assignment to local variable "result".(“ŠĞıÿÿÿÿ8ı‡ÖÆó1J$883468d2-0c78-4b71-9e12-2a110b489ad8
+‚
+java:S1854^":Remove this useless assignment to local variable "result".(÷²àøÿÿÿÿ8“¾ÖÆó1J$9a23c018-6e66-4af9-9608-40ead1362c77

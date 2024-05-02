@@ -1,0 +1,13 @@
+
+_
+java:S2259u"DA "NullPointerException" could be thrown; "person" is nullable here.(¯ªõûÿÿÿÿ
+j	java:S116"URename this field "MIN_LENGTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®íà©
+o	java:S116"URename this field "MAX_LENGTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹­Äûÿÿÿÿ
+7
+java:S1170"!Make this final field static too.(®íà©
+<
+java:S1170"!Make this final field static too.(¹­Äûÿÿÿÿ
+U
+java:S1854r":Remove this useless assignment to local variable "result".(“ŠĞıÿÿÿÿ
+U
+java:S1854s":Remove this useless assignment to local variable "result".(÷²àøÿÿÿÿ

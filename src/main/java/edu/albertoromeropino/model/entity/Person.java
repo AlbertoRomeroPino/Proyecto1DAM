@@ -1,6 +1,6 @@
 package edu.albertoromeropino.model.entity;
 
-import edu.albertoromeropino.model.Utils.Validations;
+import edu.albertoromeropino.model.utils.Validations;
 
 import java.util.Objects;
 import java.util.Set;
@@ -20,6 +20,15 @@ public class Person {
         setDni(dni);
         setPassword(password);
         setGames(games);
+    }
+
+    public Person() {
+    }
+
+    public Person(String nickName, String dni, String password) {
+        setNickName(nickName);
+        setDni(dni);
+        setPassword(password);
     }
 
     public String getNickName() {

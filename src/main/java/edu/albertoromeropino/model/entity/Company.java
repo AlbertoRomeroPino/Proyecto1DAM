@@ -1,22 +1,24 @@
 package edu.albertoromeropino.model.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
 
 public class Company {
     private String nameCompany;
     private String companyDirector;
-    private Date companyCreation;
+    private LocalDate companyCreation;
     private Set<Game> games;
 
-    public Company(String nameCompany, String companyDirector, Date companyCreation, Set<Game> games) {
+    public Company(String nameCompany, String companyDirector, LocalDate companyCreation, Set<Game> games) {
         setNameCompany(nameCompany);
         setCompanyDirector(companyDirector);
         setCompanyCreation(companyCreation);
         setGames(games);
     }
 
+    public Company() {
+    }
 
     public String getNameCompany() {
         return nameCompany;
@@ -26,7 +28,7 @@ public class Company {
         return companyDirector;
     }
 
-    public Date getCompanyCreation() {
+    public LocalDate getCompanyCreation() {
         return companyCreation;
     }
 
@@ -52,7 +54,7 @@ public class Company {
         return directorSet;
     }
 
-    public void setCompanyCreation(Date companyCreation) {
+    public void setCompanyCreation(LocalDate companyCreation) {
         this.companyCreation = companyCreation;
     }
 
@@ -91,10 +93,12 @@ public class Company {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        boolean result = false;
+        if (this == o) result = true;
+        if (o == null || getClass() != o.getClass()) result = false;
         Company company = (Company) o;
-        return Objects.equals(nameCompany, company.nameCompany);
+        result = Objects.equals(nameCompany, company.nameCompany);
+        return result;
     }
 
     @Override
