@@ -23,3 +23,15 @@ r
 Bsrc/main/java/edu/albertoromeropino/viewController/DeleteUser.java,8\3\83f41c0413ae733087fa52a3d1f7ec895825691b
 p
 @src/main/java/edu/albertoromeropino/viewController/InfoUser.java,5\7\57f00905dddad322ef18cd817aad098d53de7d22
+p
+@src/main/java/edu/albertoromeropino/viewController/Register.java,4\f\4f61974582751429f938e4ddd94eacf1c1e0edce
+o
+?src/main/java/edu/albertoromeropino/viewController/screens.java,f\0\f08e133d8a201af21aff44f4b86a40539094ee8e
+o
+?src/main/java/edu/albertoromeropino/viewController/Screens.java,4\5\45e76303389996801e4b64c02e1adf425bb2ac31
+u
+Esrc/main/java/edu/albertoromeropino/viewController/enums/Screens.java,5\e\5e3b72610fb229dd1c7826cd1a9deb12cec42117
+m
+=src/main/java/edu/albertoromeropino/model/entity/Company.java,9\2\9240c94efbbac16f363c414c8541129dbd88b5b1
+l
+<src/main/java/edu/albertoromeropino/model/entity/Person.java,7\b\7bcd83e19e447f3fbe49e3c9fadb4f2e532133b8

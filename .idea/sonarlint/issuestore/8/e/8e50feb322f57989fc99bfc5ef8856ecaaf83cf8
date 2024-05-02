@@ -1,3 +1,11 @@
 
-‘	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åŞ·ÉıÿÿÿÿJ$60e65d57-1776-43bd-bb74-a73b8ff1f584
-“	java:S116	"SRename this field "Category" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó¹ˆşÿÿÿÿJ$b189651e-8774-49e6-85cd-acac062f607f
+‘	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åŞ·ÉıÿÿÿÿJ$ea258ad6-e57c-434c-b688-cc594dd0dbd9
+^
+java:S2259~"BA "NullPointerException" could be thrown; "game" is nullable here.(ôËÿ68Ó¶İÆó1
+“	java:S116	"SRename this field "Category" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó¹ˆşÿÿÿÿJ$3f3974bc-a394-4919-a0e6-563be721089f
+‚
+java:S1854{":Remove this useless assignment to local variable "result".(“ŠĞıÿÿÿÿ8Ÿ‡İÆó1J$c4fab7bc-34e7-4851-8864-05f4d9326740
+\
+java:S1854|":Remove this useless assignment to local variable "result".(÷²àøÿÿÿÿ8à¶İÆó1
+s
+java:S1481z"+Remove this unused "result" local variable.(ĞĞî…ıÿÿÿÿ8ÄÉÜÆó1J$b4305635-7150-428d-a524-9741b29c86f8

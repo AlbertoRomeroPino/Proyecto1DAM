@@ -11,5 +11,7 @@ module edu.albertoromeropino {
     exports edu.albertoromeropino;
     exports edu.albertoromeropino.viewController;
     opens edu.albertoromeropino.viewController to javafx.fxml;
+    exports edu.albertoromeropino.viewController.enums;
+    opens edu.albertoromeropino.viewController.enums to javafx.fxml;
 
 }

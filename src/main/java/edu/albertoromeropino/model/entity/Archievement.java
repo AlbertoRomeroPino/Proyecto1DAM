@@ -89,10 +89,12 @@ public class Archievement {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        boolean result = false;
+        if (this == o) result = true;
+        if (o == null || getClass() != o.getClass()) result = false;
         Archievement that = (Archievement) o;
-        return idArchievement == that.idArchievement;
+        result = idArchievement == that.idArchievement;
+        return result;
     }
 
 }

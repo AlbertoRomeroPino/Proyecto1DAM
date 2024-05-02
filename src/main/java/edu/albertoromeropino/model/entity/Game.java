@@ -119,10 +119,12 @@ public class Game {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        boolean result = false;
+        if (this == o) result = true;
+        if (o == null || getClass() != o.getClass()) result = false;
         Game game = (Game) o;
-        return idGame == game.idGame;
+        result = idGame == game.idGame;
+        return result;
     }
 
     @Override
