@@ -88,7 +88,7 @@ public class Game {
     }
 
     public void addArchievements(Archievement archievement) {
-        if (archievement != null){
+        if (archievement != null) {
             archievements.add(archievement);
         }
     }
@@ -99,8 +99,8 @@ public class Game {
         }
     }
 
-    public void updateArchievements(Archievement archievementOld, Archievement archievementNew){
-        if (archievementNew != null && archievementOld != null){
+    public void updateArchievements(Archievement archievementOld, Archievement archievementNew) {
+        if (archievementNew != null && archievementOld != null) {
             archievements.remove(archievementOld);
             archievements.add(archievementNew);
         }

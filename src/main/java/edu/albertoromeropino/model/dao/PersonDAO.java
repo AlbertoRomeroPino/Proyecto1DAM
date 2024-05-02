@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class PersonDAO implements IDAO<Person, String> {
     private Connection connection;
 
-    public PersonDAO(){
+    public PersonDAO() {
         connection = ConnectionMariaDB.getConnection();
     }
 
@@ -24,43 +24,41 @@ public class PersonDAO implements IDAO<Person, String> {
 
     @Override
     public Person store(Person entity) {
-        Person person = entity;
         if (entity != null) {
             String idPersontmp = entity.getNickName();
             if (idPersontmp != null) {
                 Person persontmp = findID(entity.getNickName());
                 if (persontmp == null) {
-                    try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT)){
-                        preparedStatement.setString(1,entity.getNickName());
-                        preparedStatement.setString(2,entity.getDni());
-                        preparedStatement.setString(3, entity.getPassword());
-                        preparedStatement.executeUpdate();
-                    }catch (SQLException e){
-                        e.printStackTrace();
-                    }
-                }else {
-                    try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)){
+                    try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT)) {
                         preparedStatement.setString(1, entity.getNickName());
                         preparedStatement.setString(2, entity.getDni());
                         preparedStatement.setString(3, entity.getPassword());
                         preparedStatement.executeUpdate();
-                    }catch (SQLException e){
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
+                        preparedStatement.setString(1, entity.getNickName());
+                        preparedStatement.setString(2, entity.getDni());
+                        preparedStatement.setString(3, entity.getPassword());
+                        preparedStatement.executeUpdate();
+                    } catch (SQLException e) {
                         e.printStackTrace();
                     }
                 }
             }
         }
-
-        return person;
+        return entity;
     }
 
     @Override
     public Person findID(String entityId) {
         Person person = null;
-        try(PreparedStatement preparedStatement = connection.prepareStatement(FINDID)){
-            preparedStatement.setString(1,entityId);
-            try (ResultSet resultSet = preparedStatement.executeQuery()){
-                if (resultSet.next()){
+        try (PreparedStatement preparedStatement = connection.prepareStatement(FINDID)) {
+            preparedStatement.setString(1, entityId);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
                     Person persontmp = new Person();
                     persontmp.setNickName(resultSet.getString("nickName"));
                     persontmp.setDni(resultSet.getString("Dni"));
@@ -68,7 +66,7 @@ public class PersonDAO implements IDAO<Person, String> {
                     person = persontmp;
                 }
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return person;
@@ -76,12 +74,12 @@ public class PersonDAO implements IDAO<Person, String> {
 
     @Override
     public Person deleteEntity(Person entityDelete) {
-        if (entityDelete != null){
-            try (PreparedStatement preparedStatement = connection.prepareStatement(DELETE)){
+        if (entityDelete != null) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
                 preparedStatement.setString(1, entityDelete.getNickName());
                 preparedStatement.setString(2, entityDelete.getPassword());
                 preparedStatement.executeUpdate();
-            }catch (SQLException e){
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
@@ -93,7 +91,7 @@ public class PersonDAO implements IDAO<Person, String> {
 
     }
 
-    public static PersonDAO build(){
+    public static PersonDAO build() {
         return new PersonDAO();
     }
 
