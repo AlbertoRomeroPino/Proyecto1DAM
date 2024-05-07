@@ -1,12 +1,12 @@
 package edu.albertoromeropino.viewController.enums;
 
 public enum Screens {
-    DELETE_USER("viewController/DeleteUser"),
-    INFOUSER("viewController/InfoUser"),
     LOGIN("viewController/Login"),
     REGISTER("viewController/Register"),
-    UPDATE_USER("viewController/UpdateUser"),
-    USER_SCREEN("viewController/UserScreen");
+    GAME("viewController/Game"),
+    COMPANY("viewController/Company"),
+    ARCHIEVEMENT("viewController/Achievement");
+
 
     private String url;
 

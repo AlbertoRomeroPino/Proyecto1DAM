@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameDAO implements IDAO<Game, Integer> {
     private Connection connection;
@@ -21,9 +23,8 @@ public class GameDAO implements IDAO<Game, Integer> {
     private static final String FINDID = "select id_game, Name, Category, NickName, NameCompany " +
             "from game " +
             "where id_Game=?";
-    /* private static final String FINDPERSON = "select ga.id_game ,ga.Name " +
-             "from game ga, person pe " +
-             "where ga.NickName = pe.?";*/
+    private static final String FINDBYPERSON = "select ga.id_game, ga.Name, ga.Category, ga.NickName, ga.NameCompany " +
+            "from game ga, person pe where ga.nickname = pe.?";
     private static final String INSERT = "insert into game(Name, Category, NickName, NameCompany) " +
             "values (?,?,?,?)";
     private static final String DELETE = "Delete from game where id_game=?";
@@ -86,6 +87,24 @@ public class GameDAO implements IDAO<Game, Integer> {
             e.printStackTrace();
         }
         return game;
+    }
+
+    public List<Game> findByPerson(String nickNamePerson){
+        List<Game> games = new ArrayList<>();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(FINDBYPERSON)){
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Game game = new Game;
+                game.setIdGame()
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return games;
     }
 
     @Override

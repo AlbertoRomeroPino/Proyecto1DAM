@@ -4,6 +4,7 @@ module edu.albertoromeropino {
     requires java.xml.bind;
     requires java.sql;
     requires org.mariadb.jdbc;
+    requires java.desktop;
 
     opens edu.albertoromeropino to javafx.fxml;
     opens edu.albertoromeropino.model.connection to java.xml.bind;

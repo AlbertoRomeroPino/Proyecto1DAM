@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.albertoromeropino.viewController.CompanyController">
+   <children>
+      <MenuBar layoutX="3.0" layoutY="1.0" prefHeight="26.0" prefWidth="594.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Game" />
+                  <MenuItem mnemonicParsing="false" text="Company" />
+              <MenuItem mnemonicParsing="false" text="Archievement" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Errors" />
+                  <MenuItem mnemonicParsing="false" text="help" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TableView layoutX="4.0" layoutY="56.0" prefHeight="274.0" prefWidth="594.0">
+        <columns>
+          <TableColumn prefWidth="181.5999755859375" text="Name Company" />
+            <TableColumn prefWidth="242.4000244140625" text="Company Director" />
+            <TableColumn minWidth="0.0" prefWidth="169.60003662109375" text="Company Creation" />
+        </columns>
+      </TableView>
+      <Button layoutX="282.0" layoutY="346.0" mnemonicParsing="false" text="Add" />
+      <Label layoutX="254.0" layoutY="27.0" prefHeight="26.0" prefWidth="56.0" text="Company" />
+   </children>
+</AnchorPane>

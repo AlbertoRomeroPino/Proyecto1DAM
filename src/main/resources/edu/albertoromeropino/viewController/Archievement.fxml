@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="443.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.albertoromeropino.viewController.ArchievementController">
+   <children>
+      <MenuBar layoutX="3.0" layoutY="1.0" prefHeight="26.0" prefWidth="594.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Game" />
+                  <MenuItem mnemonicParsing="false" text="Company" />
+              <MenuItem mnemonicParsing="false" text="Archievement" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Errors" />
+                  <MenuItem mnemonicParsing="false" text="help" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TableView layoutX="4.0" layoutY="56.0" prefHeight="274.0" prefWidth="772.0">
+        <columns>
+          <TableColumn prefWidth="110.59997415542603" text="Id_Archievement" />
+            <TableColumn prefWidth="131.19995880126953" text="Archievement Name" />
+            <TableColumn minWidth="0.0" prefWidth="201.20001220703125" text="Description" />
+            <TableColumn prefWidth="229.199951171875" text="Help" />
+            <TableColumn prefWidth="89.99993896484375" text="Id_Game" />
+        </columns>
+      </TableView>
+      <Button layoutX="282.0" layoutY="346.0" mnemonicParsing="false" text="Add" />
+      <Label layoutX="263.0" layoutY="27.0" prefHeight="26.0" prefWidth="75.0" text="Archievement" />
+   </children>
+</AnchorPane>

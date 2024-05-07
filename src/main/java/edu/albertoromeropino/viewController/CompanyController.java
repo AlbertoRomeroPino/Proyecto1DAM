@@ -1,4 +1,4 @@
 package edu.albertoromeropino.viewController;
 
-public class UserScreen {
+public class CompanyController {
 }

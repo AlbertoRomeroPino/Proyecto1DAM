@@ -47,6 +47,7 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
                         preparedStatement.setString(2, entity.getDescriptionArchievement());
                         preparedStatement.setString(3, entity.getHelpArchievement());
                         preparedStatement.setInt(4, entity.getGame().getIdGame());
+                        preparedStatement.executeUpdate();
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
