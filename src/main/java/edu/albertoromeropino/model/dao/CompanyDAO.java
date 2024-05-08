@@ -3,8 +3,6 @@ package edu.albertoromeropino.model.dao;
 import edu.albertoromeropino.model.connection.ConnectionMariaDB;
 import edu.albertoromeropino.model.entity.Company;
 import edu.albertoromeropino.model.interfaces.IDAO;
-import org.mariadb.jdbc.export.Prepare;
-
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;

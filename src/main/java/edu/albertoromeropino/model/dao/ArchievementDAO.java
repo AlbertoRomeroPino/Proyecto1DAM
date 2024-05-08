@@ -2,7 +2,7 @@ package edu.albertoromeropino.model.dao;
 
 import edu.albertoromeropino.model.connection.ConnectionMariaDB;
 import edu.albertoromeropino.model.entity.Archievement;
-import edu.albertoromeropino.model.entity.Game;
+
 import edu.albertoromeropino.model.interfaces.IDAO;
 
 import java.io.IOException;
