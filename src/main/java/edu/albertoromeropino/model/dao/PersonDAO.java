@@ -17,7 +17,9 @@ public class PersonDAO implements IDAO<Person, String> {
         connection = ConnectionMariaDB.getConnection();
     }
 
-    private static final String FINDID = "select NickName, DNI, Password from person where NickName = ?";
+    private static final String FINDID = "select NickName, DNI, Password " +
+            "from person " +
+            "where NickName = ?";
     private static final String INSERT = "insert into person(NickName, DNI, Password) values (?,?,?)";
     private static final String DELETE = "Delete from person where NickName = ? and password = ?";
     private static final String UPDATE = "Update game set NickName = ?, DNI = ?, password = ?";
@@ -63,6 +65,7 @@ public class PersonDAO implements IDAO<Person, String> {
                     persontmp.setNickName(resultSet.getString("nickName"));
                     persontmp.setDni(resultSet.getString("Dni"));
                     persontmp.setPassword(resultSet.getString("Password"));
+                    persontmp.setGames(GameDAO.build().findByPerson(resultSet.getString("games")));
                     person = persontmp;
                 }
             }

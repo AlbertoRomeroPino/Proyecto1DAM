@@ -16,7 +16,7 @@ public class CompanyDAO implements IDAO<Company, String> {
         connection = ConnectionMariaDB.getConnection();
     }
 
-    private static final String FINDID = "select nameCompany, companyDirector, companyCreation";
+    private static final String FINDID = "select nameCompany, companyDirector, companyCreation from company where nameCompany = ?";
     private static final String INSERT = "insert into company (nameCompany, CompanyDirector, CompanyCreation) values (?,?,?)";
     private static final String DELETE = "Delete from company where nameCompany = ?";
     private static final String UPDATE = "Update game set nameCompany = ?, CompanyDirector = ?, CompanyCreation = ?";
@@ -82,6 +82,8 @@ public class CompanyDAO implements IDAO<Company, String> {
 
         return entityDelete;
     }
+
+
 
     @Override
     public void close() throws IOException {
