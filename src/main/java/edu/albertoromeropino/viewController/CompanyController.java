@@ -1,4 +1,4 @@
 package edu.albertoromeropino.viewController;
 
-public class InfoUser {
+public class CompanyController {
 }

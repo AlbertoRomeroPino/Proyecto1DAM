@@ -16,8 +16,6 @@ j
 \
 ,src/main/java/edu/albertoromeropino/App.java,c\6\c6490589292f9a86dba62fbfadc548d1c9b377e5
 r
-Bsrc/main/java/edu/albertoromeropino/viewController/UpdateName.java,c\5\c5397c9d289ecd79fcd161960f8934feb92cc326
-r
 Bsrc/main/java/edu/albertoromeropino/viewController/UserScreen.java,6\f\6f73b129b3dc9e31d26d5ea6b0627d73ee7421b8
 r
 Bsrc/main/java/edu/albertoromeropino/viewController/DeleteUser.java,8\3\83f41c0413ae733087fa52a3d1f7ec895825691b
@@ -25,10 +23,6 @@ p
 @src/main/java/edu/albertoromeropino/viewController/InfoUser.java,5\7\57f00905dddad322ef18cd817aad098d53de7d22
 p
 @src/main/java/edu/albertoromeropino/viewController/Register.java,4\f\4f61974582751429f938e4ddd94eacf1c1e0edce
-o
-?src/main/java/edu/albertoromeropino/viewController/screens.java,f\0\f08e133d8a201af21aff44f4b86a40539094ee8e
-o
-?src/main/java/edu/albertoromeropino/viewController/Screens.java,4\5\45e76303389996801e4b64c02e1adf425bb2ac31
 u
 Esrc/main/java/edu/albertoromeropino/viewController/enums/Screens.java,5\e\5e3b72610fb229dd1c7826cd1a9deb12cec42117
 m

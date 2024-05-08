@@ -10,26 +10,21 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Register {
-
+public class Login {
     @FXML
     private TextField user;
     @FXML
-    private TextField dni;
-    @FXML
     private PasswordField password;
 
-    public void initializa (URL localition, ResourceBundle resourceBundle){
+    public void initialize(URL localition, ResourceBundle resourceBundle) {
 
     }
 
     @FXML
-    private void registerApp (Event event) throws IOException{
+    private void enterApp (Event event) throws IOException{
         Person person = new Person();
         person.setNickName(user.getText());
-        person.setDni(dni.getText());
         person.setPassword(password.getText());
 
     }
-
 }

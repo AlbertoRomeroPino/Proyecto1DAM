@@ -2,6 +2,7 @@ package edu.albertoromeropino.model.dao;
 
 import edu.albertoromeropino.model.connection.ConnectionMariaDB;
 import edu.albertoromeropino.model.entity.Archievement;
+
 import edu.albertoromeropino.model.interfaces.IDAO;
 
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Set;
 
 public class ArchievementDAO implements IDAO<Archievement, Integer> {
     private Connection connection;
@@ -17,8 +19,13 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
         connection = ConnectionMariaDB.getConnection();
     }
 
+
     private static final String FINDID = "select Id_Archievement, ArchievementName, DescriptionArchievement, HelpArchievement, Id_Game" +
-            " from archievement where Id_Archievement = ?";
+            " from archievement " +
+            " where Id_Archievement = ?";
+    private static final String FINDBYIDGAME = "select Id_Archievement, ArchievementName, DescriptionArchievement, HelpArchievement, Id_Game " +
+            " from archievement " +
+            " where Id_game = ?";
     private static final String INSERT = "insert into archievement (ArchievementName, DescriptionArchievement, HelpArchievement, Id_Game) " +
             "values (?,?,?,?,?)";
     private static final String DELETE = "Delete from archievement where Id_archievement = ?";
@@ -47,6 +54,7 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
                         preparedStatement.setString(2, entity.getDescriptionArchievement());
                         preparedStatement.setString(3, entity.getHelpArchievement());
                         preparedStatement.setInt(4, entity.getGame().getIdGame());
+                        preparedStatement.executeUpdate();
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -78,6 +86,27 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
         return archievement;
     }
 
+    public Set<Archievement> findByIdGame(Integer gameId) {
+        Set<Archievement> archievements = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(FINDBYIDGAME)) {
+            preparedStatement.setInt(1, gameId);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Archievement archievementtmp = new Archievement();
+                    archievementtmp.setIdArchievement(resultSet.getInt("Id_Archievement"));
+                    archievementtmp.setArchievementName(resultSet.getString("ArchievementName"));
+                    archievementtmp.setDescriptionArchievement(resultSet.getString("DescriptionArchievement"));
+                    archievementtmp.setHelpArchievement(resultSet.getString("HelpArchievement"));
+                    archievementtmp.setGame(GameDAO.build().findID(resultSet.getInt("idGame")));
+                    archievements.add(archievementtmp);
+                }
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return archievements;
+    }
+
     @Override
     public Archievement deleteEntity(Archievement entityDelete) {
         if (entityDelete != null) {
@@ -92,8 +121,14 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
         return null;
     }
 
+
+
     @Override
     public void close() throws IOException {
 
+    }
+
+    public static ArchievementDAO build() {
+        return new ArchievementDAO();
     }
 }
