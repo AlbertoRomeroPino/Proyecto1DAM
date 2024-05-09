@@ -20,9 +20,9 @@ public class PersonDAO implements IDAO<Person, String> {
     private static final String FINDID = "select NickName, DNI, Password " +
             "from person " +
             "where NickName = ?";
-    private static final String FINDLOGIN = "select NickName, Password " +
+    /*private static final String FINDLOGIN = "select NickName, Password " +
             "from person " +
-            "where nickname = ? and password = ?";
+            "where nickname = ? and password = ?";*/
     private static final String INSERT = "insert into person(NickName, DNI, Password) values (?,?,?)";
     private static final String DELETE = "Delete from person where NickName = ? and password = ?";
     private static final String UPDATE = "Update game set NickName = ?, DNI = ?, password = ?";
@@ -78,7 +78,7 @@ public class PersonDAO implements IDAO<Person, String> {
         return person;
     }
     // Este de abajo se puede modificar porque es lo mismo que el de arriba pero sin 1 campo
-    public Person findLogin (String nickname, String password){
+   /* public Person findLogin (String nickname, String password){
         Person person = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(FINDID)) {
             preparedStatement.setString(1, nickname);
@@ -97,7 +97,7 @@ public class PersonDAO implements IDAO<Person, String> {
             e.printStackTrace();
         }
         return person;
-    }
+    }*/
 
     @Override
     public Person deleteEntity(Person person) {

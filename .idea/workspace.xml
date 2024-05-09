@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c0bc9fd-b9c2-4db2-80a4-09ad99a62a76" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/PersonDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/ArchievementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/ArchievementDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/CompanyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/connection.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/GameDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/PersonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/utils/Validations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/utils/Validations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Game.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +22,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -57,22 +57,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ConnectionSave.executor&quot;: &quot;Run&quot;,
-    &quot;Application.connectionSave.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Proyecto1DAM [package].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;SecondAct&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alrop/IdeaProjects/Proyecto1DAM/src/main/resources&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;sonarlint&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "Application.ConnectionSave.executor": "Run",
+    "Application.connectionSave.executor": "Run",
+    "JUnit.PersonDAOTest.deleteEntity.executor": "Run",
+    "JUnit.PersonDAOTest.executor": "Debug",
+    "JUnit.PersonDAOTest.findID.executor": "Debug",
+    "JUnit.PersonDAOTest.store.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.Proyecto1DAM [package].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "thirdAct",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/alrop/IdeaProjects/Proyecto1DAM/src/main/resources",
+    "settings.editor.selected.configurable": "sonarlint"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alrop\IdeaProjects\Proyecto1DAM\src\main\resources" />
@@ -88,8 +92,82 @@
       <recent name="edu.albertoromeropino.viewController" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="edu.albertoromeropino.model.dao" />
       <recent name="edu.albertoromeropino.model.entity" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.PersonDAOTest.store">
+    <configuration name="PersonDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Proyecto1DAM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.albertoromeropino.model.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.albertoromeropino.model.dao" />
+      <option name="MAIN_CLASS_NAME" value="edu.albertoromeropino.model.dao.PersonDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonDAOTest.deleteEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Proyecto1DAM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.albertoromeropino.model.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.albertoromeropino.model.dao" />
+      <option name="MAIN_CLASS_NAME" value="edu.albertoromeropino.model.dao.PersonDAOTest" />
+      <option name="METHOD_NAME" value="deleteEntity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonDAOTest.findID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Proyecto1DAM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.albertoromeropino.model.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.albertoromeropino.model.dao" />
+      <option name="MAIN_CLASS_NAME" value="edu.albertoromeropino.model.dao.PersonDAOTest" />
+      <option name="METHOD_NAME" value="findID" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonDAOTest.store" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Proyecto1DAM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.albertoromeropino.model.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.albertoromeropino.model.dao" />
+      <option name="MAIN_CLASS_NAME" value="edu.albertoromeropino.model.dao.PersonDAOTest" />
+      <option name="METHOD_NAME" value="store" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PersonDAOTest.store" />
+        <item itemvalue="JUnit.PersonDAOTest.deleteEntity" />
+        <item itemvalue="JUnit.PersonDAOTest" />
+        <item itemvalue="JUnit.PersonDAOTest.findID" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -101,5 +179,16 @@
       <updated>1713717578680</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/entity/Person.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

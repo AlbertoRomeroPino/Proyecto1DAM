@@ -3,10 +3,7 @@ package edu.albertoromeropino.viewController;
 import edu.albertoromeropino.model.dao.GameDAO;
 import edu.albertoromeropino.model.entity.Game;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -20,13 +17,17 @@ public class GameController extends Controller{
 
     @FXML
     private TableColumn<Game, String> columnIdGame;
+    @FXML
     private TableColumn<Game, String> columnName;
+    @FXML
     private TableColumn<Game, String> columnCategory;
+    @FXML
     private TableColumn<Game, String> columnPerson;
+    @FXML
     private TableColumn<Game, String> columnCompany;
 
     @FXML
-    private BorderPane borderPane;
+    private MenuBar menuBar;
 
     @Override
     public void openTab(Object input) throws IOException {
