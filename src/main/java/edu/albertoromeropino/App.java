@@ -15,19 +15,19 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static Scene scene;
-    private static Stage stage;
-    private static Login login;
+    public static Scene scene; // donde se ubica esta
+    public static Stage stage; // pestaña de navegador como de aplicacion
+    public static Login login;
 
     @Override
     public void start(Stage stage) throws IOException {
 
 
-        /*
-        * codigo por defecto posi acaso
-        scene = new Scene(loadFXML("viewController/UserScreen"), 640, 480);
+
+        //codigo por defecto posi acaso
+        scene = new Scene(loadFXML("viewController/MenuBar"), 640, 480);
         stage.setScene(scene);
-        stage.show();*/
+        stage.show();
     }
 
     static void setRoot(String fxml) throws IOException {

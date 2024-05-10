@@ -1,5 +1,6 @@
 package edu.albertoromeropino.model.entity;
 
+import edu.albertoromeropino.model.utils.ManagerXML;
 import edu.albertoromeropino.model.utils.Validations;
 
 import java.util.Objects;
@@ -11,11 +12,14 @@ public class Person {
     private String dni;
     private String password;
     private Set<Game> games;
+    private static Person _sessionStarted;
 
+    private static final String FILENAME = "connection.xml";
     private final int MIN_LENGTH = 8;
     private final int MAX_LENGTH = 12;
 
     public Person(String nickName, String dni, String password, Set<Game> games) {
+
         setNickName(nickName);
         setDni(dni);
         setPassword(password);
@@ -29,6 +33,13 @@ public class Person {
         setNickName(nickName);
         setDni(dni);
         setPassword(password);
+    }
+
+    public static Person getPerson() {
+        if (_sessionStarted == null) {
+            _sessionStarted = new Person();
+        }
+        return _sessionStarted;
     }
 
     public String getNickName() {
@@ -80,7 +91,7 @@ public class Person {
     }
 
     public void addGames(Game game) {
-        if (game != null){
+        if (game != null) {
             this.games.add(game);
         }
     }
@@ -91,8 +102,8 @@ public class Person {
         }
     }
 
-    public void updateGames(Game gameOld, Game gameNew){
-        if (gameNew != null && gameOld != null){
+    public void updateGames(Game gameOld, Game gameNew) {
+        if (gameNew != null && gameOld != null) {
             games.remove(gameOld);
             games.add(gameNew);
         }

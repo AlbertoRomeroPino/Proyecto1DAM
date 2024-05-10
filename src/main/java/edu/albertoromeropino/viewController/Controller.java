@@ -12,7 +12,5 @@ public abstract class Controller {
         this.app=app;
     }
 
-    public abstract void openTab(Object input) throws IOException;
-    public abstract void addNew()throws IOException;
-    public abstract void initialize(URL localition, ResourceBundle resourceBundle);
+    public abstract void openTab(Object imput) throws IOException;
 }
