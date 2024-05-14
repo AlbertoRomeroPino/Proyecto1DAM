@@ -1,13 +1,12 @@
 package edu.albertoromeropino;
 
-import edu.albertoromeropino.viewController.Login;
+import edu.albertoromeropino.viewController.MenuBar;
+import edu.albertoromeropino.viewController.View;
+import edu.albertoromeropino.viewController.enums.Tab;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.swing.text.View;
 import java.io.IOException;
 
 /**
@@ -17,26 +16,25 @@ public class App extends Application {
 
     public static Scene scene; // donde se ubica esta
     public static Stage stage; // pestaña de navegador como de aplicacion
-    public static Login login;
+    public static MenuBar appController;
 
     @Override
     public void start(Stage stage) throws IOException {
-
-
-
-        //codigo por defecto posi acaso
-        scene = new Scene(loadFXML("viewController/MenuBar"), 640, 480);
+        View view = MenuBar.loadFXML(Tab.MENUBAR);
+        scene = new Scene(view.tab, 640,480);
+        appController = (MenuBar) view.controller;
+        appController.openTab(null);
         stage.setScene(scene);
         stage.show();
+
+        /*//codigo por defecto posi acaso
+        scene = new Scene(loadFXML("viewController/Login"), 640, 480);
+        stage.setScene(scene);
+        stage.show();*/
     }
 
     static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        //scene.setRoot(loadFXML(fxml));
     }
 
     public static void main(String[] args) {

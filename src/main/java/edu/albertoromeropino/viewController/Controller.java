@@ -3,8 +3,7 @@ package edu.albertoromeropino.viewController;
 import edu.albertoromeropino.App;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 public abstract class Controller {
     App app;
@@ -13,4 +12,5 @@ public abstract class Controller {
     }
 
     public abstract void openTab(Object imput) throws IOException;
+    public abstract void onClose(Object output);
 }

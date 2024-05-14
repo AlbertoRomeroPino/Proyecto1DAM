@@ -12,10 +12,10 @@ public class Validations {
      * @return debuelve si es correcto o no
      */
 
-    public static boolean validateNickName (String nickName){
+    /*public static boolean validateNickName (String nickName){
         Pattern pattern = Pattern.compile("^(?!.*\\s)\\w{4,12}$");
         return pattern.matcher(nickName).matches();
-    }
+    }*/
 
     /**
      * Valida el dni del usuario "muy basicamente"

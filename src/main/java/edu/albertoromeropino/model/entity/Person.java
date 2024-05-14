@@ -61,10 +61,10 @@ public class Person {
 
     public boolean setNickName(String nickName) {
         boolean add = false;
-        if (Validations.validateNickName(nickName)) {
+        //if (Validations.validateNickName(nickName)) {
             this.nickName = nickName;
             add = true;
-        }
+        //}
         return add;
     }
 

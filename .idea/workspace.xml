@@ -5,17 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c0bc9fd-b9c2-4db2-80a4-09ad99a62a76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/MenuBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/View.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/MenuBar.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/FormGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/entity/PersonTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/PersonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/entity/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/entity/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/entity/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/CompanyController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/enums/Screens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/enums/Tab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/MenuBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/enums/Tab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/enums/Tab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Archievement.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Company.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/MenuBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/MenuBar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +74,8 @@
     "JUnit.PersonDAOTest.executor": "Run",
     "JUnit.PersonDAOTest.findID.executor": "Debug",
     "JUnit.PersonDAOTest.store.executor": "Run",
+    "JUnit.PersonTest.getNickName.executor": "Run",
+    "JUnit.PersonTest.getPassword.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.Proyecto1DAM [package].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -95,8 +102,8 @@
       <recent name="edu.albertoromeropino.viewController" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="edu.albertoromeropino.model.dao" />
       <recent name="edu.albertoromeropino.model.entity" />
+      <recent name="edu.albertoromeropino.model.dao" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -109,5 +116,21 @@
       <updated>1713717578680</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/App.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/App.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

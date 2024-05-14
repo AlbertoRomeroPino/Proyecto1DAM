@@ -17,7 +17,14 @@ public class Game {
         setName(name);
         setCategory(Category);
         setPerson(person);
-        setArchievements(archievements);
+        if (archievements.size() > 1) {
+            setArchievements(archievements);
+        }else {
+            Archievement archievement = (Archievement) archievements;
+            setArchievement(archievement);
+        }
+
+
         setCompany(company);
     }
 
@@ -81,6 +88,9 @@ public class Game {
 
     public void setArchievements(Set<Archievement> archievements) {
         this.archievements = archievements;
+    }
+    public void setArchievement(Archievement archievement) {
+        this.archievements.add(archievement);
     }
 
     public void setCompany(Company company) {

@@ -26,8 +26,12 @@ public class MenuBar extends Controller implements Initializable {
 
     @Override
     public void openTab(Object imput) throws IOException {
+        changeTab(Tab.GAME, null);
+    }
 
-        changeTab(Tab.GAME, Person.getPerson());
+    @Override
+    public void onClose(Object output) {
+
     }
 
     public void changeTab(Tab tab, Object data) throws IOException {
@@ -36,17 +40,6 @@ public class MenuBar extends Controller implements Initializable {
         this.centerController = view.controller;
         this.centerController.openTab(data);
 
-    }
-
-    public static View loadFXML(Tab tab) throws IOException {
-        String url = tab.getUrl();
-        FXMLLoader loader = new FXMLLoader(App.class.getResource(url));
-        Parent parent = loader.load();
-        Controller controller = loader.getController();
-        View view = new View();
-        view.tab = parent;
-        view.controller = controller;
-        return view;
     }
 
     public void openModal (Tab tab, String title, Controller parent, Object data) throws IOException{
@@ -80,5 +73,21 @@ public class MenuBar extends Controller implements Initializable {
 
     public void initialize(URL localition, ResourceBundle resourceBundle) {
 
+    }
+
+    public static View loadFXML(Tab tab) throws IOException {
+        String url = tab.getUrl();
+        FXMLLoader loader = new FXMLLoader(App.class.getResource(url));
+        Parent parent = loader.load();
+        Controller controller = loader.getController();
+        View view = new View();
+        view.tab = parent;
+        view.controller = controller;
+        return view;
+    }
+
+    private void goToGame() throws IOException{
+        System.out.println(Tab.GAME);
+        changeTab(Tab.GAME, null);
     }
 }
