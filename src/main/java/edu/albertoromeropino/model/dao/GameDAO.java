@@ -12,7 +12,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class GameDAO implements IDAO<Game, Integer> {
@@ -25,16 +27,16 @@ public class GameDAO implements IDAO<Game, Integer> {
     private static final String FINDID = "select id_game, Name, Category, NickName, NameCompany " +
             "from game " +
             "where id_Game=?";
-    private static final String FINDBYPERSON = "select ga.id_game, ga.Name, ga.Category, ga.NameCompany " +
-            "from game ga, person pe " +
-            "where ga.nickname = pe.nickname and pe.nickname = ?";
-    private static final String FINDBYCOMPANY = "select ga.id_game, ga.Name, ga.Categoty, ga.NickName " +
-            "from game ga, company co " +
-            "where ga.NameCompany = co.NameCompany and co.NameCompany = ?";
-    private static final String INSERT = "insert into game(Name, Category, NickName, NameCompany) " +
+    private static final String FINDBYPERSON = "select ga.id_game, ga.Name, ga.Category, ga.NameCompany, pe.nickname " +
+            " from game ga, person pe " +
+            " where ga.nickname = pe.nickname and pe.nickname = ?";
+    private static final String FINDBYCOMPANY = "select ga.id_game, ga.Name, ga.Category, ga.NameCompany, pe.nickname " +
+            " from game ga, company co " +
+            " where ga.nameCompany = co.nameCompany and co.nameCompany = ?";
+    private static final String INSERT = "insert into game(id_game, Name, Category, NickName, NameCompany) " +
             "values (?,?,?,?)";
     private static final String DELETE = "Delete from game where id_game=?";
-    private static final String UPDATE = "Update game set Name=?, Category=?";
+    private static final String UPDATE = "Update game set Name=?, Category=? where id_game = ?";
 
 
     @Override
@@ -45,10 +47,11 @@ public class GameDAO implements IDAO<Game, Integer> {
                 Game gametmp = findID(idGametmp);
                 if (gametmp == null) {
                     try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT)) {
-                        preparedStatement.setString(1, entity.getName());
-                        preparedStatement.setString(2, entity.getCategory());
-                        preparedStatement.setString(3, entity.getPerson().getNickName());
-                        preparedStatement.setString(4, entity.getCompany().getNameCompany());
+                        preparedStatement.setInt(1,entity.getIdGame());
+                        preparedStatement.setString(2, entity.getName());
+                        preparedStatement.setString(3, entity.getCategory());
+                        preparedStatement.setString(4, entity.getPerson().getNickName());
+                        preparedStatement.setString(5, entity.getCompany().getNameCompany());
                         preparedStatement.executeUpdate();
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -57,6 +60,10 @@ public class GameDAO implements IDAO<Game, Integer> {
                     try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
                         preparedStatement.setString(1, entity.getName());
                         preparedStatement.setString(2, entity.getCategory());
+
+                        // Caracter que va a ser el que se va a comparar
+                        preparedStatement.setInt(3, entity.getIdGame());
+
                         preparedStatement.executeUpdate();
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -85,8 +92,11 @@ public class GameDAO implements IDAO<Game, Integer> {
                     gametmp.setName(resultSet.getString("Name"));
                     gametmp.setCategory(resultSet.getString("Category"));
                     gametmp.setPerson(PersonDAO.build().findID(resultSet.getString("NickName")));
-                    gametmp.setArchievements(ArchievementDAO.build().findByIdGame(gametmp.getIdGame()));
                     gametmp.setCompany(CompanyDAO.build().findID(resultSet.getString("NameCompany")));
+
+                    // Esto ya no esta en la tabla game
+                    gametmp.setArchievements(ArchievementDAO.build().findByIdGame(gametmp.getIdGame()));
+
                     game = gametmp;
                 }
             }
@@ -96,29 +106,27 @@ public class GameDAO implements IDAO<Game, Integer> {
         return game;
     }
 
-    public Set<Game> findByPerson(String nickNamePerson) {
-        Set<Game> games = null;
+    public ArrayList<Game> findByPerson(String nickNamePerson) {
+        ArrayList<Game> games = null;
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(FINDBYPERSON)) {
             preparedStatement.setString(1, nickNamePerson);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
 
-            Person person = new Person();
-            person.setNickName(nickNamePerson);
+                while (resultSet.next()) {
 
-            while (resultSet.next()) {
+                    Game game = new Game();
+                    game.setIdGame(resultSet.getInt("Id_Game"));
+                    game.setName(resultSet.getString("Name"));
+                    game.setCategory(resultSet.getString("Category"));
+                    game.setCompany(CompanyDAO.build().findID(resultSet.getString("nameCompany")));
+                    game.setPerson(PersonLazy.getPerson());
 
-                Game game = new Game();
-                game.setIdGame(resultSet.getInt("Id_Game"));
-                game.setName(resultSet.getString("Name"));
-                game.setCategory(resultSet.getString("Category"));
-                game.setPerson(PersonDAO.build().findID(resultSet.getString(nickNamePerson)));
-                game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
-                game.setCompany(CompanyDAO.build().findID(resultSet.getString("nameCompany")));
-
-                games.add(game);
+                    // Esto ya no esta en la tabla game
+                    game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
+                    games.add(game);
+                }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -126,32 +134,34 @@ public class GameDAO implements IDAO<Game, Integer> {
         return games;
     }
 
-    public Set<Game> findByCompany(String nameCompany) {
-        Set<Game> games = null;
+    public ArrayList<Game> findByCompany(String nameCompany) {
+        ArrayList<Game> games = null;
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(FINDBYCOMPANY)) {
             preparedStatement.setString(1, nameCompany);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
 
-            while (resultSet.next()) {
+                while (resultSet.next()) {
 
-                Game game = new Game();
-                game.setIdGame(resultSet.getInt("Id_Game"));
-                game.setName(resultSet.getString("Name"));
-                game.setCategory(resultSet.getString("Category"));
-                game.setPerson(PersonDAO.build().findID(resultSet.getString("NickName")));
-                game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
-                game.setCompany(CompanyDAO.build().findID(resultSet.getString(nameCompany)));
+                    Game game = new Game();
+                    game.setIdGame(resultSet.getInt("Id_Game"));
+                    game.setName(resultSet.getString("Name"));
+                    game.setCategory(resultSet.getString("Category"));
+                    game.setCompany(CompanyDAO.build().findID(resultSet.getString("nameCompany")));
+                    game.setPerson(PersonDAO.build().findID(resultSet.getString("nickname")));
 
-                games.add(game);
+                    // Esto ya no esta en la tabla game
+                    game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
+                    games.add(game);
+                }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return games;
     }
+
 
     @Override
     public Game deleteEntity(Game entityDelete) {
@@ -175,8 +185,8 @@ public class GameDAO implements IDAO<Game, Integer> {
         return new GameDAO();
     }
 
-    public Set<Archievement> storeArchievement(Game game) {
-        Set<Archievement> archievements = new HashSet<>();
+    public ArrayList<Archievement> storeArchievement(Game game) {
+        ArrayList<Archievement> archievements = new ArrayList<>();
         try {
             archievements = ArchievementDAO.build().findByIdGame(game.getIdGame());
         } catch (Exception e) {
@@ -186,3 +196,12 @@ public class GameDAO implements IDAO<Game, Integer> {
     }
 
 }
+/*class GameLazy extends Game{
+    @Override
+    public ArrayList<Archievement> getArchievement(){
+        if (super.getArchievements()==null){
+            setArchievements(ArchievementDAO.build().findByIdGame(this.getArchievement().));
+        }
+        return super.getGames();
+    }
+}*/

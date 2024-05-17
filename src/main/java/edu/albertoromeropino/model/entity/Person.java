@@ -1,24 +1,23 @@
 package edu.albertoromeropino.model.entity;
 
-import edu.albertoromeropino.model.utils.ManagerXML;
+
 import edu.albertoromeropino.model.utils.Validations;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 
 public class Person {
     private String nickName;
     private String dni;
     private String password;
-    private Set<Game> games;
+    private ArrayList<Game> games;
     private static Person _sessionStarted;
 
     private static final String FILENAME = "connection.xml";
-    private final int MIN_LENGTH = 8;
-    private final int MAX_LENGTH = 12;
 
-    public Person(String nickName, String dni, String password, Set<Game> games) {
+    public Person(String nickName, String dni, String password, ArrayList<Game> games) {
 
         setNickName(nickName);
         setDni(dni);
@@ -54,7 +53,7 @@ public class Person {
         return password;
     }
 
-    public Set<Game> getGames() {
+    public List<Game> getGames() {
         return games;
     }
 
@@ -62,8 +61,8 @@ public class Person {
     public boolean setNickName(String nickName) {
         boolean add = false;
         //if (Validations.validateNickName(nickName)) {
-            this.nickName = nickName;
-            add = true;
+        this.nickName = nickName;
+        add = true;
         //}
         return add;
     }
@@ -79,14 +78,13 @@ public class Person {
 
     public boolean setPassword(String newPassword) {
         Boolean passwordSet = false;
-        if (newPassword.length() >= MIN_LENGTH && newPassword.length() <= MAX_LENGTH) {
-            this.password = Validations.encryptPassword(newPassword);
-            passwordSet = true;
-        }
+
+        this.password = Validations.encryptPassword(newPassword);
+        passwordSet = true;
         return passwordSet;
     }
 
-    public void setGames(Set<Game> games) {
+    public void setGames(ArrayList<Game> games) {
         this.games = games;
     }
 

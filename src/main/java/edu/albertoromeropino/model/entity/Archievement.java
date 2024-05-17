@@ -13,6 +13,7 @@ public class Archievement {
 
     public Archievement(String archievementName,
                         String descriptionArchievement, String helpArchievement, Game game) {
+
         setArchievementName(archievementName);
         setDescriptionArchievement(descriptionArchievement);
         setHelpArchievement(helpArchievement);

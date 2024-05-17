@@ -1,5 +1,7 @@
 package edu.albertoromeropino;
 
+import edu.albertoromeropino.model.dao.PersonDAO;
+import edu.albertoromeropino.model.entity.Person;
 import edu.albertoromeropino.viewController.MenuBar;
 import edu.albertoromeropino.viewController.View;
 import edu.albertoromeropino.viewController.enums.Tab;
@@ -20,7 +22,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        View view = MenuBar.loadFXML(Tab.MENUBAR);
+        View view = MenuBar.loadFXML(Tab.LOGIN);
         scene = new Scene(view.tab, 640,480);
         appController = (MenuBar) view.controller;
         appController.openTab(null);

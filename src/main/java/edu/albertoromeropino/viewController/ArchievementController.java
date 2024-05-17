@@ -1,10 +1,14 @@
 package edu.albertoromeropino.viewController;
+import javafx.fxml.Initializable;
 
-import edu.albertoromeropino.model.entity.Game;
-import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 
-public class ArchievementController {
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class ArchievementController implements Initializable {
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

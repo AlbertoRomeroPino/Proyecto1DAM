@@ -1,5 +1,6 @@
 package edu.albertoromeropino.model.entity;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Set;
 
@@ -8,23 +9,14 @@ public class Game {
     private String name;
     private String Category;
     private Person person;
-    private Set<Archievement> archievements;
+    private ArrayList<Archievement> archievements;
     private Company company;
 
-    public Game(int idGame, String name, String Category, Person person,
-                Set<Archievement> archievements, Company company) {
+    public Game(int idGame, String name, String Category, Person person, Company company) {
         setIdGame(idGame);
         setName(name);
         setCategory(Category);
         setPerson(person);
-        if (archievements.size() > 1) {
-            setArchievements(archievements);
-        }else {
-            Archievement archievement = (Archievement) archievements;
-            setArchievement(archievement);
-        }
-
-
         setCompany(company);
     }
 
@@ -47,7 +39,7 @@ public class Game {
         return person;
     }
 
-    public Set<Archievement> getArchievements() {
+    public ArrayList<Archievement> getArchievements() {
         return archievements;
     }
 
@@ -86,7 +78,7 @@ public class Game {
         this.person = person;
     }
 
-    public void setArchievements(Set<Archievement> archievements) {
+    public void setArchievements(ArrayList<Archievement> archievements) {
         this.archievements = archievements;
     }
     public void setArchievement(Archievement archievement) {

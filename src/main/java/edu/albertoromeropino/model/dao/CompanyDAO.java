@@ -2,10 +2,14 @@ package edu.albertoromeropino.model.dao;
 
 import edu.albertoromeropino.model.connection.ConnectionMariaDB;
 import edu.albertoromeropino.model.entity.Company;
+import edu.albertoromeropino.model.entity.Game;
+import edu.albertoromeropino.model.entity.Person;
 import edu.albertoromeropino.model.interfaces.IDAO;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Set;
 
 public class CompanyDAO implements IDAO<Company, String> {
     private Connection connection;
@@ -17,7 +21,7 @@ public class CompanyDAO implements IDAO<Company, String> {
     private static final String FINDID = "select nameCompany, companyDirector, companyCreation from company where nameCompany = ?";
     private static final String INSERT = "insert into company (nameCompany, CompanyDirector, CompanyCreation) values (?,?,?)";
     private static final String DELETE = "Delete from company where nameCompany = ?";
-    private static final String UPDATE = "Update game set nameCompany = ?, CompanyDirector = ?, CompanyCreation = ?";
+    private static final String UPDATE = "Update game set CompanyDirector = ?, CompanyCreation = ? where nameCompany = ?";
 
     @Override
     public Company store(Company entity) {
@@ -36,9 +40,11 @@ public class CompanyDAO implements IDAO<Company, String> {
                     }
                 } else {
                     try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
-                        preparedStatement.setString(1, entity.getNameCompany());
-                        preparedStatement.setString(2, entity.getCompanyDirector());
-                        preparedStatement.setDate(3, Date.valueOf(entity.getCompanyCreation()));   //Puede fallar
+                        //dato del where
+                        preparedStatement.setString(3, entity.getNameCompany());
+
+                        preparedStatement.setString(1, entity.getCompanyDirector());
+                        preparedStatement.setDate(2, Date.valueOf(entity.getCompanyCreation()));   //Puede fallar
                         preparedStatement.executeUpdate();
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -59,7 +65,10 @@ public class CompanyDAO implements IDAO<Company, String> {
                     Company companytmp = new Company();
                     companytmp.setNameCompany(resultSet.getString("NameCompany"));
                     companytmp.setCompanyDirector(resultSet.getString("CompanyDirector"));
-                    companytmp.setCompanyCreation(LocalDate.parse(("CompanyCreation")));
+                    companytmp.setCompanyCreation(resultSet.getDate("CompanyCreation").toLocalDate());
+
+                    //Esto no esta en la tabla
+                    companytmp.setGames(GameDAO.build().findByCompany(entityId));
                     company = companytmp;
                 }
             }
@@ -92,3 +101,12 @@ public class CompanyDAO implements IDAO<Company, String> {
         return new CompanyDAO();
     }
 }
+
+class CompanyLazy extends Company{
+    @Override
+    public ArrayList<Game> getGames(){
+        if (super.getGames()==null){
+            setGames(GameDAO.build().findByCompany(this.getNameCompany()));
+        }
+        return super.getGames();
+    }}

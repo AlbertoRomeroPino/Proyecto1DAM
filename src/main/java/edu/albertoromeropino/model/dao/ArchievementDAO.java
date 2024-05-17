@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Set;
 
 public class ArchievementDAO implements IDAO<Archievement, Integer> {
@@ -86,8 +87,8 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
         return archievement;
     }
 
-    public Set<Archievement> findByIdGame(Integer gameId) {
-        Set<Archievement> archievements = null;
+    public ArrayList<Archievement> findByIdGame(Integer gameId) {
+        ArrayList<Archievement> archievements = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(FINDBYIDGAME)) {
             preparedStatement.setInt(1, gameId);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {

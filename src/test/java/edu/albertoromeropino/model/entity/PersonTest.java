@@ -32,11 +32,4 @@ class PersonTest {
         assertTrue(person.getPassword().equals("d14654b17f9f9e3c0b3be1dfb3420e03e1e762e59368de1e7d8bef728924a7b5"));
     }
 
-    @Test
-    void removeGames() {
-    }
-
-    @Test
-    void updateGames() {
-    }
 }
