@@ -3,6 +3,6 @@ package edu.albertoromeropino.viewController;
 import javafx.scene.Parent;
 
 public class View {
-    public Parent tab;
+    public Parent scenes;
     public Controller controller;
 }

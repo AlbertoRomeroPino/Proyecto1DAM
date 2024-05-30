@@ -12,7 +12,7 @@ public class Person {
     private String nickName;
     private String dni;
     private String password;
-    private ArrayList<Game> games;
+    private List<Game> games;
     private static Person _sessionStarted;
 
     private static final String FILENAME = "connection.xml";
@@ -84,7 +84,7 @@ public class Person {
         return passwordSet;
     }
 
-    public void setGames(ArrayList<Game> games) {
+    public void setGames(List<Game> games) {
         this.games = games;
     }
 
@@ -113,7 +113,7 @@ public class Person {
                 "nickName='" + nickName + '\'' +
                 ", dni='" + dni + '\'' +
                 ", password='" + password + '\'' +
-                ", archievements=" + games +
+                ", games=" + games +
                 '}';
     }
 

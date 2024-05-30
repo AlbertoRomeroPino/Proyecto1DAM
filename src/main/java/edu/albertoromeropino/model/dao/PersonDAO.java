@@ -77,8 +77,7 @@ public class PersonDAO implements IDAO<Person, String> {
                     persontmp.setNickName(resultSet.getString("nickName"));
                     persontmp.setDni(resultSet.getString("Dni"));
                     persontmp.setPassword(resultSet.getString("Password"));
-                    persontmp.setGames((GameDAO.build().findByPerson(nickName)));
-
+                    persontmp.setGames(PersonLazy.getPerson().getGames());
 
                     person = persontmp;
                 }

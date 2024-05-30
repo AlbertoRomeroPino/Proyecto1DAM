@@ -3,13 +3,11 @@ package edu.albertoromeropino.model.dao;
 import edu.albertoromeropino.model.connection.ConnectionMariaDB;
 import edu.albertoromeropino.model.entity.Company;
 import edu.albertoromeropino.model.entity.Game;
-import edu.albertoromeropino.model.entity.Person;
 import edu.albertoromeropino.model.interfaces.IDAO;
+
 import java.io.IOException;
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Set;
+import java.util.List;
 
 public class CompanyDAO implements IDAO<Company, String> {
     private Connection connection;
@@ -67,8 +65,7 @@ public class CompanyDAO implements IDAO<Company, String> {
                     companytmp.setCompanyDirector(resultSet.getString("CompanyDirector"));
                     companytmp.setCompanyCreation(resultSet.getDate("CompanyCreation").toLocalDate());
 
-                    //Esto no esta en la tabla
-                    companytmp.setGames(GameDAO.build().findByCompany(entityId));
+                    companytmp.setGames(this.getClass().)    ;
                     company = companytmp;
                 }
             }
@@ -91,7 +88,6 @@ public class CompanyDAO implements IDAO<Company, String> {
     }
 
 
-
     @Override
     public void close() throws IOException {
 
@@ -102,11 +98,12 @@ public class CompanyDAO implements IDAO<Company, String> {
     }
 }
 
-class CompanyLazy extends Company{
+class CompanyLazy extends Company {
     @Override
-    public ArrayList<Game> getGames(){
-        if (super.getGames()==null){
+    public List<Game> getGames() {
+        if (super.getGames() == null) {
             setGames(GameDAO.build().findByCompany(this.getNameCompany()));
         }
         return super.getGames();
-    }}
+    }
+}

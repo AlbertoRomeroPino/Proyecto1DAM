@@ -1,10 +1,8 @@
 package edu.albertoromeropino;
 
-import edu.albertoromeropino.model.dao.PersonDAO;
-import edu.albertoromeropino.model.entity.Person;
 import edu.albertoromeropino.viewController.MenuBar;
 import edu.albertoromeropino.viewController.View;
-import edu.albertoromeropino.viewController.enums.Tab;
+import edu.albertoromeropino.viewController.enums.Scenes;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -22,8 +20,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        View view = MenuBar.loadFXML(Tab.LOGIN);
-        scene = new Scene(view.tab, 640,480);
+        View view = MenuBar.loadFXML(Scenes.LOGIN);
+        scene = new Scene(view.scenes, 640,480);
         appController = (MenuBar) view.controller;
         appController.openTab(null);
         stage.setScene(scene);

@@ -3,7 +3,7 @@ package edu.albertoromeropino.viewController;
 import edu.albertoromeropino.App;
 import edu.albertoromeropino.model.dao.PersonDAO;
 import edu.albertoromeropino.model.entity.Person;
-import edu.albertoromeropino.viewController.enums.Tab;
+import edu.albertoromeropino.viewController.enums.Scenes;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,7 +27,7 @@ public class Login extends Controller implements Initializable {
     }
     @Override
     public void openTab(Object imput) throws IOException {
-            enterApp(Tab.LOGIN);
+            enterApp(Scenes.LOGIN);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class Login extends Controller implements Initializable {
     }
 
     @FXML
-    private void enterApp (Tab event) throws IOException{
+    private void enterApp (Scenes event) throws IOException{
         Person person = new Person();
         person.setNickName(user.getText());
         person = PersonDAO.build().findID(person.getNickName());
@@ -44,13 +44,13 @@ public class Login extends Controller implements Initializable {
 
     }
 
-    public static View loadFXML(Tab tab) throws IOException {
-        String url = tab.getUrl();
+    public static View loadFXML(Scenes scenes) throws IOException {
+        String url = scenes.getUrl();
         FXMLLoader loader = new FXMLLoader(App.class.getResource(url));
         Parent parent = loader.load();
         Controller controller = loader.getController();
         View view = new View();
-        view.tab = parent;
+        view.scenes = parent;
         view.controller = controller;
         return view;
     }

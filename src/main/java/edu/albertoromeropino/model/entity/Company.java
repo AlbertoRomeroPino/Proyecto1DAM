@@ -1,16 +1,15 @@
 package edu.albertoromeropino.model.entity;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Company {
     private String nameCompany;
     private String companyDirector;
     private LocalDate companyCreation;
-    private ArrayList<Game> games;
+    private List<Game> games;
 
     public Company(String nameCompany, String companyDirector, LocalDate companyCreation) {
         setNameCompany(nameCompany);
@@ -34,7 +33,7 @@ public class Company {
         return companyCreation;
     }
 
-    public ArrayList<Game> getGames() {
+    public List<Game> getGames() {
         return games;
     }
 
@@ -60,7 +59,7 @@ public class Company {
         this.companyCreation = companyCreation;
     }
 
-    public void setGames(ArrayList<Game> games) {
+    public void setGames(List<Game> games) {
         this.games = games;
     }
 

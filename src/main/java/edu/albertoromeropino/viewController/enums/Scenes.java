@@ -1,6 +1,6 @@
 package edu.albertoromeropino.viewController.enums;
 
-public enum Tab {
+public enum Scenes {
     LOGIN("viewController/Login.fxml"),
     REGISTER("viewController/Register.fxml"),
     GAME("viewController/Game.fxml"),
@@ -9,7 +9,7 @@ public enum Tab {
 
     private String url;
 
-    Tab(String url) {
+    Scenes(String url) {
         this.url = url;
     }
 
