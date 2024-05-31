@@ -11,6 +11,7 @@ import java.util.List;
 
 public class CompanyDAO implements IDAO<Company, String> {
     private Connection connection;
+    private PreparedStatement preparedStatement;
 
     public CompanyDAO() {
         connection = ConnectionMariaDB.getConnection();
@@ -64,8 +65,8 @@ public class CompanyDAO implements IDAO<Company, String> {
                     companytmp.setNameCompany(resultSet.getString("NameCompany"));
                     companytmp.setCompanyDirector(resultSet.getString("CompanyDirector"));
                     companytmp.setCompanyCreation(resultSet.getDate("CompanyCreation").toLocalDate());
-
-                    companytmp.setGames(this.getClass().)    ;
+                    companytmp.setGames(GameDAO.build().findByCompany(resultSet.getString("NameCompany")));
+                    
                     company = companytmp;
                 }
             }
@@ -98,7 +99,7 @@ public class CompanyDAO implements IDAO<Company, String> {
     }
 }
 
-class CompanyLazy extends Company {
+/*class CompanyLazy extends Company {
     @Override
     public List<Game> getGames() {
         if (super.getGames() == null) {
@@ -107,3 +108,4 @@ class CompanyLazy extends Company {
         return super.getGames();
     }
 }
+*/

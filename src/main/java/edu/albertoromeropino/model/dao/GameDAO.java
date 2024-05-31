@@ -120,7 +120,7 @@ public class GameDAO implements IDAO<Game, Integer> {
                     game.setName(resultSet.getString("Name"));
                     game.setCategory(resultSet.getString("Category"));
                     game.setCompany(CompanyDAO.build().findID(resultSet.getString("nameCompany")));
-                    game.setPerson(PersonLazy.getPerson());
+                    game.setPerson(Person.getPerson());
 
                     // Esto ya no esta en la tabla game
                     game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));

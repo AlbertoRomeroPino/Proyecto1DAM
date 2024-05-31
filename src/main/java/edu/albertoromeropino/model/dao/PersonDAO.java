@@ -20,15 +20,10 @@ public class PersonDAO implements IDAO<Person, String> {
         connection = ConnectionMariaDB.getConnection();
     }
 
-    private static final String FINDID = "select NickName, DNI, Password " +
-            "from person " +
-            "where NickName = ?";
-    /*private static final String FINDLOGIN = "select NickName, Password " +
-            "from person " +
-            "where nickname = ? and password = ?";*/
-    private static final String INSERT = "insert into person(NickName, DNI, Password) values (?,?,?)";
-    private static final String DELETE = "Delete from person where NickName = ? and password = ?";
-    private static final String UPDATE = "Update game set NickName = ?, DNI = ?, password = ? where (nickname = ? or password = ?)";
+    private static final String FINDID = "select Nickname, Dni, password from person where nickname = ?";
+    private static final String INSERT = "insert into person (Nickname, DNI, Password) values (?,?,?)";
+    private static final String UPDATE = "update person set dni =?, Password = ? where nickname = ?";
+    private static final String DELETE = "delete from person where nickname = ? and password = ?";
 
     @Override
     public Person store(Person person) {
@@ -47,14 +42,10 @@ public class PersonDAO implements IDAO<Person, String> {
                     }
                 } else {
                     try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
-                        //Con lo que se va a comparar
-                        preparedStatement.setString(4,person.getNickName());
-                        preparedStatement.setString(5,person.getPassword());
-
-                        preparedStatement.setString(1, person.getNickName());
-                        preparedStatement.setString(2, person.getDni());
-                        preparedStatement.setString(3, person.getPassword());
-
+                        //El primero es lo que esta en el where
+                        preparedStatement.setString(3, person.getNickName());
+                        preparedStatement.setString(1, person.getDni());
+                        preparedStatement.setString(2, person.getPassword());
 
                         preparedStatement.executeUpdate();
                     } catch (SQLException e) {
@@ -68,7 +59,7 @@ public class PersonDAO implements IDAO<Person, String> {
 
     @Override
     public Person findID(String nickName) {
-        Person person = new PersonLazy();
+        Person person = null;
         try (PreparedStatement preparedStatement = connection.prepareStatement(FINDID)) {
             preparedStatement.setString(1, nickName);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -77,7 +68,7 @@ public class PersonDAO implements IDAO<Person, String> {
                     persontmp.setNickName(resultSet.getString("nickName"));
                     persontmp.setDni(resultSet.getString("Dni"));
                     persontmp.setPassword(resultSet.getString("Password"));
-                    persontmp.setGames(PersonLazy.getPerson().getGames());
+                    persontmp.setGames(GameDAO.build().findByPerson(resultSet.getString("nickName")));
 
                     person = persontmp;
                 }
@@ -88,27 +79,6 @@ public class PersonDAO implements IDAO<Person, String> {
         }
         return person;
     }
-    // Este de abajo se puede modificar porque es lo mismo que el de arriba pero sin 1 campo
-   /* public Person findLogin (String nickname, String password){
-        Person person = null;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(FINDID)) {
-            preparedStatement.setString(1, nickname);
-            preparedStatement.setString(2,password);
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    Person persontmp = new Person();
-                    persontmp.setNickName(resultSet.getString("nickName"));
-                    persontmp.setDni(resultSet.getString("Dni"));
-                    persontmp.setPassword(resultSet.getString("Password"));
-                    persontmp.setGames(GameDAO.build().findByPerson(resultSet.getString("games")));
-                    person = persontmp;
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return person;
-    }*/
 
     @Override
     public Person deleteEntity(Person person) {
@@ -133,13 +103,4 @@ public class PersonDAO implements IDAO<Person, String> {
         return new PersonDAO();
     }
 
-}
-class PersonLazy extends Person{
-    @Override
-    public List<Game> getGames(){
-        if (super.getGames()==null){
-            setGames(GameDAO.build().findByPerson(this.getNickName()));
-        }
-        return super.getGames();
-    }
 }
