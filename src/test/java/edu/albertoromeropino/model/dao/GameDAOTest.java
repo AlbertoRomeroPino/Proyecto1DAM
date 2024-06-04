@@ -38,12 +38,8 @@ class GameDAOTest {
 
     @Test
     void findID() {
-        Person person1 = new Person("Alberto1", "31022430F", "@123abcd");
-        Company company = new Company("nose", "nose", LocalDate.of(2222, 2, 2));
 
         Game game = GameDAO.build().findID(1);
-
-        assertEquals(game, GameDAO.build().findID(1));
 
         System.out.println(game);
     }

@@ -47,7 +47,7 @@ public class GameDAO implements IDAO<Game, Integer> {
                 Game gametmp = findID(idGametmp);
                 if (gametmp == null) {
                     try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT)) {
-                        preparedStatement.setInt(1,entity.getIdGame());
+                        preparedStatement.setInt(1, entity.getIdGame());
                         preparedStatement.setString(2, entity.getName());
                         preparedStatement.setString(3, entity.getCategory());
                         preparedStatement.setString(4, entity.getPerson().getNickName());
@@ -94,7 +94,6 @@ public class GameDAO implements IDAO<Game, Integer> {
                     gametmp.setPerson(PersonDAO.build().findID(resultSet.getString("NickName")));
                     gametmp.setCompany(CompanyDAO.build().findID(resultSet.getString("NameCompany")));
 
-                    // Esto ya no esta en la tabla game
                     gametmp.setArchievements(ArchievementDAO.build().findByIdGame(gametmp.getIdGame()));
 
                     game = gametmp;
@@ -196,12 +195,12 @@ public class GameDAO implements IDAO<Game, Integer> {
     }
 
 }
-/*class GameLazy extends Game{
-    @Override
-    public ArrayList<Archievement> getArchievement(){
-        if (super.getArchievements()==null){
-            setArchievements(ArchievementDAO.build().findByIdGame(this.getArchievement().));
+
+class GameLazy extends Game {
+    public ArrayList<Archievement> getArchievement() {
+        if (super.getArchievements() == null) {
+            setArchievements(ArchievementDAO.build().findByIdGame(this.getIdGame()));
         }
-        return super.getGames();
+        return super.getArchievements();
     }
-}*/
+}

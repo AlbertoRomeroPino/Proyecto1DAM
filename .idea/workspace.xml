@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c0bc9fd-b9c2-4db2-80a4-09ad99a62a76" name="Changes" comment="" />
+    <list default="true" id="3c0bc9fd-b9c2-4db2-80a4-09ad99a62a76" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/ArchievementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/ArchievementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/GameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/GameDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/GameDAOTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,43 +58,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ConnectionSave.executor&quot;: &quot;Run&quot;,
-    &quot;Application.connectionSave.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ArchievementDAOTest.deleteEntity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ArchievementDAOTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ArchievementDAOTest.findID.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ArchievementDAOTest.store.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CompanyDAOTest.deleteEntity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CompanyDAOTest.findID.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CompanyDAOTest.store.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameDAOTest.deleteEntity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameDAOTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameDAOTest.findByCompany.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameDAOTest.findByPerson.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameDAOTest.findID.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameDAOTest.store.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PersonDAOTest.deleteEntity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PersonDAOTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PersonDAOTest.findID.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PersonDAOTest.store.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PersonDAOTest.storeUpdate.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PersonTest.getDni.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PersonTest.getNickName.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PersonTest.getPassword.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Proyecto1DAM [package].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;thirdAct&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alrop/IdeaProjects/Proyecto1DAM/src/main/resources&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;sonarlint&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "Application.ConnectionSave.executor": "Run",
+    "Application.connectionSave.executor": "Run",
+    "JUnit.ArchievementDAOTest.deleteEntity.executor": "Run",
+    "JUnit.ArchievementDAOTest.executor": "Run",
+    "JUnit.ArchievementDAOTest.findID.executor": "Run",
+    "JUnit.ArchievementDAOTest.store.executor": "Run",
+    "JUnit.CompanyDAOTest.deleteEntity.executor": "Run",
+    "JUnit.CompanyDAOTest.findID.executor": "Run",
+    "JUnit.CompanyDAOTest.store.executor": "Run",
+    "JUnit.GameDAOTest.deleteEntity.executor": "Run",
+    "JUnit.GameDAOTest.executor": "Run",
+    "JUnit.GameDAOTest.findByCompany.executor": "Run",
+    "JUnit.GameDAOTest.findByPerson.executor": "Run",
+    "JUnit.GameDAOTest.findID.executor": "Run",
+    "JUnit.GameDAOTest.store.executor": "Run",
+    "JUnit.PersonDAOTest.deleteEntity.executor": "Run",
+    "JUnit.PersonDAOTest.executor": "Run",
+    "JUnit.PersonDAOTest.findID.executor": "Run",
+    "JUnit.PersonDAOTest.store.executor": "Run",
+    "JUnit.PersonDAOTest.storeUpdate.executor": "Run",
+    "JUnit.PersonTest.getDni.executor": "Run",
+    "JUnit.PersonTest.getNickName.executor": "Run",
+    "JUnit.PersonTest.getPassword.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.Proyecto1DAM [package].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "thirdAct",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/alrop/IdeaProjects/Proyecto1DAM/src/main/resources",
+    "settings.editor.selected.configurable": "sonarlint"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alrop\IdeaProjects\Proyecto1DAM\src\main\resources" />
@@ -108,6 +113,46 @@
       <recent name="edu.albertoromeropino.model.dao" />
       <recent name="edu.albertoromeropino.model.entity" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.GameDAOTest.findID">
+    <configuration name="ArchievementDAOTest.findID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Proyecto1DAM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.albertoromeropino.model.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.albertoromeropino.model.dao" />
+      <option name="MAIN_CLASS_NAME" value="edu.albertoromeropino.model.dao.ArchievementDAOTest" />
+      <option name="METHOD_NAME" value="findID" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameDAOTest.findID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Proyecto1DAM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.albertoromeropino.model.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.albertoromeropino.model.dao" />
+      <option name="MAIN_CLASS_NAME" value="edu.albertoromeropino.model.dao.GameDAOTest" />
+      <option name="METHOD_NAME" value="findID" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GameDAOTest.findID" />
+        <item itemvalue="JUnit.ArchievementDAOTest.findID" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -138,6 +183,15 @@
           <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/PersonDAO.java</url>
           <line>33</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/ArchievementDAO.java</url>
+          <line>91</line>
+          <properties class="edu.albertoromeropino.model.dao.ArchievementDAO" method="findByIdGame">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

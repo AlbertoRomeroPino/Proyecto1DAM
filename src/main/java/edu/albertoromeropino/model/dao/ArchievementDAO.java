@@ -24,9 +24,9 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
     private static final String FINDID = "select Id_Archievement, ArchievementName, DescriptionArchievement, HelpArchievement, Id_Game" +
             " from archievement " +
             " where Id_Archievement = ?";
-    private static final String FINDBYIDGAME = "select Id_Archievement, ArchievementName, DescriptionArchievement, HelpArchievement, Id_Game " +
-            " from archievement " +
-            " where Id_game = ?";
+    private static final String FINDBYIDGAME = "select Id_archievement, ArchievementName, DescriptionArchievement, HelpArchievement, ar.id_game" +
+            " from archievement ar, game ga " +
+            " where ar.id_game = ga.id_game and ga.id_game = ?";
     private static final String INSERT = "insert into archievement (Id_Archievement, ArchievementName, DescriptionArchievement, HelpArchievement, Id_Game) " +
             "values (?,?,?,?,?)";
     private static final String DELETE = "Delete from archievement where Id_archievement = ?";
@@ -100,7 +100,7 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
                     archievementtmp.setArchievementName(resultSet.getString("ArchievementName"));
                     archievementtmp.setDescriptionArchievement(resultSet.getString("descriptionArchievement"));
                     archievementtmp.setHelpArchievement(resultSet.getString("HelpArchievement"));
-                    archievementtmp.setGame(GameDAO.build().findID(resultSet.getInt("idGame")));
+                    archievementtmp.setGame(GameDAO.build().findID(resultSet.getInt("id_Game")));
                     archievements.add(archievementtmp);
                 }
             }
