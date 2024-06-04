@@ -20,7 +20,7 @@ public class CompanyDAO implements IDAO<Company, String> {
     private static final String FINDID = "select nameCompany, companyDirector, companyCreation from company where nameCompany = ?";
     private static final String INSERT = "insert into company (nameCompany, CompanyDirector, CompanyCreation) values (?,?,?)";
     private static final String DELETE = "Delete from company where nameCompany = ?";
-    private static final String UPDATE = "Update game set CompanyDirector = ?, CompanyCreation = ? where nameCompany = ?";
+    private static final String UPDATE = "Update company set CompanyDirector = ?, CompanyCreation = ? where nameCompany = ?";
 
     @Override
     public Company store(Company entity) {
@@ -65,7 +65,7 @@ public class CompanyDAO implements IDAO<Company, String> {
                     companytmp.setNameCompany(resultSet.getString("NameCompany"));
                     companytmp.setCompanyDirector(resultSet.getString("CompanyDirector"));
                     companytmp.setCompanyCreation(resultSet.getDate("CompanyCreation").toLocalDate());
-                    companytmp.setGames(GameDAO.build().findByCompany(resultSet.getString("NameCompany")));
+                    //companytmp.setGames(GameDAO.build().findByCompany(resultSet.getString("NameCompany")));
                     
                     company = companytmp;
                 }

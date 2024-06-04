@@ -30,11 +30,11 @@ public class GameDAO implements IDAO<Game, Integer> {
     private static final String FINDBYPERSON = "select ga.id_game, ga.Name, ga.Category, ga.NameCompany, pe.nickname " +
             " from game ga, person pe " +
             " where ga.nickname = pe.nickname and pe.nickname = ?";
-    private static final String FINDBYCOMPANY = "select ga.id_game, ga.Name, ga.Category, ga.NameCompany, pe.nickname " +
+    private static final String FINDBYCOMPANY = "select ga.id_game, ga.Name, ga.Category, ga.NameCompany, ga.nickname " +
             " from game ga, company co " +
             " where ga.nameCompany = co.nameCompany and co.nameCompany = ?";
     private static final String INSERT = "insert into game(id_game, Name, Category, NickName, NameCompany) " +
-            "values (?,?,?,?)";
+            "values (?,?,?,?,?)";
     private static final String DELETE = "Delete from game where id_game=?";
     private static final String UPDATE = "Update game set Name=?, Category=? where id_game = ?";
 
@@ -107,7 +107,7 @@ public class GameDAO implements IDAO<Game, Integer> {
     }
 
     public ArrayList<Game> findByPerson(String nickNamePerson) {
-        ArrayList<Game> games = null;
+        ArrayList<Game> games = new ArrayList<>();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(FINDBYPERSON)) {
             preparedStatement.setString(1, nickNamePerson);
@@ -123,7 +123,7 @@ public class GameDAO implements IDAO<Game, Integer> {
                     game.setPerson(Person.getPerson());
 
                     // Esto ya no esta en la tabla game
-                    game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
+                    //game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
                     games.add(game);
                 }
             }
@@ -135,7 +135,7 @@ public class GameDAO implements IDAO<Game, Integer> {
     }
 
     public ArrayList<Game> findByCompany(String nameCompany) {
-        ArrayList<Game> games = null;
+        ArrayList<Game> games = new ArrayList<>();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(FINDBYCOMPANY)) {
             preparedStatement.setString(1, nameCompany);
@@ -151,7 +151,7 @@ public class GameDAO implements IDAO<Game, Integer> {
                     game.setPerson(PersonDAO.build().findID(resultSet.getString("nickname")));
 
                     // Esto ya no esta en la tabla game
-                    game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
+                    //game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
                     games.add(game);
                 }
             }

@@ -15,10 +15,7 @@ public class Person {
     private List<Game> games;
     private static Person _sessionStarted;
 
-    private static final String FILENAME = "connection.xml";
-
     public Person(String nickName, String dni, String password, ArrayList<Game> games) {
-
         setNickName(nickName);
         setDni(dni);
         setPassword(password);
@@ -123,7 +120,7 @@ public class Person {
         if (this == o) result = true;
         if (o == null || getClass() != o.getClass()) result = false;
         Person person = (Person) o;
-        result = Objects.equals(nickName, person.nickName);
+        result = Objects.equals(nickName, person.nickName) && Objects.equals(password, person.password);
         return result;
     }
 

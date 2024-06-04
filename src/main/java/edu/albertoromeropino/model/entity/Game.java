@@ -111,7 +111,8 @@ public class Game {
                 "idGame=" + idGame +
                 ", name='" + name + '\'' +
                 ", gameType=" + Category +
-                ", person=" + person +
+                ", person=" + person.getNickName() +
+                ", company= " + company.getNameCompany() +
                 ", archievements=" + archievements +
                 '}';
     }
