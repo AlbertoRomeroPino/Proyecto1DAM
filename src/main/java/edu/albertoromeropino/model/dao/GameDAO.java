@@ -95,7 +95,7 @@ public class GameDAO implements IDAO<Game, Integer> {
                     gametmp.setCompany(CompanyDAO.build().findID(resultSet.getString("NameCompany")));
 
                     // Esto ya no esta en la tabla game
-                    //gametmp.setArchievements(ArchievementDAO.build().findByIdGame(gametmp.getIdGame()));
+                    gametmp.setArchievements(ArchievementDAO.build().findByIdGame(gametmp.getIdGame()));
 
                     game = gametmp;
                 }
@@ -123,7 +123,7 @@ public class GameDAO implements IDAO<Game, Integer> {
                     game.setPerson(Person.getPerson());
 
                     // Esto ya no esta en la tabla game
-                    //game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
+                    game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
                     games.add(game);
                 }
             }
@@ -151,7 +151,7 @@ public class GameDAO implements IDAO<Game, Integer> {
                     game.setPerson(PersonDAO.build().findID(resultSet.getString("nickname")));
 
                     // Esto ya no esta en la tabla game
-                    //game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
+                    game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));
                     games.add(game);
                 }
             }
