@@ -7,10 +7,10 @@ import java.io.IOException;
 
 public abstract class Controller {
     App app;
-    public void updateApp (App app){
+    public void setApp(App app){
         this.app=app;
     }
 
-    public abstract void openTab(Object imput) throws IOException;
+    public abstract void onOpen(Object imput) throws IOException;
     public abstract void onClose(Object output);
 }

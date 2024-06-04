@@ -38,13 +38,14 @@ class GameDAOTest {
 
         Game game = GameDAO.build().findID(1);
 
-
+        assertEquals(game, GameDAO.build().findID(1));
 
         System.out.println(game);
     }
 
     @Test
     void findByPerson() {
+        Person person1 = new Person("Alberto1", "31022430F", "@123abcd");
     }
 
     @Test

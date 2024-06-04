@@ -31,7 +31,7 @@ public class PersonDAO implements IDAO<Person, String> {
             String idPersontmp = person.getNickName();
             if (idPersontmp != null) {
                 Person persontmp = findID(person.getNickName());
-                if (persontmp.getNickName() == null && persontmp.getPassword() == null) {
+                if (persontmp == null) {
                     try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT)) {
                         preparedStatement.setString(1, person.getNickName());
                         preparedStatement.setString(2, person.getDni());

@@ -9,8 +9,8 @@ public class Game {
     private String name;
     private String Category;
     private Person person;
-    private ArrayList<Archievement> archievements;
     private Company company;
+    private ArrayList<Archievement> archievements;
 
     public Game(int idGame, String name, String Category, Person person, Company company) {
         setIdGame(idGame);
@@ -80,9 +80,6 @@ public class Game {
 
     public void setArchievements(ArrayList<Archievement> archievements) {
         this.archievements = archievements;
-    }
-    public void setArchievement(Archievement archievement) {
-        this.archievements.add(archievement);
     }
 
     public void setCompany(Company company) {

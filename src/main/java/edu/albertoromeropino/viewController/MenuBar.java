@@ -19,12 +19,10 @@ public class MenuBar extends Controller implements Initializable {
 
     @FXML
     private BorderPane borderPane;
-
     private Controller centerController;
 
-
     @Override
-    public void openTab(Object imput) throws IOException {
+    public void onOpen(Object imput) throws IOException {
         changeTab(Scenes.GAME, null);
     }
 
@@ -35,21 +33,21 @@ public class MenuBar extends Controller implements Initializable {
 
     public void changeTab(Scenes scenes, Object data) throws IOException {
         View view = loadFXML(scenes);
-        borderPane.setCenter(view.scenes);
+        borderPane.setCenter(view.scene);
         this.centerController = view.controller;
-        this.centerController.openTab(data);
+        this.centerController.onOpen(data);
 
     }
 
-    public void openModal (Scenes scenes, String title, Controller parent, Object data) throws IOException{
-        View view = loadFXML(scenes);
+    public void openModal (Scenes scene, String title, Controller parent, Object data) throws IOException{
+        View view = loadFXML(scene);
         Stage stage = new Stage();
         stage.setTitle(title);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(App.stage);
-        Scene _scene = new Scene(view.scenes);
+        Scene _scene = new Scene(view.scene);
         stage.setScene(_scene);
-        view.controller.openTab(parent);
+        view.controller.onOpen(parent);
         stage.showAndWait();
 
     }
@@ -75,12 +73,12 @@ public class MenuBar extends Controller implements Initializable {
     }
 
     public static View loadFXML(Scenes scenes) throws IOException {
-        String url = scenes.getUrl();
+        String url = scenes.getURL();
         FXMLLoader loader = new FXMLLoader(App.class.getResource(url));
         Parent parent = loader.load();
         Controller controller = loader.getController();
         View view = new View();
-        view.scenes = parent;
+        view.scene = parent;
         view.controller = controller;
         return view;
     }

@@ -1,4 +1,4 @@
-package edu.albertoromeropino.model.utils;
+package edu.albertoromeropino.utils;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

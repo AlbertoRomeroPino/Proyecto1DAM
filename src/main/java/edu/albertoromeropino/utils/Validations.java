@@ -1,4 +1,4 @@
-package edu.albertoromeropino.model.utils;
+package edu.albertoromeropino.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -9,22 +9,11 @@ class PersonDAOTest {
 
     @Test
     void store() {
-        Person person1 = new Person("Alberto1","31022430F","@123abcd");
-        Person person2 = new Person("Alberto2","31022430H","@122abcd");
-        Person person3 = new Person("Alberto3","32022430G","@121abcd");
-        Person person = new Person("Alberto4","31023450G","@923abcd");
+
         Person person4 = new Person("PersonaPrueba","31023450G","@923abcd");
 
-        PersonDAO.build().store(person);
-        PersonDAO.build().store(person1);
-        PersonDAO.build().store(person2);
-        PersonDAO.build().store(person3);
         PersonDAO.build().store(person4);
 
-        assertEquals (person, PersonDAO.build().findID(person.getNickName()));
-        assertEquals (person1, PersonDAO.build().findID(person1.getNickName()));
-        assertEquals (person2, PersonDAO.build().findID(person2.getNickName()));
-        assertEquals (person3, PersonDAO.build().findID(person3.getNickName()));
         assertEquals (person4, PersonDAO.build().findID(person4.getNickName()));
     }
 

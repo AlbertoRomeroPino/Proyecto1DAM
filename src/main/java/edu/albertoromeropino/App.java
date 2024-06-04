@@ -16,22 +16,19 @@ public class App extends Application {
 
     public static Scene scene; // donde se ubica esta
     public static Stage stage; // pestaña de navegador como de aplicacion
-    public static MenuBar appController;
+    public static MenuBar currentController;
 
     @Override
     public void start(Stage stage) throws IOException {
+        //view/layout.fxml
         View view = MenuBar.loadFXML(Scenes.LOGIN);
-        scene = new Scene(view.scenes, 640,480);
-        appController = (MenuBar) view.controller;
-        appController.openTab(null);
+        scene = new Scene(view.scene, 640, 480);
+        currentController = (MenuBar) view.controller;
+        currentController.onOpen(null);
         stage.setScene(scene);
         stage.show();
-
-        /*//codigo por defecto posi acaso
-        scene = new Scene(loadFXML("viewController/Login"), 640, 480);
-        stage.setScene(scene);
-        stage.show();*/
     }
+
 
     static void setRoot(String fxml) throws IOException {
         //scene.setRoot(loadFXML(fxml));

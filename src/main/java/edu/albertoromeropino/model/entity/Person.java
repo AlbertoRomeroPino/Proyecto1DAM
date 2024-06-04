@@ -1,7 +1,7 @@
 package edu.albertoromeropino.model.entity;
 
 
-import edu.albertoromeropino.model.utils.Validations;
+import edu.albertoromeropino.utils.Validations;
 
 import java.util.ArrayList;
 import java.util.List;

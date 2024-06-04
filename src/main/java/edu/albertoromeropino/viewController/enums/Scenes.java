@@ -13,7 +13,7 @@ public enum Scenes {
         this.url = url;
     }
 
-    public String getUrl() {
+    public String getURL() {
         return url;
     }
 }

@@ -25,8 +25,8 @@ public class GameDAO implements IDAO<Game, Integer> {
     }
 
     private static final String FINDID = "select id_game, Name, Category, NickName, NameCompany " +
-            "from game " +
-            "where id_Game=?";
+            " from game " +
+            " where id_Game=?";
     private static final String FINDBYPERSON = "select ga.id_game, ga.Name, ga.Category, ga.NameCompany, pe.nickname " +
             " from game ga, person pe " +
             " where ga.nickname = pe.nickname and pe.nickname = ?";
@@ -88,14 +88,14 @@ public class GameDAO implements IDAO<Game, Integer> {
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                     Game gametmp = new Game();
-                    gametmp.setIdGame(resultSet.getInt("idGame"));
+                    gametmp.setIdGame(resultSet.getInt("id_Game"));
                     gametmp.setName(resultSet.getString("Name"));
                     gametmp.setCategory(resultSet.getString("Category"));
                     gametmp.setPerson(PersonDAO.build().findID(resultSet.getString("NickName")));
                     gametmp.setCompany(CompanyDAO.build().findID(resultSet.getString("NameCompany")));
 
                     // Esto ya no esta en la tabla game
-                    gametmp.setArchievements(ArchievementDAO.build().findByIdGame(gametmp.getIdGame()));
+                    //gametmp.setArchievements(ArchievementDAO.build().findByIdGame(gametmp.getIdGame()));
 
                     game = gametmp;
                 }

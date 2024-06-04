@@ -1,6 +1,6 @@
 package edu.albertoromeropino.model.connection;
 
-import edu.albertoromeropino.model.utils.ManagerXML;
+import edu.albertoromeropino.utils.ManagerXML;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
