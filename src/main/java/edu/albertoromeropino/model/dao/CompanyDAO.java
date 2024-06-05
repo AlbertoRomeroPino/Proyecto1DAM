@@ -2,12 +2,10 @@ package edu.albertoromeropino.model.dao;
 
 import edu.albertoromeropino.model.connection.ConnectionMariaDB;
 import edu.albertoromeropino.model.entity.Company;
-import edu.albertoromeropino.model.entity.Game;
 import edu.albertoromeropino.model.interfaces.IDAO;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.List;
 
 public class CompanyDAO implements IDAO<Company, String> {
     private Connection connection;
@@ -22,6 +20,12 @@ public class CompanyDAO implements IDAO<Company, String> {
     private static final String DELETE = "Delete from company where nameCompany = ?";
     private static final String UPDATE = "Update company set CompanyDirector = ?, CompanyCreation = ? where nameCompany = ?";
 
+    /**
+     * Almacena o actualiza una compañia que a sido pasada
+     *
+     * @param entity una compañia que se desea insertar
+     * @return la compañia insertada
+     */
     @Override
     public Company store(Company entity) {
         if (entity != null) {
@@ -54,6 +58,12 @@ public class CompanyDAO implements IDAO<Company, String> {
         return entity;
     }
 
+    /**
+     * Busca una compañia por su identificador que es el nameCompany. Se le pasa un String
+     *
+     * @param entityId es el nombre de la compañia que va a utilizarse para buscar a esta
+     * @return la compañia buscada
+     */
     @Override
     public Company findID(String entityId) {
         Company company = null;
@@ -66,7 +76,7 @@ public class CompanyDAO implements IDAO<Company, String> {
                     companytmp.setCompanyDirector(resultSet.getString("CompanyDirector"));
                     companytmp.setCompanyCreation(resultSet.getDate("CompanyCreation").toLocalDate());
                     //companytmp.setGames(GameDAO.build().findByCompany(resultSet.getString("NameCompany")));
-                    
+
                     company = companytmp;
                 }
             }
@@ -76,6 +86,12 @@ public class CompanyDAO implements IDAO<Company, String> {
         return company;
     }
 
+    /**
+     * Borra una compañia.
+     *
+     * @param entityDelete Se le pasa la compañia que deseas borrar
+     * @return la compañia que as borrado
+     */
     @Override
     public Company deleteEntity(Company entityDelete) {
         try (PreparedStatement preparedStatement = connection.prepareStatement(DELETE)) {
@@ -98,14 +114,3 @@ public class CompanyDAO implements IDAO<Company, String> {
         return new CompanyDAO();
     }
 }
-
-/*class CompanyLazy extends Company {
-    @Override
-    public List<Game> getGames() {
-        if (super.getGames() == null) {
-            setGames(GameDAO.build().findByCompany(this.getNameCompany()));
-        }
-        return super.getGames();
-    }
-}
-*/

@@ -12,17 +12,20 @@ public class Validations {
      * @return debuelve si es correcto o no
      */
 
-    /*public static boolean validateNickName (String nickName){
+    /*
+        Este no lo uso porque me da problemas pero mas adelante lo implementare
+        public static boolean validateNickName (String nickName){
         Pattern pattern = Pattern.compile("^(?!.*\\s)\\w{4,12}$");
         return pattern.matcher(nickName).matches();
     }*/
 
     /**
      * Valida el dni del usuario "muy basicamente"
+     *
      * @param dni el dni que se le pasa
      * @return si es valido o no el dni
      */
-    public static boolean validateDni (String dni){
+    public static boolean validateDni(String dni) {
         Pattern pattern = Pattern.compile("^\\d{8}[a-zA-Z]$");
         return pattern.matcher(dni).matches();
     }
@@ -30,6 +33,7 @@ public class Validations {
 
     /**
      * Encripta la contraseña usando SHA3-256
+     *
      * @param password la contraseña que se va a encriptar
      * @return la contraseña encriptada
      */

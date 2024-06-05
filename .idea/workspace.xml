@@ -5,10 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c0bc9fd-b9c2-4db2-80a4-09ad99a62a76" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/ArchievementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/ArchievementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/CompanyDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/GameDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/entity/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/interfaces/IDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/interfaces/IDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/test/ConnectionSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/test/ConnectionSave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/utils/ManagerXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/utils/ManagerXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/utils/Validations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/utils/Validations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/MenuBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/ArchievementDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/ArchievementDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/CompanyDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/CompanyDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/GameDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/GameDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/PersonDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/PersonDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +34,8 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -65,6 +78,7 @@
     "Application.connectionSave.executor": "Run",
     "JUnit.ArchievementDAOTest.deleteEntity.executor": "Run",
     "JUnit.ArchievementDAOTest.executor": "Run",
+    "JUnit.ArchievementDAOTest.findByIdGame.executor": "Run",
     "JUnit.ArchievementDAOTest.findID.executor": "Run",
     "JUnit.ArchievementDAOTest.store.executor": "Run",
     "JUnit.CompanyDAOTest.deleteEntity.executor": "Run",
@@ -92,7 +106,7 @@
     "git-widget-placeholder": "thirdAct",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/alrop/IdeaProjects/Proyecto1DAM/src/main/resources",
-    "settings.editor.selected.configurable": "sonarlint"
+    "settings.editor.selected.configurable": "project.scopes"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -113,46 +127,6 @@
       <recent name="edu.albertoromeropino.model.dao" />
       <recent name="edu.albertoromeropino.model.entity" />
     </key>
-  </component>
-  <component name="RunManager" selected="JUnit.GameDAOTest.findID">
-    <configuration name="ArchievementDAOTest.findID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Proyecto1DAM" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.albertoromeropino.model.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.albertoromeropino.model.dao" />
-      <option name="MAIN_CLASS_NAME" value="edu.albertoromeropino.model.dao.ArchievementDAOTest" />
-      <option name="METHOD_NAME" value="findID" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameDAOTest.findID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Proyecto1DAM" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.albertoromeropino.model.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.albertoromeropino.model.dao" />
-      <option name="MAIN_CLASS_NAME" value="edu.albertoromeropino.model.dao.GameDAOTest" />
-      <option name="METHOD_NAME" value="findID" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.GameDAOTest.findID" />
-        <item itemvalue="JUnit.ArchievementDAOTest.findID" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -175,25 +149,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/PersonDAO.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/ArchievementDAO.java</url>
-          <line>91</line>
-          <properties class="edu.albertoromeropino.model.dao.ArchievementDAO" method="findByIdGame">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

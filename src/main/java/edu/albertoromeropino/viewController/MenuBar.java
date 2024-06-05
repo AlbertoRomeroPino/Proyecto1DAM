@@ -23,7 +23,7 @@ public class MenuBar extends Controller implements Initializable {
 
     @Override
     public void onOpen(Object imput) throws IOException {
-        changeTab(Scenes.GAME, null);
+        changeScene(Scenes.GAME, null);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class MenuBar extends Controller implements Initializable {
 
     }
 
-    public void changeTab(Scenes scenes, Object data) throws IOException {
+    public void changeScene(Scenes scenes, Object data) throws IOException {
         View view = loadFXML(scenes);
         borderPane.setCenter(view.scene);
         this.centerController = view.controller;
@@ -85,6 +85,6 @@ public class MenuBar extends Controller implements Initializable {
 
     private void goToGame() throws IOException{
         System.out.println(Scenes.GAME);
-        changeTab(Scenes.GAME, null);
+        changeScene(Scenes.GAME, null);
     }
 }

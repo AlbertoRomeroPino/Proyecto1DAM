@@ -39,7 +39,7 @@ public class Company {
 
     public boolean setNameCompany(String nameCompany) {
         boolean nameSet = false;
-        if (nameCompany.length() < 40){
+        if (nameCompany.length() < 40) {
             this.nameCompany = nameCompany;
             nameSet = true;
         }
@@ -48,7 +48,7 @@ public class Company {
 
     public boolean setCompanyDirector(String companyDirector) {
         boolean directorSet = false;
-        if (companyDirector.length() < 40){
+        if (companyDirector.length() < 40) {
             this.companyDirector = companyDirector;
             directorSet = true;
         }
@@ -64,7 +64,7 @@ public class Company {
     }
 
     public void addGames(Game game) {
-        if (game != null){
+        if (game != null) {
             games.add(game);
         }
     }
@@ -75,8 +75,8 @@ public class Company {
         }
     }
 
-    public void updateGames(Game gameOld, Game gameNew){
-        if (gameNew != null && gameOld != null){
+    public void updateGames(Game gameOld, Game gameNew) {
+        if (gameNew != null && gameOld != null) {
             games.remove(gameOld);
             games.add(gameNew);
         }

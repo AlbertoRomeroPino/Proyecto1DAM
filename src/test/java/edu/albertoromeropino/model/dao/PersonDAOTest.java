@@ -10,29 +10,29 @@ class PersonDAOTest {
     @Test
     void store() {
 
-        Person person4 = new Person("PersonaPrueba","31023450G","@923abcd");
+        Person person4 = new Person("PersonaPrueba", "31023450G", "@923abcd");
 
         PersonDAO.build().store(person4);
 
-        assertEquals (person4, PersonDAO.build().findID(person4.getNickName()));
+        assertEquals(person4, PersonDAO.build().findID(person4.getNickName()));
     }
 
     @Test
-    void storeUpdate(){
+    void storeUpdate() {
         Person person1 = new Person("Pedro", "31264578I", "@121abd5");
         assertEquals(person1, PersonDAO.build().store(person1));
     }
 
     @Test
     void findID() {
-        Person person = new Person("Alberto2","31022430H","@123abcd");
+        Person person = new Person("Alberto2", "31022430H", "@123abcd");
         assertEquals(person, PersonDAO.build().findID("Alberto2"));
         System.out.println(PersonDAO.build().findID("Alberto2"));
     }
 
     @Test
     void deleteEntity() {
-        Person person = new Person("Alberto4","31023450G","@923abcd");
+        Person person = new Person("Alberto4", "31023450G", "@923abcd");
         assertEquals(person, PersonDAO.build().deleteEntity(person));
     }
 }

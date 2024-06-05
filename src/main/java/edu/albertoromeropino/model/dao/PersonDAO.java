@@ -1,7 +1,6 @@
 package edu.albertoromeropino.model.dao;
 
 import edu.albertoromeropino.model.connection.ConnectionMariaDB;
-import edu.albertoromeropino.model.entity.Game;
 import edu.albertoromeropino.model.entity.Person;
 import edu.albertoromeropino.model.interfaces.IDAO;
 
@@ -10,8 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Set;
 
 public class PersonDAO implements IDAO<Person, String> {
     private Connection connection;
@@ -25,6 +22,12 @@ public class PersonDAO implements IDAO<Person, String> {
     private static final String UPDATE = "update person set dni =?, Password = ? where nickname = ?";
     private static final String DELETE = "delete from person where nickname = ? and password = ?";
 
+    /**
+     * Almacena o actualiza las personas que hay en la base de datos
+     *
+     * @param person Que va a ser almacenada o actualizada
+     * @return la persona almacenada o actualizada
+     */
     @Override
     public Person store(Person person) {
         if (person != null) {
@@ -57,6 +60,12 @@ public class PersonDAO implements IDAO<Person, String> {
         return person;
     }
 
+    /**
+     * Se le pasa el nombre de una persona y se busca en la base de datos
+     *
+     * @param nickName nombre de la persona
+     * @return una persona con toda su información
+     */
     @Override
     public Person findID(String nickName) {
         Person person = null;
@@ -80,6 +89,12 @@ public class PersonDAO implements IDAO<Person, String> {
         return person;
     }
 
+    /**
+     * Borra una persona siempre que la contraseña y el nombre sean correctas
+     *
+     * @param person la persona que deseas borrar
+     * @return persona que a sido eliminada
+     */
     @Override
     public Person deleteEntity(Person person) {
         if (person != null) {

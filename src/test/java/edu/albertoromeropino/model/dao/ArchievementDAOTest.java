@@ -11,7 +11,7 @@ class ArchievementDAOTest {
     @Test
     void store() {
         Game game = GameDAO.build().findID(1);
-        Archievement archievement = new Archievement(5,"Caza un malvadoJho","Caza por primera vez un devilJho", "Usa armas de tipo draco o de paralisis para derrotarlo",game);
+        Archievement archievement = new Archievement(5, "Caza un malvadoJho", "Caza por primera vez un devilJho", "Usa armas de tipo draco o de paralisis para derrotarlo", game);
         ArchievementDAO.build().store(archievement);
         System.out.println(archievement);
     }
@@ -24,11 +24,7 @@ class ArchievementDAOTest {
 
     @Test
     void findByIdGame() {
-        //en el momento que escribo esto no puedo hacerlo porque no tengo que los juegos se almacenen los logros.
-        //Game game = new Game;
-        //game.setIdGame(1);
-        //game = ArchievementDAO.build().findByIdGame(1);
-
+        //En gameDAOTest esta ya la prueba con el Laizy de esta funcion
     }
 
     @Test

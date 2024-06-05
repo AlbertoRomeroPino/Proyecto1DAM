@@ -33,6 +33,12 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
     private static final String UPDATE = "Update archievement set ArchievementName=?, DescriptionArchievement=?, " +
             "HelpArchievement=? where Id_Game=?";
 
+    /**
+     * Almacena o actualiza datos en la base de datos
+     *
+     * @param entity de tipo logro
+     * @return El logro que a sido actualizado o insertado
+     */
     @Override
     public Archievement store(Archievement entity) {
         if (entity != null) {
@@ -44,7 +50,7 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
                         preparedStatement.setInt(1, entity.getIdArchievement());
                         preparedStatement.setString(2, entity.getArchievementName());
                         preparedStatement.setString(3, entity.getDescriptionArchievement());
-                        preparedStatement.setString(4,entity.getHelpArchievement());
+                        preparedStatement.setString(4, entity.getHelpArchievement());
                         preparedStatement.setInt(5, entity.getGame().getIdGame());
                         preparedStatement.executeUpdate();
                     } catch (SQLException e) {
@@ -56,7 +62,7 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
                         preparedStatement.setInt(4, entity.getIdArchievement());
                         preparedStatement.setString(1, entity.getArchievementName());
                         preparedStatement.setString(2, entity.getDescriptionArchievement());
-                        preparedStatement.setString(3,entity.getHelpArchievement());
+                        preparedStatement.setString(3, entity.getHelpArchievement());
                         preparedStatement.executeUpdate();
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -67,6 +73,12 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
         return entity;
     }
 
+    /**
+     * Busca un logro por su id
+     *
+     * @param entityId Se le pasa una variable numerica que es el identificador del logro
+     * @return devuelve un logro
+     */
     @Override
     public Archievement findID(Integer entityId) {
         Archievement archievement = null;
@@ -89,8 +101,14 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
         return archievement;
     }
 
+    /**
+     * Busca un logro por el juego que lo identifica
+     *
+     * @param gameId Es el identificador de el juego
+     * @return una lista de logros
+     */
     public ArrayList<Archievement> findByIdGame(Integer gameId) {
-        ArrayList<Archievement> archievements = null;
+        ArrayList<Archievement> archievements = new ArrayList<>();
         try (PreparedStatement preparedStatement = connection.prepareStatement(FINDBYIDGAME)) {
             preparedStatement.setInt(1, gameId);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -104,12 +122,18 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
                     archievements.add(archievementtmp);
                 }
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return archievements;
     }
 
+    /**
+     * Borra un logro
+     *
+     * @param entityDelete es el logro que deseas borrar
+     * @return el logro que se a eliminado
+     */
     @Override
     public Archievement deleteEntity(Archievement entityDelete) {
         if (entityDelete != null) {
@@ -123,7 +147,6 @@ public class ArchievementDAO implements IDAO<Archievement, Integer> {
 
         return null;
     }
-
 
 
     @Override

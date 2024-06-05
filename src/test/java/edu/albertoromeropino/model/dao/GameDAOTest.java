@@ -42,6 +42,8 @@ class GameDAOTest {
         Game game = GameDAO.build().findID(1);
 
         System.out.println(game);
+        game.getArchievements();
+        System.out.println(game);
     }
 
     @Test
