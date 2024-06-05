@@ -25,9 +25,10 @@ public class Login extends Controller implements Initializable {
     public void initialize(URL localition, ResourceBundle resourceBundle) {
 
     }
+
     @Override
     public void onOpen(Object imput) throws IOException {
-            enterApp(Scenes.LOGIN);
+
     }
 
     @Override
@@ -36,25 +37,17 @@ public class Login extends Controller implements Initializable {
     }
 
     @FXML
-    private void enterApp (Scenes event) throws IOException{
+    private void enterApp(Scenes event) throws IOException {
         Person person = new Person();
         person.setNickName(user.getText());
-        person = PersonDAO.build().findID(person.getNickName());
         person.getPassword().equals(person.setPassword(password.getText()));
+        Person personDB = PersonDAO.build().findID(person.getNickName());
 
+        if (person.getPassword().equals(personDB.getPassword())) {
+            person = personDB;
+
+        }
     }
-
-    public static View loadFXML(Scenes scenes) throws IOException {
-        String url = scenes.getURL();
-        FXMLLoader loader = new FXMLLoader(App.class.getResource(url));
-        Parent parent = loader.load();
-        Controller controller = loader.getController();
-        View view = new View();
-        view.scene = parent;
-        view.controller = controller;
-        return view;
-    }
-
 
 
 }

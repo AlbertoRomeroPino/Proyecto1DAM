@@ -26,11 +26,6 @@ public class MenuBar extends Controller implements Initializable {
         changeScene(Scenes.GAME, null);
     }
 
-    @Override
-    public void onClose(Object output) {
-
-    }
-
     public void changeScene(Scenes scenes, Object data) throws IOException {
         View view = loadFXML(scenes);
         borderPane.setCenter(view.scene);
@@ -39,7 +34,7 @@ public class MenuBar extends Controller implements Initializable {
 
     }
 
-    public void openModal (Scenes scene, String title, Controller parent, Object data) throws IOException{
+    public void openModal(Scenes scene, String title, Controller parent, Object data) throws IOException {
         View view = loadFXML(scene);
         Stage stage = new Stage();
         stage.setTitle(title);
@@ -52,20 +47,27 @@ public class MenuBar extends Controller implements Initializable {
 
     }
 
-// Los 3 de abajo son para la menuBar Help
+    @Override
+    public void onClose(Object output) {
+
+    }
+
+
+    // Los 3 de abajo son para la menuBar Help
     @FXML
-    private void Exit(){
+    private void Exit() {
         System.exit(0);
     }
+
     @FXML
-    private void Error(){
-        Exit();
-    }
-    @FXML
-    private void Help(){
+    private void Error() {
         Exit();
     }
 
+    @FXML
+    private void Help() {
+        Exit();
+    }
 
 
     public void initialize(URL localition, ResourceBundle resourceBundle) {
@@ -83,7 +85,7 @@ public class MenuBar extends Controller implements Initializable {
         return view;
     }
 
-    private void goToGame() throws IOException{
+    private void goToGame() throws IOException {
         System.out.println(Scenes.GAME);
         changeScene(Scenes.GAME, null);
     }

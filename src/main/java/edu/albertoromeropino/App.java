@@ -1,5 +1,6 @@
 package edu.albertoromeropino;
 
+import edu.albertoromeropino.viewController.Login;
 import edu.albertoromeropino.viewController.MenuBar;
 import edu.albertoromeropino.viewController.View;
 import edu.albertoromeropino.viewController.enums.Scenes;
@@ -16,14 +17,13 @@ public class App extends Application {
 
     public static Scene scene; // donde se ubica esta
     public static Stage stage; // pestaña de navegador como de aplicacion
-    public static MenuBar currentController;
+    public static Login currentController;
 
     @Override
     public void start(Stage stage) throws IOException {
-        //view/layout.fxml
         View view = MenuBar.loadFXML(Scenes.LOGIN);
         scene = new Scene(view.scene, 640, 480);
-        currentController = (MenuBar) view.controller;
+        currentController = (Login) view.controller;
         currentController.onOpen(null);
         stage.setScene(scene);
         stage.show();
