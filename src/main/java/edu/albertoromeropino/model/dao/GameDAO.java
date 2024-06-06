@@ -1,6 +1,7 @@
 package edu.albertoromeropino.model.dao;
 
 
+
 import edu.albertoromeropino.model.connection.ConnectionMariaDB;
 import edu.albertoromeropino.model.entity.Archievement;
 import edu.albertoromeropino.model.entity.Game;
@@ -123,7 +124,7 @@ public class GameDAO implements IDAO<Game, Integer> {
 
                 while (resultSet.next()) {
 
-                    Game game = new Game();
+                    GameLazy game = new GameLazy();
                     game.setIdGame(resultSet.getInt("Id_Game"));
                     game.setName(resultSet.getString("Name"));
                     game.setCategory(resultSet.getString("Category"));
@@ -157,7 +158,7 @@ public class GameDAO implements IDAO<Game, Integer> {
 
                 while (resultSet.next()) {
 
-                    Game game = new Game();
+                    GameLazy game = new GameLazy();
                     game.setIdGame(resultSet.getInt("Id_Game"));
                     game.setName(resultSet.getString("Name"));
                     game.setCategory(resultSet.getString("Category"));
