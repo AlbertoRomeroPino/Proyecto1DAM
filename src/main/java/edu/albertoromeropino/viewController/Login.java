@@ -28,14 +28,18 @@ public class Login extends Controller implements Initializable {
 
     @Override
     public void onOpen(Object imput) throws IOException {
-        changeScene(Scenes.MENUBAR, null);
+        showScene(Scenes.LOGIN, null);
+    }
+
+    public void showScene(Scenes scenes, Object data) throws  IOException{
+        View view = MenuBar.loadFXML(scenes);
     }
 
     public void changeScene(Scenes scenes, Object data) throws IOException {
-        View view = MenuBar.loadFXML(scenes);
-        controller= view.controller;
-        controller.onOpen(data);
+        App.setRoot(scenes);
     }
+
+
 
     @Override
     public void onClose(Object output) {
@@ -51,20 +55,23 @@ public class Login extends Controller implements Initializable {
         person.setPassword(password.getText());
 
 
-        if (person.getNickName() != null) {
+        if (person.getNickName() != null || person.getNickName().equals("")) {
             Person personDB = PersonDAO.build().findID(person.getNickName());
             System.out.println(person);
             if (person.getNickName().equals(personDB.getNickName()) /*&&
             person.getPassword().equals(personDB.getPassword())*/) {
                 person = personDB;
                 System.out.println(person);
-                App.currentController.changeScene(Scenes.MENUBAR,null);
+                changeScene(Scenes.MENUBAR, null);
+            }else {
+                //Manda pantalla de error. Futuras actualizaciones
             }
         }
     }
 
-
-    public void register(Event event) throws IOException {
-        App.currentController.onOpen(Scenes.REGISTER);
+    @FXML
+    public void registerInApp(Event event) throws IOException {
+        changeScene(Scenes.REGISTER, null);
     }
+
 }

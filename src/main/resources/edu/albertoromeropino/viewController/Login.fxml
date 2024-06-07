@@ -27,7 +27,7 @@
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button contentDisplay="RIGHT" mnemonicParsing="false" text="Register Now">
+                <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#registerInApp" text="Register">
                     <HBox.margin>
                         <Insets left="50.0" />
                     </HBox.margin>

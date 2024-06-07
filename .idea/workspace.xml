@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c0bc9fd-b9c2-4db2-80a4-09ad99a62a76" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/GameDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/GameDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/PersonDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/PersonDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Register.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +23,8 @@
         <option value="Enum" />
         <option value="FxmlFile" />
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -89,6 +88,7 @@
     "JUnit.PersonTest.getDni.executor": "Run",
     "JUnit.PersonTest.getNickName.executor": "Run",
     "JUnit.PersonTest.getPassword.executor": "Run",
+    "JUnit.edu.albertoromeropino.model in Proyecto1DAM.executor": "Run",
     "JUnit.edu.albertoromeropino.model.dao in Proyecto1DAM.executor": "Debug",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.Proyecto1DAM [package].executor": "Run",
@@ -120,7 +120,7 @@
       <recent name="edu.albertoromeropino.model.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.edu.albertoromeropino.model in Proyecto1DAM">
+  <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.albertoromeropino.App" />
       <module name="Proyecto1DAM" />
@@ -134,23 +134,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="edu.albertoromeropino.model in Proyecto1DAM" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Proyecto1DAM" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.albertoromeropino.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.albertoromeropino.model" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.edu.albertoromeropino.model in Proyecto1DAM" />
         <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
@@ -176,16 +161,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Login.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
