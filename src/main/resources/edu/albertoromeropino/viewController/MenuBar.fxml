@@ -9,8 +9,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Game" />
-                  <MenuItem mnemonicParsing="false" text="Company" />
+              <MenuItem mnemonicParsing="false" onAction="#goToGame" text="Game" />
+                  <MenuItem mnemonicParsing="false" onAction="#goToCompany" text="Company" />
                   <MenuItem mnemonicParsing="false" text="Achievement" />
             </items>
           </Menu>

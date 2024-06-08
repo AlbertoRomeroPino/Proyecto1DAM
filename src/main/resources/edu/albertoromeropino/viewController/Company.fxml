@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.albertoromeropino.viewController.CompanyController">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Company">
+         <VBox.margin>
+            <Insets left="250.0" top="5.0" />
+         </VBox.margin>
+      </Text>
+      <TableView fx:id="tableView" prefHeight="355.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="columnNameCompany" prefWidth="212.79998779296875" text="Name Company" />
+          <TableColumn fx:id="columnDirector" prefWidth="192.0" text="Director" />
+            <TableColumn fx:id="columnCreation" prefWidth="196.0" text="Creation" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

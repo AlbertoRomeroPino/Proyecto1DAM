@@ -4,6 +4,7 @@ import edu.albertoromeropino.model.entity.Company;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,5 +34,12 @@ class CompanyDAOTest {
     void deleteEntity() {
         Company company23 = new Company("compania34", "nose2", LocalDate.of(1992, 11, 10));
         assertEquals(company23, CompanyDAO.build().deleteEntity(company23));
+    }
+
+    @Test
+    void findAll() {
+        ArrayList<Company> companies;
+        companies = CompanyDAO.build().findAll();
+        System.out.println(companies);
     }
 }

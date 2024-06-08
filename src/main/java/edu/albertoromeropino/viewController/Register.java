@@ -7,11 +7,10 @@ import edu.albertoromeropino.viewController.enums.Scenes;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import javax.swing.*;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -51,13 +50,17 @@ public class Register extends Controller implements Initializable {
         if (!person.getNickName().equals("")) {
             Person personDB = PersonDAO.build().findID(person.getNickName());
 
-            if (personDB.getNickName() == null || personDB.getNickName().equals("")) {
+            if (personDB == null || personDB.getNickName() == null) {
                 PersonDAO.build().store(person);
-                App.setRoot(Scenes.LOGIN);
+                goBack();
             } else {
                 //Mensaje de "Ya existe este usuario"
 
             }
         }
+    }
+    @FXML
+    public void goBack() throws IOException{
+        App.setRoot(Scenes.LOGIN);
     }
 }

@@ -7,6 +7,11 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.albertoromeropino.viewController.Register">
     <children>
+      <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#goBack" text="Go Back">
+         <VBox.margin>
+            <Insets bottom="20.0" right="500.0" />
+         </VBox.margin>
+      </Button>
         <TextField fx:id="nickName" alignment="CENTER" promptText="User">
             <font>
                 <Font size="18.0" />

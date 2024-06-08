@@ -6,16 +6,17 @@ import edu.albertoromeropino.model.interfaces.IDAO;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class CompanyDAO implements IDAO<Company, String> {
     private Connection connection;
-    private PreparedStatement preparedStatement;
 
     public CompanyDAO() {
         connection = ConnectionMariaDB.getConnection();
     }
 
     private static final String FINDID = "select nameCompany, companyDirector, companyCreation from company where nameCompany = ?";
+    private static final String FINDALL = "select nameCompany, companyDirector, companyCreation from company";
     private static final String INSERT = "insert into company (nameCompany, CompanyDirector, CompanyCreation) values (?,?,?)";
     private static final String DELETE = "Delete from company where nameCompany = ?";
     private static final String UPDATE = "Update company set CompanyDirector = ?, CompanyCreation = ? where nameCompany = ?";
@@ -78,6 +79,26 @@ public class CompanyDAO implements IDAO<Company, String> {
                     //companytmp.setGames(GameDAO.build().findByCompany(resultSet.getString("NameCompany")));
 
                     company = companytmp;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return company;
+    }
+
+    public ArrayList<Company> findAll() {
+        ArrayList<Company> company = new ArrayList<>();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(FINDALL)) {
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Company companytmp = new Company();
+                    companytmp.setNameCompany(resultSet.getString("NameCompany"));
+                    companytmp.setCompanyDirector(resultSet.getString("CompanyDirector"));
+                    companytmp.setCompanyCreation(resultSet.getDate("CompanyCreation").toLocalDate());
+                    //companytmp.setGames(GameDAO.build().findByCompany(resultSet.getString("NameCompany")));
+
+                    company.add(companytmp);
                 }
             }
         } catch (SQLException e) {
