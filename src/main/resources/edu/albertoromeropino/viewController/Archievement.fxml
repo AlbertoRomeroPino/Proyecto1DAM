@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <TableView prefHeight="378.0" prefWidth="600.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Id" />
+          <TableColumn prefWidth="111.19995880126953" text="Name" />
+            <TableColumn prefWidth="202.4000244140625" text="Description" />
+            <TableColumn prefWidth="211.39993286132812" text="Help" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

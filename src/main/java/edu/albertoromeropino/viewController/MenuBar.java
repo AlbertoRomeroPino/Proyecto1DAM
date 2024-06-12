@@ -34,18 +34,17 @@ public class MenuBar extends Controller implements Initializable {
 
     }
 
-    public void openModal(Scenes scene, String title, Controller parent, Object data) throws IOException {
-        View view = loadFXML(scene);
-        Stage stage = new Stage();
-        stage.setTitle(title);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initOwner(App.stage);
-        Scene _scene = new Scene(view.scene);
-        stage.setScene(_scene);
-        view.controller.onOpen(parent);
-        stage.showAndWait();
-
+    public static View loadFXML(Scenes scenes) throws IOException {
+        String url = scenes.getURL();
+        FXMLLoader loader = new FXMLLoader(App.class.getResource(url));
+        Parent parent = loader.load();
+        Controller controller = loader.getController();
+        View view = new View();
+        view.scene = parent;
+        view.controller = controller;
+        return view;
     }
+
 
     @Override
     public void onClose(Object output) {
@@ -74,16 +73,7 @@ public class MenuBar extends Controller implements Initializable {
 
     }
 
-    public static View loadFXML(Scenes scenes) throws IOException {
-        String url = scenes.getURL();
-        FXMLLoader loader = new FXMLLoader(App.class.getResource(url));
-        Parent parent = loader.load();
-        Controller controller = loader.getController();
-        View view = new View();
-        view.scene = parent;
-        view.controller = controller;
-        return view;
-    }
+
 
     @FXML
     private void goToGame() throws IOException {

@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c0bc9fd-b9c2-4db2-80a4-09ad99a62a76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/CompanyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Company.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AddGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Archievement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/AddCompany.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/AddGame.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Archievement.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/dao/CompanyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/model/entity/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/MenuBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/enums/Scenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/enums/Scenes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/MenuBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/MenuBar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/CompanyDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/albertoromeropino/model/dao/CompanyDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Company.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Company.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/albertoromeropino/viewController/Game.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +31,8 @@
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -189,13 +193,23 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/MenuBar.java</url>
-          <line>95</line>
+          <line>85</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/MenuBar.java</url>
-          <line>89</line>
+          <line>79</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AddGame.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AddGame.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

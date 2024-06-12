@@ -20,7 +20,6 @@ public class Login extends Controller implements Initializable {
     private TextField user;
     @FXML
     private PasswordField password;
-    private Controller controller;
 
     public void initialize(URL localition, ResourceBundle resourceBundle) {
 
