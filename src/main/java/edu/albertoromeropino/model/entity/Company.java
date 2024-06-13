@@ -90,8 +90,8 @@ public class Company {
     @Override
     public boolean equals(Object o) {
         boolean result = false;
-        if (this == o) result = true;
-        if (o == null || getClass() != o.getClass()) result = false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Company company = (Company) o;
         result = Objects.equals(nameCompany, company.nameCompany);
         return result;

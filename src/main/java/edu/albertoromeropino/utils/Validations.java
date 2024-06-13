@@ -1,5 +1,7 @@
 package edu.albertoromeropino.utils;
 
+import javafx.scene.control.TextField;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
@@ -61,4 +63,5 @@ public class Validations {
         }
         return hexString;
     }
+
 }

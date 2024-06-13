@@ -31,6 +31,8 @@ public class GameDAO implements IDAO<Game, Integer> {
     private static final String FINDBYCOMPANY = "select ga.id_game, ga.Name, ga.Category, ga.NameCompany, ga.nickname " +
             " from game ga, company co " +
             " where ga.nameCompany = co.nameCompany and co.nameCompany = ?";
+    private static final String FINDALL = "select id_game, Name, Category, NickName, NameCompany " +
+            " from game ";
     private static final String INSERT = "insert into game(id_game, Name, Category, NickName, NameCompany) " +
             "values (?,?,?,?,?)";
     private static final String DELETE = "Delete from game where id_game=?";
@@ -48,7 +50,7 @@ public class GameDAO implements IDAO<Game, Integer> {
             int idGametmp = entity.getIdGame();
             if (idGametmp > 0) {
                 Game gametmp = findID(idGametmp);
-                if (gametmp == null) {
+                if (gametmp.getName() == null) {
                     try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT)) {
                         preparedStatement.setInt(1, entity.getIdGame());
                         preparedStatement.setString(2, entity.getName());
@@ -85,7 +87,7 @@ public class GameDAO implements IDAO<Game, Integer> {
      */
     @Override
     public Game findID(Integer entityId) {
-        GameLazy game = null;
+        GameLazy game = new GameLazy();
         try (PreparedStatement preparedStatement = connection.prepareStatement(FINDID)) {
             preparedStatement.setInt(1, entityId);    //Recordatorio esto es para intercambiar con la ? de FindID
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -108,6 +110,7 @@ public class GameDAO implements IDAO<Game, Integer> {
         }
         return game;
     }
+
 
     /**
      * Busca un juego por el id de la persona

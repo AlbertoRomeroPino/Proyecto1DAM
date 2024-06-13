@@ -67,7 +67,7 @@ public class CompanyDAO implements IDAO<Company, String> {
      */
     @Override
     public Company findID(String entityId) {
-        Company company = null;
+        Company company = new Company();
         try (PreparedStatement preparedStatement = connection.prepareStatement(FINDID)) {
             preparedStatement.setString(1, entityId);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {

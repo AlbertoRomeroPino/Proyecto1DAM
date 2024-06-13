@@ -77,13 +77,11 @@ public class MenuBar extends Controller implements Initializable {
 
     @FXML
     private void goToGame() throws IOException {
-        System.out.println(Scenes.GAME);
         changeScene(Scenes.GAME, null);
     }
 
     @FXML
     private void goToCompany() throws IOException {
-        System.out.println(Scenes.COMPANY);
         changeScene(Scenes.COMPANY, null);
     }
 }

@@ -88,9 +88,17 @@ public class GameController extends Controller implements Initializable {
 
     @FXML
     public void deleteGame(Event event) throws IOException {
-        /*if (this != null){
-            GameDAO.build().deleteEntity(this);
-        }*/
+       GameDAO.build().deleteEntity(tableView.getSelectionModel().getSelectedItem());
+       this.games.remove(tableView.getSelectionModel().getSelectedItem());
+    }
+
+    public void storeGame(Game newGame){
+        GameDAO.build().store(newGame);
+        this.games.add(newGame);
+    }
+
+    public void updateTable(Game game){
+        this.games.add(game);
     }
 
     @FXML

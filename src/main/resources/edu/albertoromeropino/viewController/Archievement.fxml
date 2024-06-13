@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.albertoromeropino.viewController.ArchievementController">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <TableView prefHeight="378.0" prefWidth="600.0">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Achievement" />
+      <TableView fx:id="tableView" prefHeight="378.0" prefWidth="600.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Id" />
-          <TableColumn prefWidth="111.19995880126953" text="Name" />
-            <TableColumn prefWidth="202.4000244140625" text="Description" />
-            <TableColumn prefWidth="211.39993286132812" text="Help" />
+          <TableColumn fx:id="columnIdArchievement" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="columnName" prefWidth="111.19995880126953" text="Name" />
+            <TableColumn fx:id="columnDescription" prefWidth="202.4000244140625" text="Description" />
+            <TableColumn fx:id="columnHelp" prefWidth="211.39993286132812" text="Help" />
         </columns>
       </TableView>
    </children>

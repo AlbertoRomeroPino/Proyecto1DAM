@@ -1,12 +1,19 @@
 package edu.albertoromeropino.viewController;
 
 import edu.albertoromeropino.model.dao.CompanyDAO;
+import edu.albertoromeropino.model.dao.GameDAO;
 import edu.albertoromeropino.model.entity.Company;
+import edu.albertoromeropino.model.entity.Game;
+import edu.albertoromeropino.model.entity.Person;
+import edu.albertoromeropino.utils.Validations;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
@@ -28,6 +35,7 @@ public class AddGame extends Controller implements Initializable {
     private ComboBox<Company> company;
 
     private ObservableList<Company> companies;
+    private GameController controller;
 
     @Override
     public void onOpen(Object imput) throws IOException {
@@ -44,12 +52,23 @@ public class AddGame extends Controller implements Initializable {
         List<Company> companies = CompanyDAO.build().findAll();
         this.companies = FXCollections.observableArrayList(companies);
         company.setItems(this.companies);
-    }
 
+        id.textProperty().addListener(new ChangeListener<String>() {
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    id.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+    }
 
     @FXML
-    private void closeWindow(Event event) {
-
-        //Game game = new Game(id.getText(), name.getText(), category.getText(), Person.getPerson(), CompanyDAO.build().findID());
+    private void addGame(Event event) {
+        Game game = new Game(Integer.parseInt(id.getText()), name.getText(), category.getText(), Person.getPerson(), company.getValue());
+        this.controller.storeGame(game);
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
+
+
 }
