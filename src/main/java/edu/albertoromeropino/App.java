@@ -31,11 +31,11 @@ public class App extends Application {
     }
 
 
-    public static void setRoot(Scenes scene_) throws IOException {
+    public static void setRoot(Scenes scene_, Object data) throws IOException {
         View view = MenuBar.loadFXML(scene_);
         scene = new Scene(view.scene, 640, 480);
         currentController = (Controller) view.controller;
-        currentController.onOpen(null);
+        currentController.onOpen(data);
         stage.setScene(scene);
         //stage_.show();
     }

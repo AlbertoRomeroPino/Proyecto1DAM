@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,8 +19,8 @@ public class MenuBar extends Controller implements Initializable {
     private Controller centerController;
 
     @Override
-    public void onOpen(Object imput) throws IOException {
-        changeScene(Scenes.GAME, null);
+    public void onOpen(Object input) throws IOException {
+        changeScene(Scenes.MYGAME, null);
     }
 
     public void changeScene(Scenes scenes, Object data) throws IOException {
@@ -37,12 +34,28 @@ public class MenuBar extends Controller implements Initializable {
     public static View loadFXML(Scenes scenes) throws IOException {
         String url = scenes.getURL();
         FXMLLoader loader = new FXMLLoader(App.class.getResource(url));
+        View view = new View();
+        try {
+            Parent parent = loader.load();
+            Controller controller = loader.getController();
+            view.scene = parent;
+            view.controller = controller;
+        } catch (IOException e) {
+            e.printStackTrace(); // Imprime la pila de errores para obtener más detalles
+            throw e; // Re-lanza la excepción después de imprimir la pila
+        }
+        return view;
+
+
+
+        /*String url = scenes.getURL();
+        FXMLLoader loader = new FXMLLoader(App.class.getResource(url));
         Parent parent = loader.load();
         Controller controller = loader.getController();
         View view = new View();
         view.scene = parent;
         view.controller = controller;
-        return view;
+        return view;*/
     }
 
 
@@ -73,15 +86,17 @@ public class MenuBar extends Controller implements Initializable {
 
     }
 
-
-
     @FXML
     private void goToGame() throws IOException {
-        changeScene(Scenes.GAME, null);
+        changeScene(Scenes.MYGAME, null);
     }
 
     @FXML
     private void goToCompany() throws IOException {
         changeScene(Scenes.COMPANY, null);
+    }
+    @FXML
+    private void goToAllGames() throws IOException{
+        changeScene(Scenes.ALLGAMES, null);
     }
 }

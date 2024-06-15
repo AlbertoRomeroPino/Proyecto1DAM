@@ -72,4 +72,10 @@ class GameDAOTest {
         Game game = GameDAO.build().findID(5);
         GameDAO.build().deleteEntity(game);
     }
+
+    @Test
+    void findAll() {
+        ArrayList<Game> games = GameDAO.build().findAll();
+        System.out.println(games);
+    }
 }

@@ -111,6 +111,29 @@ public class GameDAO implements IDAO<Game, Integer> {
         return game;
     }
 
+    public ArrayList<Game> findAll() {
+        ArrayList<Game> game = new ArrayList<>();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(FINDALL)) {
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    GameLazy gametmp = new GameLazy();
+                    gametmp.setIdGame(resultSet.getInt("id_Game"));
+                    gametmp.setName(resultSet.getString("Name"));
+                    gametmp.setCategory(resultSet.getString("Category"));
+                    gametmp.setPerson(PersonDAO.build().findID(resultSet.getString("NickName")));
+                    gametmp.setCompany(CompanyDAO.build().findID(resultSet.getString("NameCompany")));
+
+                    //gametmp.getArchievement();
+                    // gametmp.setArchievements(storeArchievement(gametmp));
+
+                    game.add(gametmp);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return game;
+    }
 
     /**
      * Busca un juego por el id de la persona

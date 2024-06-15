@@ -26,7 +26,7 @@ public class Login extends Controller implements Initializable {
     }
 
     @Override
-    public void onOpen(Object imput) throws IOException {
+    public void onOpen(Object input) throws IOException {
         showScene(Scenes.LOGIN, null);
     }
 
@@ -35,7 +35,7 @@ public class Login extends Controller implements Initializable {
     }
 
     public void changeScene(Scenes scenes, Object data) throws IOException {
-        App.setRoot(scenes);
+        App.setRoot(scenes, null);
     }
 
 

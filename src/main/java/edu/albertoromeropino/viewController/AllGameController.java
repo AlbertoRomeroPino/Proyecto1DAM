@@ -15,15 +15,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GameController extends Controller implements Initializable {
+public class AllGameController extends Controller implements Initializable {
 
     @FXML
     private TableView<Game> tableView;
@@ -34,6 +32,8 @@ public class GameController extends Controller implements Initializable {
     @FXML
     private TableColumn<Game, String> columnCategory;
     @FXML
+    private TableColumn<Game, String> columnPerson;
+    @FXML
     private TableColumn<Game, String> columnCompany;
 
     private ObservableList<Game> games;
@@ -41,7 +41,7 @@ public class GameController extends Controller implements Initializable {
 
     @Override
     public void onOpen(Object input) throws IOException {
-        List<Game> games = GameDAO.build().findByPerson(Person.getPerson().getNickName());
+        List<Game> games = GameDAO.build().findAll();
         this.games = FXCollections.observableArrayList(games);
         tableView.setItems(this.games);
     }
@@ -56,8 +56,8 @@ public class GameController extends Controller implements Initializable {
         tableView.setEditable(true);
         columnIdGame.setCellValueFactory(game -> new SimpleIntegerProperty(game.getValue().getIdGame()).asObject());
         columnName.setCellValueFactory(game -> new SimpleStringProperty(game.getValue().getName()));
-        columnName.setCellFactory(TextFieldTableCell.forTableColumn());
         columnCategory.setCellValueFactory(game -> new SimpleStringProperty(game.getValue().getCategory()));
+        columnPerson.setCellValueFactory(game -> new SimpleStringProperty(game.getValue().getPerson().getNickName()));
         columnCompany.setCellValueFactory(game -> new SimpleStringProperty(game.getValue().getCompany().getNameCompany()));
 
         columnName.setOnEditCommit(event -> {
@@ -74,15 +74,23 @@ public class GameController extends Controller implements Initializable {
                 alert.setContentText("Error");
                 alert.show();
             }
-            //Actualizar los datos
-
-
-
         });
     }
 
     @FXML
-    public void findArchievement(Event event) throws IOException{
-       App.setRoot(Scenes.ARCHIEVEMENT, tableView.getSelectionModel().getSelectedItem().getIdGame());
+    public void addGame(Event event) throws IOException {
+        App.currentController.openModal(Scenes.ADDGAME, "Agregar un juego", this, null);
     }
+
+    @FXML
+    public void deleteGame(Event event) throws IOException {
+        GameDAO.build().deleteEntity(tableView.getSelectionModel().getSelectedItem());
+        this.games.remove(tableView.getSelectionModel().getSelectedItem());
+    }
+
+    public void storeGame(Game newGame){
+        GameDAO.build().store(newGame);
+        this.games.add(newGame);
+    }
+
 }

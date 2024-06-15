@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.albertoromeropino.viewController.ArchievementController">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Achievement" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#goToMenuBar" text="Go Back" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Achievement">
+               <HBox.margin>
+                  <Insets left="200.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
       <TableView fx:id="tableView" prefHeight="378.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="columnIdArchievement" prefWidth="75.0" text="Id" />
@@ -16,5 +28,15 @@
             <TableColumn fx:id="columnHelp" prefWidth="211.39993286132812" text="Help" />
         </columns>
       </TableView>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#addArchievement" text="Add">
+               <HBox.margin>
+                  <Insets left="20.0" right="40.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#deleteArchievement" text="Delete" />
+         </children>
+      </HBox>
    </children>
 </VBox>

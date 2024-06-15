@@ -24,12 +24,12 @@
       </TableView>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Add">
+            <Button mnemonicParsing="false" onAction="#addCompany" text="Add">
                <HBox.margin>
                   <Insets right="40.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#deleteCompany" text="Delete" />
          </children>
       </HBox>
    </children>

@@ -25,7 +25,7 @@ public class Register extends Controller implements Initializable {
     private PasswordField password;
 
     @Override
-    public void onOpen(Object imput) throws IOException {
+    public void onOpen(Object input) throws IOException {
 
     }
 
@@ -61,6 +61,6 @@ public class Register extends Controller implements Initializable {
     }
     @FXML
     public void goBack() throws IOException{
-        App.setRoot(Scenes.LOGIN);
+        App.setRoot(Scenes.LOGIN, null);
     }
 }

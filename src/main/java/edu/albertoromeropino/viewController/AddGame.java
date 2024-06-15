@@ -35,10 +35,10 @@ public class AddGame extends Controller implements Initializable {
     private ComboBox<Company> company;
 
     private ObservableList<Company> companies;
-    private GameController controller;
+    private AllGameController controller;
 
     @Override
-    public void onOpen(Object imput) throws IOException {
+    public void onOpen(Object input) throws IOException {
 
     }
 
