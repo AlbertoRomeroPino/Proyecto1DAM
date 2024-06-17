@@ -67,7 +67,8 @@ public class AddGame extends Controller implements Initializable {
     private void addGame(Event event) {
         Game game = new Game(Integer.parseInt(id.getText()), name.getText(), category.getText(), Person.getPerson(), company.getValue());
         System.out.println(game);
-        this.controller.storeGame(game);
+        GameDAO.build().store(game);
+        //this.controller.storeGame(game);
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 

@@ -73,7 +73,6 @@ public class AllGameController extends Controller implements Initializable {
     }
 
     public void storeGame(Game newGame){
-        GameDAO.build().store(newGame);
         this.games.add(newGame);
     }
 

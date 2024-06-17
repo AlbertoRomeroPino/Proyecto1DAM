@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3c0bc9fd-b9c2-4db2-80a4-09ad99a62a76" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/utils/Validations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/utils/Validations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AddArchievement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AddArchievement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AddCompany.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AddCompany.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AddGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AddGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AllGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AllGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/ArchievementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/ArchievementController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,48 +60,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "Application.ConnectionSave.executor": "Run",
-    "Application.connectionSave.executor": "Run",
-    "JUnit.ArchievementDAOTest.deleteEntity.executor": "Run",
-    "JUnit.ArchievementDAOTest.executor": "Run",
-    "JUnit.ArchievementDAOTest.findByIdGame.executor": "Run",
-    "JUnit.ArchievementDAOTest.findID.executor": "Run",
-    "JUnit.ArchievementDAOTest.store.executor": "Run",
-    "JUnit.CompanyDAOTest.deleteEntity.executor": "Run",
-    "JUnit.CompanyDAOTest.findAll.executor": "Run",
-    "JUnit.CompanyDAOTest.findID.executor": "Run",
-    "JUnit.CompanyDAOTest.store.executor": "Run",
-    "JUnit.GameDAOTest.deleteEntity.executor": "Run",
-    "JUnit.GameDAOTest.executor": "Run",
-    "JUnit.GameDAOTest.findAll.executor": "Run",
-    "JUnit.GameDAOTest.findByCompany.executor": "Run",
-    "JUnit.GameDAOTest.findByPerson.executor": "Run",
-    "JUnit.GameDAOTest.findID.executor": "Run",
-    "JUnit.GameDAOTest.store.executor": "Run",
-    "JUnit.PersonDAOTest.deleteEntity.executor": "Run",
-    "JUnit.PersonDAOTest.executor": "Run",
-    "JUnit.PersonDAOTest.findID.executor": "Run",
-    "JUnit.PersonDAOTest.store.executor": "Run",
-    "JUnit.PersonDAOTest.storeUpdate.executor": "Run",
-    "JUnit.PersonTest.getDni.executor": "Run",
-    "JUnit.PersonTest.getNickName.executor": "Run",
-    "JUnit.PersonTest.getPassword.executor": "Run",
-    "JUnit.edu.albertoromeropino.model in Proyecto1DAM.executor": "Run",
-    "JUnit.edu.albertoromeropino.model.dao in Proyecto1DAM.executor": "Debug",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.Proyecto1DAM [package].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "fourthAct",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/alrop/IdeaProjects/Proyecto1DAM/src/main/resources/edu/albertoromeropino/viewController",
-    "settings.editor.selected.configurable": "project.scopes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ConnectionSave.executor&quot;: &quot;Run&quot;,
+    &quot;Application.connectionSave.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ArchievementDAOTest.deleteEntity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ArchievementDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ArchievementDAOTest.findByIdGame.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ArchievementDAOTest.findID.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ArchievementDAOTest.store.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompanyDAOTest.deleteEntity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompanyDAOTest.findAll.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompanyDAOTest.findID.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CompanyDAOTest.store.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.deleteEntity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.findAll.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.findByCompany.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.findByPerson.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.findID.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameDAOTest.store.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonDAOTest.deleteEntity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonDAOTest.findID.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonDAOTest.store.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonDAOTest.storeUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonTest.getDni.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonTest.getNickName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonTest.getPassword.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.edu.albertoromeropino.model in Proyecto1DAM.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.edu.albertoromeropino.model.dao in Proyecto1DAM.executor&quot;: &quot;Debug&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Proyecto1DAM [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;fourthAct&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alrop/IdeaProjects/Proyecto1DAM/src/main/resources/edu/albertoromeropino/viewController&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.scopes&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alrop\IdeaProjects\Proyecto1DAM\src\main\resources\edu\albertoromeropino\viewController" />
@@ -213,15 +210,6 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AllGameController.java</url>
-          <line>74</line>
-          <properties class="edu.albertoromeropino.viewController.AllGameController" method="storeGame">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AddGame.java</url>
           <line>66</line>
           <properties class="edu.albertoromeropino.viewController.AddGame" method="addGame">
@@ -229,15 +217,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/albertoromeropino/viewController/AllGameController.java</url>
-          <line>64</line>
-          <properties class="edu.albertoromeropino.viewController.AllGameController" method="addGame">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

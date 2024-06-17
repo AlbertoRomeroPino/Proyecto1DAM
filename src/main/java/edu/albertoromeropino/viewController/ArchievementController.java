@@ -69,7 +69,6 @@ public class ArchievementController extends Controller implements Initializable 
     }
 
     public void storeArchievement(Archievement newArchievement){
-        ArchievementDAO.build().store(newArchievement);
         this.archievements.add(newArchievement);
     }
 
