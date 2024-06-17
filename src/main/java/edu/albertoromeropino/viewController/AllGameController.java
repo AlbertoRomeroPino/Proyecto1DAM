@@ -59,22 +59,6 @@ public class AllGameController extends Controller implements Initializable {
         columnCategory.setCellValueFactory(game -> new SimpleStringProperty(game.getValue().getCategory()));
         columnPerson.setCellValueFactory(game -> new SimpleStringProperty(game.getValue().getPerson().getNickName()));
         columnCompany.setCellValueFactory(game -> new SimpleStringProperty(game.getValue().getCompany().getNameCompany()));
-
-        columnName.setOnEditCommit(event -> {
-            if(event.getNewValue() == event.getOldValue()){
-                return;
-            }
-
-            if(event.getNewValue().length()<=200){
-                Game game = event.getRowValue();
-                game.setName(event.getNewValue());
-                GameDAO.build().store(game);
-            }else{
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Error");
-                alert.show();
-            }
-        });
     }
 
     @FXML

@@ -51,8 +51,6 @@ public class AddArchievement extends Controller implements Initializable {
 
     @FXML
     private void addArchievement(ActionEvent event) {
-        System.out.println(Integer.parseInt(idArchievement.getText()));
-        System.out.println(GameDAO.build().findID(idGame));
         Archievement archievement = new Archievement(Integer.parseInt(idArchievement.getText()), name.getText(),
                 description.getText(), help.getText(), GameDAO.build().findID(idGame));
         this.controller.storeArchievement(archievement);

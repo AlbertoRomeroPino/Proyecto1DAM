@@ -1,8 +1,6 @@
 package edu.albertoromeropino.viewController;
 
 import edu.albertoromeropino.model.entity.Company;
-import edu.albertoromeropino.model.entity.Game;
-import edu.albertoromeropino.model.entity.Person;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

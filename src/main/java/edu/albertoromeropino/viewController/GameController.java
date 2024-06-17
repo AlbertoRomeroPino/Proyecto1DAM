@@ -58,6 +58,7 @@ public class GameController extends Controller implements Initializable {
         columnName.setCellValueFactory(game -> new SimpleStringProperty(game.getValue().getName()));
         columnName.setCellFactory(TextFieldTableCell.forTableColumn());
         columnCategory.setCellValueFactory(game -> new SimpleStringProperty(game.getValue().getCategory()));
+        columnCategory.setCellFactory(TextFieldTableCell.forTableColumn());
         columnCompany.setCellValueFactory(game -> new SimpleStringProperty(game.getValue().getCompany().getNameCompany()));
 
         columnName.setOnEditCommit(event -> {
@@ -78,6 +79,21 @@ public class GameController extends Controller implements Initializable {
 
 
 
+        });
+        columnCategory.setOnEditCommit(event -> {
+            if(event.getNewValue() == event.getOldValue()){
+                return;
+            }
+
+            if(event.getNewValue().length()<=200){
+                Game game = event.getRowValue();
+                game.setName(event.getNewValue());
+                GameDAO.build().store(game);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Error");
+                alert.show();
+            }
         });
     }
 

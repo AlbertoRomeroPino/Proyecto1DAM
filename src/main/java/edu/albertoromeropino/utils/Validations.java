@@ -4,6 +4,8 @@ import javafx.scene.control.TextField;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
 
 public class Validations {
@@ -31,7 +33,6 @@ public class Validations {
         Pattern pattern = Pattern.compile("^\\d{8}[a-zA-Z]$");
         return pattern.matcher(dni).matches();
     }
-
 
     /**
      * Encripta la contraseña usando SHA3-256

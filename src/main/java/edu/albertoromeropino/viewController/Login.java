@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -47,24 +48,26 @@ public class Login extends Controller implements Initializable {
 
     @FXML
     public void enterApp(Event event) throws IOException {
-        //Person person = new Person(user.getText(), null, password.getText());
-        //Las tres lineas de abajo son temporales
         Person person = Person.getPerson();
         person.setNickName(user.getText());
         person.setPassword(password.getText());
 
-
         if (person.getNickName() != null || person.getNickName().equals("")) {
             Person personDB = PersonDAO.build().findID(person.getNickName());
-            System.out.println(person);
-            if (person.getNickName().equals(personDB.getNickName()) /*&&
+            if (personDB != null) {
+                if (person.getNickName().equals(personDB.getNickName()) /*&&
             person.getPassword().equals(personDB.getPassword())*/) {
-                person = personDB;
-                System.out.println(person);
-                changeScene(Scenes.MENUBAR, null);
+                    person = personDB;
+                    System.out.println(person);
+                    changeScene(Scenes.MENUBAR, null);
+                }
             }else {
-                //Manda pantalla de error. Futuras actualizaciones
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setTitle("Error");
+                alerta.setHeaderText("Error al insertar");
+                alerta.setContentText("Compruebe los datos");
             }
+
         }
     }
 
