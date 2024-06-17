@@ -1,7 +1,9 @@
 package edu.albertoromeropino.viewController;
 
+import edu.albertoromeropino.model.dao.ArchievementDAO;
 import edu.albertoromeropino.model.dao.GameDAO;
 import edu.albertoromeropino.model.entity.Archievement;
+import edu.albertoromeropino.model.entity.Game;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -53,6 +55,7 @@ public class AddArchievement extends Controller implements Initializable {
     private void addArchievement(ActionEvent event) {
         Archievement archievement = new Archievement(Integer.parseInt(idArchievement.getText()), name.getText(),
                 description.getText(), help.getText(), GameDAO.build().findID(idGame));
+        ArchievementDAO.build().store(archievement);
         this.controller.storeArchievement(archievement);
     }
 
