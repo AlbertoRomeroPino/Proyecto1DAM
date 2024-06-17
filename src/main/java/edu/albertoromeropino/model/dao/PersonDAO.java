@@ -17,16 +17,17 @@ public class PersonDAO implements IDAO<Person, String> {
         connection = ConnectionMariaDB.getConnection();
     }
 
-    private static final String FINDID = "select NickName, DNI, Password " +
-            "from person " +
-            "where NickName = ?";
-    private static final String FINDLOGIN = "select NickName, Password " +
-            "from person " +
-            "where nickname = ? and password = ?";
-    private static final String INSERT = "insert into person(NickName, DNI, Password) values (?,?,?)";
-    private static final String DELETE = "Delete from person where NickName = ? and password = ?";
-    private static final String UPDATE = "Update game set NickName = ?, DNI = ?, password = ?";
+    private static final String FINDID = "select Nickname, Dni, password from person where nickname = ?";
+    private static final String INSERT = "insert into person (Nickname, DNI, Password) values (?,?,?)";
+    private static final String UPDATE = "update person set dni =?, Password = ? where nickname = ?";
+    private static final String DELETE = "delete from person where nickname = ? and password = ?";
 
+    /**
+     * Almacena o actualiza las personas que hay en la base de datos
+     *
+     * @param person Que va a ser almacenada o actualizada
+     * @return la persona almacenada o actualizada
+     */
     @Override
     public Person store(Person person) {
         if (person != null) {
@@ -44,9 +45,11 @@ public class PersonDAO implements IDAO<Person, String> {
                     }
                 } else {
                     try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE)) {
-                        preparedStatement.setString(1, person.getNickName());
-                        preparedStatement.setString(2, person.getDni());
-                        preparedStatement.setString(3, person.getPassword());
+                        //El primero es lo que esta en el where
+                        preparedStatement.setString(3, person.getNickName());
+                        preparedStatement.setString(1, person.getDni());
+                        preparedStatement.setString(2, person.getPassword());
+
                         preparedStatement.executeUpdate();
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -57,6 +60,12 @@ public class PersonDAO implements IDAO<Person, String> {
         return person;
     }
 
+    /**
+     * Se le pasa el nombre de una persona y se busca en la base de datos
+     *
+     * @param nickName nombre de la persona
+     * @return una persona con toda su información
+     */
     @Override
     public Person findID(String nickName) {
         Person person = null;
@@ -68,30 +77,11 @@ public class PersonDAO implements IDAO<Person, String> {
                     persontmp.setNickName(resultSet.getString("nickName"));
                     persontmp.setDni(resultSet.getString("Dni"));
                     persontmp.setPassword(resultSet.getString("Password"));
-                    persontmp.setGames(GameDAO.build().findByPerson(resultSet.getString("games")));
+                    persontmp.setGames(GameDAO.build().findByPerson(resultSet.getString("nickName")));
+
                     person = persontmp;
                 }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return person;
-    }
-    // Este de abajo se puede modificar porque es lo mismo que el de arriba pero sin 1 campo
-    public Person findLogin (String nickname, String password){
-        Person person = null;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(FINDID)) {
-            preparedStatement.setString(1, nickname);
-            preparedStatement.setString(2,password);
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    Person persontmp = new Person();
-                    persontmp.setNickName(resultSet.getString("nickName"));
-                    persontmp.setDni(resultSet.getString("Dni"));
-                    persontmp.setPassword(resultSet.getString("Password"));
-                    persontmp.setGames(GameDAO.build().findByPerson(resultSet.getString("games")));
-                    person = persontmp;
-                }
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -99,6 +89,12 @@ public class PersonDAO implements IDAO<Person, String> {
         return person;
     }
 
+    /**
+     * Borra una persona siempre que la contraseña y el nombre sean correctas
+     *
+     * @param person la persona que deseas borrar
+     * @return persona que a sido eliminada
+     */
     @Override
     public Person deleteEntity(Person person) {
         if (person != null) {

@@ -1,20 +1,21 @@
 package edu.albertoromeropino.model.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Company {
     private String nameCompany;
     private String companyDirector;
     private LocalDate companyCreation;
-    private Set<Game> games;
+    private List<Game> games;
 
-    public Company(String nameCompany, String companyDirector, LocalDate companyCreation, Set<Game> games) {
+    public Company(String nameCompany, String companyDirector, LocalDate companyCreation) {
         setNameCompany(nameCompany);
         setCompanyDirector(companyDirector);
         setCompanyCreation(companyCreation);
-        setGames(games);
+        //setGames(games);
     }
 
     public Company() {
@@ -32,13 +33,13 @@ public class Company {
         return companyCreation;
     }
 
-    public Set<Game> getGames() {
+    public List<Game> getGames() {
         return games;
     }
 
     public boolean setNameCompany(String nameCompany) {
         boolean nameSet = false;
-        if (nameCompany.length() < 40){
+        if (nameCompany.length() < 40) {
             this.nameCompany = nameCompany;
             nameSet = true;
         }
@@ -47,7 +48,7 @@ public class Company {
 
     public boolean setCompanyDirector(String companyDirector) {
         boolean directorSet = false;
-        if (companyDirector.length() < 40){
+        if (companyDirector.length() < 40) {
             this.companyDirector = companyDirector;
             directorSet = true;
         }
@@ -58,12 +59,12 @@ public class Company {
         this.companyCreation = companyCreation;
     }
 
-    public void setGames(Set<Game> games) {
+    public void setGames(List<Game> games) {
         this.games = games;
     }
 
     public void addGames(Game game) {
-        if (game != null){
+        if (game != null) {
             games.add(game);
         }
     }
@@ -74,8 +75,8 @@ public class Company {
         }
     }
 
-    public void updateGames(Game gameOld, Game gameNew){
-        if (gameNew != null && gameOld != null){
+    public void updateGames(Game gameOld, Game gameNew) {
+        if (gameNew != null && gameOld != null) {
             games.remove(gameOld);
             games.add(gameNew);
         }
@@ -83,19 +84,14 @@ public class Company {
 
     @Override
     public String toString() {
-        return "Company{" +
-                "nameCompany='" + nameCompany + '\'' +
-                ", companyDirector='" + companyDirector + '\'' +
-                ", companyCreation=" + companyCreation +
-                ", games=" + games +
-                '}';
+        return nameCompany;
     }
 
     @Override
     public boolean equals(Object o) {
         boolean result = false;
-        if (this == o) result = true;
-        if (o == null || getClass() != o.getClass()) result = false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Company company = (Company) o;
         result = Objects.equals(nameCompany, company.nameCompany);
         return result;

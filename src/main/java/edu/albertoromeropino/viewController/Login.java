@@ -1,16 +1,22 @@
 package edu.albertoromeropino.viewController;
 
+import edu.albertoromeropino.App;
+import edu.albertoromeropino.model.dao.PersonDAO;
 import edu.albertoromeropino.model.entity.Person;
+import edu.albertoromeropino.viewController.enums.Scenes;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
-import org.w3c.dom.events.Event;
+import javafx.scene.control.TextField;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Login {
+public class Login extends Controller implements Initializable {
     @FXML
     private TextField user;
     @FXML
@@ -20,11 +26,54 @@ public class Login {
 
     }
 
+    @Override
+    public void onOpen(Object input) throws IOException {
+        showScene(Scenes.LOGIN, null);
+    }
+
+    public void showScene(Scenes scenes, Object data) throws  IOException{
+        View view = MenuBar.loadFXML(scenes);
+    }
+
+    public void changeScene(Scenes scenes, Object data) throws IOException {
+        App.setRoot(scenes, null);
+    }
+
+
+
+    @Override
+    public void onClose(Object output) {
+
+    }
+
     @FXML
-    private void enterApp (Event event) throws IOException{
-        Person person = new Person();
+    public void enterApp(Event event) throws IOException {
+        Person person = Person.getPerson();
         person.setNickName(user.getText());
         person.setPassword(password.getText());
 
+        if (person.getNickName() != null || person.getNickName().equals("")) {
+            Person personDB = PersonDAO.build().findID(person.getNickName());
+            if (personDB != null) {
+                if (person.getNickName().equals(personDB.getNickName()) /*&&
+            person.getPassword().equals(personDB.getPassword())*/) {
+                    person = personDB;
+                    System.out.println(person);
+                    changeScene(Scenes.MENUBAR, null);
+                }
+            }else {
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setTitle("Error");
+                alerta.setHeaderText("Error al insertar");
+                alerta.setContentText("Compruebe los datos");
+            }
+
+        }
     }
+
+    @FXML
+    public void registerInApp(Event event) throws IOException {
+        changeScene(Scenes.REGISTER, null);
+    }
+
 }

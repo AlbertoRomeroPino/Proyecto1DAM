@@ -11,8 +11,9 @@ public class Archievement {
     public Archievement() {
     }
 
-    public Archievement(String archievementName,
+    public Archievement(int idArchievement, String archievementName,
                         String descriptionArchievement, String helpArchievement, Game game) {
+        setIdArchievement(idArchievement);
         setArchievementName(archievementName);
         setDescriptionArchievement(descriptionArchievement);
         setHelpArchievement(helpArchievement);
@@ -59,7 +60,7 @@ public class Archievement {
     public boolean setDescriptionArchievement(String descriptionArchievement) {
         boolean descriptionSet = false;
 
-        if (descriptionArchievement.length() < 80) {
+        if (descriptionArchievement.length() < 100) {
             this.descriptionArchievement = descriptionArchievement;
             descriptionSet = true;
         }
@@ -82,7 +83,7 @@ public class Archievement {
                 ", archievementName='" + archievementName + '\'' +
                 ", descriptionArchievement='" + descriptionArchievement + '\'' +
                 ", helpArchievement='" + helpArchievement + '\'' +
-                ", game=" + game +
+                ", game=" + game.getName() +
                 '}';
     }
 

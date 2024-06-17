@@ -6,6 +6,7 @@ module edu.albertoromeropino {
     requires org.mariadb.jdbc;
     requires java.desktop;
     requires org.checkerframework.checker.qual;
+    requires org.apache.commons.logging;
 
     opens edu.albertoromeropino to javafx.fxml;
     opens edu.albertoromeropino.model.connection to java.xml.bind;

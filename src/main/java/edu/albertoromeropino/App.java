@@ -1,13 +1,13 @@
 package edu.albertoromeropino;
 
-import edu.albertoromeropino.viewController.Login;
+import edu.albertoromeropino.viewController.Controller;
+import edu.albertoromeropino.viewController.MenuBar;
+import edu.albertoromeropino.viewController.View;
+import edu.albertoromeropino.viewController.enums.Scenes;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.swing.text.View;
 import java.io.IOException;
 
 /**
@@ -15,28 +15,29 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static Scene scene;
-    private static Stage stage;
-    private static Login login;
+    public static Scene scene; // donde se ubica esta
+    public static Stage stage; // pestaña de navegador como de aplicacion
+    public static Controller currentController;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage_) throws IOException {
+        stage = stage_;
+        View view = MenuBar.loadFXML(Scenes.LOGIN);
+        scene = new Scene(view.scene, 640, 480);
+        currentController = (Controller) view.controller;
+        currentController.onOpen(null);
+        stage_.setScene(scene);
+        stage_.show();
+    }
 
 
-        /*
-        * codigo por defecto posi acaso
-        scene = new Scene(loadFXML("viewController/UserScreen"), 640, 480);
+    public static void setRoot(Scenes scene_, Object data) throws IOException {
+        View view = MenuBar.loadFXML(scene_);
+        scene = new Scene(view.scene, 640, 480);
+        currentController = (Controller) view.controller;
+        currentController.onOpen(data);
         stage.setScene(scene);
-        stage.show();*/
-    }
-
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        //stage_.show();
     }
 
     public static void main(String[] args) {

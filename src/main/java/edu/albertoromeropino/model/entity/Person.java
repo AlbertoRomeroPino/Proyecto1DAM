@@ -1,21 +1,21 @@
 package edu.albertoromeropino.model.entity;
 
-import edu.albertoromeropino.model.utils.Validations;
 
+import edu.albertoromeropino.utils.Validations;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 
 public class Person {
     private String nickName;
     private String dni;
     private String password;
-    private Set<Game> games;
+    private List<Game> games;
+    private static Person _sessionStarted;
 
-    private final int MIN_LENGTH = 8;
-    private final int MAX_LENGTH = 12;
-
-    public Person(String nickName, String dni, String password, Set<Game> games) {
+    public Person(String nickName, String dni, String password, ArrayList<Game> games) {
         setNickName(nickName);
         setDni(dni);
         setPassword(password);
@@ -31,6 +31,13 @@ public class Person {
         setPassword(password);
     }
 
+    public static Person getPerson() {
+        if (_sessionStarted == null) {
+            _sessionStarted = new Person();
+        }
+        return _sessionStarted;
+    }
+
     public String getNickName() {
         return nickName;
     }
@@ -43,17 +50,17 @@ public class Person {
         return password;
     }
 
-    public Set<Game> getGames() {
+    public List<Game> getGames() {
         return games;
     }
 
 
     public boolean setNickName(String nickName) {
         boolean add = false;
-        if (Validations.validateNickName(nickName)) {
-            this.nickName = nickName;
-            add = true;
-        }
+        //if (Validations.validateNickName(nickName)) {
+        this.nickName = nickName;
+        add = true;
+        //}
         return add;
     }
 
@@ -68,19 +75,18 @@ public class Person {
 
     public boolean setPassword(String newPassword) {
         Boolean passwordSet = false;
-        if (newPassword.length() >= MIN_LENGTH && newPassword.length() <= MAX_LENGTH) {
-            this.password = Validations.encryptPassword(newPassword);
-            passwordSet = true;
-        }
+
+        this.password = Validations.encryptPassword(newPassword);
+        passwordSet = true;
         return passwordSet;
     }
 
-    public void setGames(Set<Game> games) {
+    public void setGames(List<Game> games) {
         this.games = games;
     }
 
     public void addGames(Game game) {
-        if (game != null){
+        if (game != null) {
             this.games.add(game);
         }
     }
@@ -91,8 +97,8 @@ public class Person {
         }
     }
 
-    public void updateGames(Game gameOld, Game gameNew){
-        if (gameNew != null && gameOld != null){
+    public void updateGames(Game gameOld, Game gameNew) {
+        if (gameNew != null && gameOld != null) {
             games.remove(gameOld);
             games.add(gameNew);
         }
@@ -104,7 +110,7 @@ public class Person {
                 "nickName='" + nickName + '\'' +
                 ", dni='" + dni + '\'' +
                 ", password='" + password + '\'' +
-                ", archievements=" + games +
+                ", games=" + games +
                 '}';
     }
 
@@ -114,7 +120,7 @@ public class Person {
         if (this == o) result = true;
         if (o == null || getClass() != o.getClass()) result = false;
         Person person = (Person) o;
-        result = Objects.equals(nickName, person.nickName);
+        result = Objects.equals(nickName, person.nickName) && Objects.equals(password, person.password);
         return result;
     }
 

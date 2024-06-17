@@ -1,4 +1,4 @@
-package edu.albertoromeropino.model.utils;
+package edu.albertoromeropino.utils;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -7,10 +7,10 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
 public class ManagerXML {
-    public static <T> boolean writeXML (T connection, String filename){
+    public static <T> boolean writeXML(T connection, String filename) {
         boolean write = false;
         JAXBContext context;
-        try{
+        try {
             context = JAXBContext.newInstance(connection.getClass());
             Marshaller marshaller = context.createMarshaller();
 
@@ -19,22 +19,22 @@ public class ManagerXML {
             marshaller.marshal(connection, new File(filename));
 
             write = true;
-        }catch (JAXBException e){
+        } catch (JAXBException e) {
             e.printStackTrace();
         }
 
         return write;
     }
 
-    public static <T> T readXML(T connection, String filename){
+    public static <T> T readXML(T connection, String filename) {
         T result = connection;
         JAXBContext context;
 
-        try{
+        try {
             context = JAXBContext.newInstance(connection.getClass());
             Unmarshaller unmarshaller = context.createUnmarshaller();
             result = (T) unmarshaller.unmarshal(new File(filename));
-        }catch (JAXBException e){
+        } catch (JAXBException e) {
             e.printStackTrace();
         }
         return result;

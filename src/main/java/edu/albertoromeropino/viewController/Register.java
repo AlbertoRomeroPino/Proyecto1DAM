@@ -1,35 +1,66 @@
 package edu.albertoromeropino.viewController;
 
+import edu.albertoromeropino.App;
+import edu.albertoromeropino.model.dao.PersonDAO;
 import edu.albertoromeropino.model.entity.Person;
+import edu.albertoromeropino.viewController.enums.Scenes;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
-import org.w3c.dom.events.Event;
+import javafx.scene.control.TextField;
 
-import java.awt.*;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Register {
+public class Register extends Controller implements Initializable {
 
     @FXML
-    private TextField user;
+    private TextField nickName;
     @FXML
     private TextField dni;
     @FXML
     private PasswordField password;
 
-    public void initializa (URL localition, ResourceBundle resourceBundle){
+    @Override
+    public void onOpen(Object input) throws IOException {
+
+    }
+
+    @Override
+    public void onClose(Object output) {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
     @FXML
-    private void registerApp (Event event) throws IOException{
+    public void registerPerson(Event event) throws IOException {
+        //Person person = new Person(user.getText(), dni.getText(), password.getText());
         Person person = new Person();
-        person.setNickName(user.getText());
+        person.setNickName(nickName.getText());
         person.setDni(dni.getText());
         person.setPassword(password.getText());
 
-    }
+        if (!person.getNickName().equals("")) {
+            Person personDB = PersonDAO.build().findID(person.getNickName());
 
+            if (personDB == null || personDB.getNickName() == null) {
+                PersonDAO.build().store(person);
+                goBack();
+            } else {
+                //Mensaje de "Ya existe este usuario"
+
+            }
+        }
+    }
+    @FXML
+    public void goBack() throws IOException{
+        App.setRoot(Scenes.LOGIN, null);
+    }
 }
