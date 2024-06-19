@@ -1,6 +1,7 @@
 package edu.albertoromeropino.viewController;
 
 import edu.albertoromeropino.App;
+import edu.albertoromeropino.model.entity.ModalDate;
 import edu.albertoromeropino.viewController.enums.Scenes;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,12 +15,13 @@ import java.io.IOException;
 public abstract class Controller {
     App app;
 
+
     public void setApp(App app) {
         this.app = app;
     }
 
 
-    public abstract void onOpen(Object input) throws IOException;
+    public abstract void onOpen(Object input, Object data) throws IOException;
 
     public abstract void onClose(Object output);
 
@@ -30,6 +32,8 @@ public abstract class Controller {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(App.stage);
         Scene _scene = new Scene(view.scene);
+        ModalDate modalDate = new ModalDate(parent, data);
+        view.controller.onOpen(modalDate.getParent(), modalDate.getDate());     //Se le pasa al modal la información Crear un objeto con los datos y parent aqui
         stage.setScene(_scene);
         stage.showAndWait();
     }

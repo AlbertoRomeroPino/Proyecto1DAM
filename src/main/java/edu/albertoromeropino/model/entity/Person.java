@@ -76,7 +76,7 @@ public class Person {
     public boolean setPassword(String newPassword) {
         Boolean passwordSet = false;
 
-        this.password = Validations.encryptPassword(newPassword);
+        this.password = newPassword;
         passwordSet = true;
         return passwordSet;
     }

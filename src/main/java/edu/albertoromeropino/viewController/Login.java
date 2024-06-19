@@ -3,6 +3,7 @@ package edu.albertoromeropino.viewController;
 import edu.albertoromeropino.App;
 import edu.albertoromeropino.model.dao.PersonDAO;
 import edu.albertoromeropino.model.entity.Person;
+import edu.albertoromeropino.utils.Validations;
 import edu.albertoromeropino.viewController.enums.Scenes;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -27,7 +28,7 @@ public class Login extends Controller implements Initializable {
     }
 
     @Override
-    public void onOpen(Object input) throws IOException {
+    public void onOpen(Object input, Object data) throws IOException {
         showScene(Scenes.LOGIN, null);
     }
 
@@ -55,8 +56,9 @@ public class Login extends Controller implements Initializable {
         if (person.getNickName() != null || person.getNickName().equals("")) {
             Person personDB = PersonDAO.build().findID(person.getNickName());
             if (personDB != null) {
-                if (person.getNickName().equals(personDB.getNickName()) /*&&
-            person.getPassword().equals(personDB.getPassword())*/) {
+                person.setPassword(Validations.encryptPassword(person.getPassword()));
+                if (person.getNickName().equals(personDB.getNickName()) &&
+            person.getPassword().equals(personDB.getPassword())) {
                     person = personDB;
                     System.out.println(person);
                     changeScene(Scenes.MENUBAR, null);

@@ -36,7 +36,7 @@ public class CompanyController extends Controller implements Initializable {
     private ObservableList<Company> company;
 
     @Override
-    public void onOpen(Object input) throws IOException {
+    public void onOpen(Object input, Object data) throws IOException {
         ArrayList<Company> company = CompanyDAO.build().findAll();
         this.company = FXCollections.observableArrayList(company);
         tableView.setItems(this.company);

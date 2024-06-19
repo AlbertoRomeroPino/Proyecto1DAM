@@ -29,7 +29,7 @@ public class AddArchievement extends Controller implements Initializable {
     private ArchievementController controller;
 
     @Override
-    public void onOpen(Object input) throws IOException {
+    public void onOpen(Object input, Object data) throws IOException {
         idGame = (Integer) input;
     }
 

@@ -3,6 +3,7 @@ package edu.albertoromeropino.viewController;
 import edu.albertoromeropino.App;
 import edu.albertoromeropino.model.dao.PersonDAO;
 import edu.albertoromeropino.model.entity.Person;
+import edu.albertoromeropino.utils.Validations;
 import edu.albertoromeropino.viewController.enums.Scenes;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -25,7 +26,7 @@ public class Register extends Controller implements Initializable {
     private PasswordField password;
 
     @Override
-    public void onOpen(Object input) throws IOException {
+    public void onOpen(Object input, Object data) throws IOException {
 
     }
 
@@ -46,6 +47,8 @@ public class Register extends Controller implements Initializable {
         person.setNickName(nickName.getText());
         person.setDni(dni.getText());
         person.setPassword(password.getText());
+
+        person.setPassword(Validations.encryptPassword(person.getPassword()));
 
         if (!person.getNickName().equals("")) {
             Person personDB = PersonDAO.build().findID(person.getNickName());

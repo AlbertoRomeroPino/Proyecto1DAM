@@ -22,7 +22,7 @@ public class AddCompany extends Controller implements Initializable {
     private CompanyController controller;
 
     @Override
-    public void onOpen(Object input) throws IOException {
+    public void onOpen(Object input, Object data) throws IOException {
 
     }
 
