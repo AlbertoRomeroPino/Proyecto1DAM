@@ -37,7 +37,7 @@ public class ArchievementController extends Controller implements Initializable 
     private int idGame;
 
     @Override
-    public void onOpen(Object input) throws IOException {
+    public void onOpen(Object input, Object data) throws IOException {
         idGame =(Integer) input;
         List<Archievement> archievements = ArchievementDAO.build().findByIdGame((Integer) input);
         this.archievements = FXCollections.observableArrayList(archievements);
@@ -69,6 +69,7 @@ public class ArchievementController extends Controller implements Initializable 
     }
 
     public void storeArchievement(Archievement newArchievement){
+        ArchievementDAO.build().store(newArchievement);
         this.archievements.add(newArchievement);
     }
 

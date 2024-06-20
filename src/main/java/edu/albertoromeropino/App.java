@@ -25,7 +25,7 @@ public class App extends Application {
         View view = MenuBar.loadFXML(Scenes.LOGIN);
         scene = new Scene(view.scene, 640, 480);
         currentController = (Controller) view.controller;
-        currentController.onOpen(null);
+        currentController.onOpen(null, null);
         stage_.setScene(scene);
         stage_.show();
     }
@@ -35,7 +35,7 @@ public class App extends Application {
         View view = MenuBar.loadFXML(scene_);
         scene = new Scene(view.scene, 640, 480);
         currentController = (Controller) view.controller;
-        currentController.onOpen(data);
+        currentController.onOpen(data,null);
         stage.setScene(scene);
         //stage_.show();
     }

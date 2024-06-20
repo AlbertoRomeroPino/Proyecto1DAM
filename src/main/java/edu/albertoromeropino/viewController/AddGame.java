@@ -4,6 +4,7 @@ import edu.albertoromeropino.model.dao.CompanyDAO;
 import edu.albertoromeropino.model.dao.GameDAO;
 import edu.albertoromeropino.model.entity.Company;
 import edu.albertoromeropino.model.entity.Game;
+import edu.albertoromeropino.model.entity.ModalDate;
 import edu.albertoromeropino.model.entity.Person;
 import edu.albertoromeropino.utils.Validations;
 import javafx.beans.value.ChangeListener;
@@ -38,8 +39,8 @@ public class AddGame extends Controller implements Initializable {
     private AllGameController controller;
 
     @Override
-    public void onOpen(Object input) throws IOException {
-
+    public void onOpen(Object input, Object data) throws IOException {
+        this.controller = (AllGameController) input;
     }
 
     @Override
@@ -67,8 +68,8 @@ public class AddGame extends Controller implements Initializable {
     private void addGame(Event event) {
         Game game = new Game(Integer.parseInt(id.getText()), name.getText(), category.getText(), Person.getPerson(), company.getValue());
         System.out.println(game);
-        GameDAO.build().store(game);
-        //this.controller.storeGame(game);
+        this.controller.storeGame(game);
+
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 

@@ -19,7 +19,7 @@ public class MenuBar extends Controller implements Initializable {
     private Controller centerController;
 
     @Override
-    public void onOpen(Object input) throws IOException {
+    public void onOpen(Object input, Object data) throws IOException {
         changeScene(Scenes.MYGAME, null);
     }
 
@@ -27,7 +27,7 @@ public class MenuBar extends Controller implements Initializable {
         View view = loadFXML(scenes);
         borderPane.setCenter(view.scene);
         this.centerController = view.controller;
-        this.centerController.onOpen(data);
+        this.centerController.onOpen(data, null);
 
     }
 

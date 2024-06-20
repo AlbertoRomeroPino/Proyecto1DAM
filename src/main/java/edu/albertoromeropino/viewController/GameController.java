@@ -40,7 +40,7 @@ public class GameController extends Controller implements Initializable {
 
 
     @Override
-    public void onOpen(Object input) throws IOException {
+    public void onOpen(Object input, Object data) throws IOException {
         List<Game> games = GameDAO.build().findByPerson(Person.getPerson().getNickName());
         this.games = FXCollections.observableArrayList(games);
         tableView.setItems(this.games);
