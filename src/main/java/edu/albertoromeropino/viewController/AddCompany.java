@@ -23,7 +23,7 @@ public class AddCompany extends Controller implements Initializable {
 
     @Override
     public void onOpen(Object input, Object data) throws IOException {
-
+        this.controller = (CompanyController) input;
     }
 
     @Override
@@ -40,6 +40,7 @@ public class AddCompany extends Controller implements Initializable {
     private void addGame(Event event) {
 
             Company company = new Company(name.getText(), director.getText(), creation.getValue());
+            System.out.println(company);
             this.controller.storeGame(company);
             ((Node) (event.getSource())).getScene().getWindow().hide();
 

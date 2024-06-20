@@ -9,6 +9,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -30,7 +31,8 @@ public class AddArchievement extends Controller implements Initializable {
 
     @Override
     public void onOpen(Object input, Object data) throws IOException {
-        idGame = (Integer) input;
+        this.controller = (ArchievementController) input;
+        idGame = (Integer) data;
     }
 
     @Override
@@ -55,8 +57,8 @@ public class AddArchievement extends Controller implements Initializable {
     private void addArchievement(ActionEvent event) {
         Archievement archievement = new Archievement(Integer.parseInt(idArchievement.getText()), name.getText(),
                 description.getText(), help.getText(), GameDAO.build().findID(idGame));
-        ArchievementDAO.build().store(archievement);
         this.controller.storeArchievement(archievement);
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
 }
