@@ -1,12 +1,9 @@
 package edu.albertoromeropino.viewController;
 
 import edu.albertoromeropino.model.dao.CompanyDAO;
-import edu.albertoromeropino.model.dao.GameDAO;
 import edu.albertoromeropino.model.entity.Company;
 import edu.albertoromeropino.model.entity.Game;
-import edu.albertoromeropino.model.entity.ModalDate;
 import edu.albertoromeropino.model.entity.Person;
-import edu.albertoromeropino.utils.Validations;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
