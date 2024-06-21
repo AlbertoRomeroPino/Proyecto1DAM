@@ -86,25 +86,6 @@ public class Game {
         this.company = company;
     }
 
-    public void addArchievements(Archievement archievement) {
-        if (archievement != null) {
-            archievements.add(archievement);
-        }
-    }
-
-    public void removeArchievements(Archievement archievement) {
-        if (archievement != null) {
-            archievements.remove(archievement);
-        }
-    }
-
-    public void updateArchievements(Archievement archievementOld, Archievement archievementNew) {
-        if (archievementNew != null && archievementOld != null) {
-            archievements.remove(archievementOld);
-            archievements.add(archievementNew);
-        }
-    }
-
     @Override
     public String toString() {
         return "Game{" +

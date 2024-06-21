@@ -63,25 +63,6 @@ public class Company {
         this.games = games;
     }
 
-    public void addGames(Game game) {
-        if (game != null) {
-            games.add(game);
-        }
-    }
-
-    public void removeGames(Game game) {
-        if (game != null) {
-            games.remove(game);
-        }
-    }
-
-    public void updateGames(Game gameOld, Game gameNew) {
-        if (gameNew != null && gameOld != null) {
-            games.remove(gameOld);
-            games.add(gameNew);
-        }
-    }
-
     @Override
     public String toString() {
         return nameCompany;

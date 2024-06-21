@@ -4,6 +4,7 @@ import edu.albertoromeropino.model.dao.CompanyDAO;
 import edu.albertoromeropino.model.entity.Company;
 import edu.albertoromeropino.model.entity.Game;
 import edu.albertoromeropino.model.entity.Person;
+import edu.albertoromeropino.model.entity.Sesion;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -63,7 +64,7 @@ public class AddGame extends Controller implements Initializable {
 
     @FXML
     private void addGame(Event event) {
-        Game game = new Game(Integer.parseInt(id.getText()), name.getText(), category.getText(), Person.getPerson(), company.getValue());
+        Game game = new Game(Integer.parseInt(id.getText()), name.getText(), category.getText(), Sesion.getSesion().getPerson(), company.getValue());
         System.out.println(game);
         this.controller.storeGame(game);
 
