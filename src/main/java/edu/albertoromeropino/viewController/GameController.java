@@ -4,6 +4,7 @@ import edu.albertoromeropino.App;
 import edu.albertoromeropino.model.dao.GameDAO;
 import edu.albertoromeropino.model.entity.Game;
 import edu.albertoromeropino.model.entity.Person;
+import edu.albertoromeropino.model.entity.Sesion;
 import edu.albertoromeropino.viewController.enums.Scenes;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -41,7 +42,7 @@ public class GameController extends Controller implements Initializable {
 
     @Override
     public void onOpen(Object input, Object data) throws IOException {
-        List<Game> games = GameDAO.build().findByPerson(Person.getPerson().getNickName());
+        List<Game> games = GameDAO.build().findByPerson(Sesion.getSesion().getPerson().getNickName());
         this.games = FXCollections.observableArrayList(games);
         tableView.setItems(this.games);
     }

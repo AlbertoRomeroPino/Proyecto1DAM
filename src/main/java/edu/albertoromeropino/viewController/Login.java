@@ -3,6 +3,7 @@ package edu.albertoromeropino.viewController;
 import edu.albertoromeropino.App;
 import edu.albertoromeropino.model.dao.PersonDAO;
 import edu.albertoromeropino.model.entity.Person;
+import edu.albertoromeropino.model.entity.Sesion;
 import edu.albertoromeropino.utils.Validations;
 import edu.albertoromeropino.viewController.enums.Scenes;
 import javafx.event.ActionEvent;
@@ -32,14 +33,13 @@ public class Login extends Controller implements Initializable {
         showScene(Scenes.LOGIN, null);
     }
 
-    public void showScene(Scenes scenes, Object data) throws  IOException{
+    public void showScene(Scenes scenes, Object data) throws IOException {
         View view = MenuBar.loadFXML(scenes);
     }
 
     public void changeScene(Scenes scenes, Object data) throws IOException {
         App.setRoot(scenes, null);
     }
-
 
 
     @Override
@@ -49,7 +49,7 @@ public class Login extends Controller implements Initializable {
 
     @FXML
     public void enterApp(Event event) throws IOException {
-        Person person = Person.getPerson();
+        Person person = new Person();
         person.setNickName(user.getText());
         person.setPassword(password.getText());
 
@@ -58,12 +58,12 @@ public class Login extends Controller implements Initializable {
             if (personDB != null) {
                 person.setPassword(Validations.encryptPassword(person.getPassword()));
                 if (person.getNickName().equals(personDB.getNickName()) &&
-            person.getPassword().equals(personDB.getPassword())) {
-                    person = personDB;
+                        person.getPassword().equals(personDB.getPassword())) {
+                    Sesion.getSesion().setPerson(personDB);
                     System.out.println(person);
                     changeScene(Scenes.MENUBAR, null);
                 }
-            }else {
+            } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setTitle("Error");
                 alerta.setHeaderText("Error al insertar");

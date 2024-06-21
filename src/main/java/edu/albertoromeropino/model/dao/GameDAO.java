@@ -6,6 +6,7 @@ import edu.albertoromeropino.model.connection.ConnectionMariaDB;
 import edu.albertoromeropino.model.entity.Archievement;
 import edu.albertoromeropino.model.entity.Game;
 import edu.albertoromeropino.model.entity.Person;
+import edu.albertoromeropino.model.entity.Sesion;
 import edu.albertoromeropino.model.interfaces.IDAO;
 
 import java.io.IOException;
@@ -155,7 +156,7 @@ public class GameDAO implements IDAO<Game, Integer> {
                     game.setName(resultSet.getString("Name"));
                     game.setCategory(resultSet.getString("Category"));
                     game.setCompany(CompanyDAO.build().findID(resultSet.getString("nameCompany")));
-                    game.setPerson(Person.getPerson());
+                    game.setPerson(Sesion.getSesion().getPerson());
 
                     // Esto ya no esta en la tabla game
                     //game.setArchievements(ArchievementDAO.build().findByIdGame(game.getIdGame()));

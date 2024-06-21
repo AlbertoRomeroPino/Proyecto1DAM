@@ -13,7 +13,6 @@ public class Person {
     private String dni;
     private String password;
     private List<Game> games;
-    private static Person _sessionStarted;
 
     public Person(String nickName, String dni, String password, ArrayList<Game> games) {
         setNickName(nickName);
@@ -31,12 +30,7 @@ public class Person {
         setPassword(password);
     }
 
-    public static Person getPerson() {
-        if (_sessionStarted == null) {
-            _sessionStarted = new Person();
-        }
-        return _sessionStarted;
-    }
+
 
     public String getNickName() {
         return nickName;
@@ -83,25 +77,6 @@ public class Person {
 
     public void setGames(List<Game> games) {
         this.games = games;
-    }
-
-    public void addGames(Game game) {
-        if (game != null) {
-            this.games.add(game);
-        }
-    }
-
-    public void removeGames(Game game) {
-        if (game != null) {
-            this.games.remove(game);
-        }
-    }
-
-    public void updateGames(Game gameOld, Game gameNew) {
-        if (gameNew != null && gameOld != null) {
-            games.remove(gameOld);
-            games.add(gameNew);
-        }
     }
 
     @Override
